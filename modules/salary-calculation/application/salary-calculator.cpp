@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-#include "../salary-calculation/include/Application.h"
+#include "../include/Application.h"
 
 int main(int argc, const char** argv) {
     Application app;

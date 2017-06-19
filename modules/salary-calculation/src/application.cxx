@@ -1,7 +1,7 @@
 // Copyright 2017 Kiselev Ivan
 
 #include <string>
-#include "include/Application.h"
+#include "../include/Application.h"
 
 Application::Application() {}
 
