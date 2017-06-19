@@ -5,8 +5,8 @@
 
 class Salary {
  public:
-     Salary(int salary_per_hour = 20, int needed_hours = 200,
-            int work_hours = 200, int workday = 9);
+     Salary(int salary_per_hour = 20, int needed_hours = 160,
+            int work_hours = 160, int workday = 9);
      void SetAdminRest(int val);
      void SetOvertimeBonus(int val);
      void SetSalaryPerHour(int val);

@@ -5,7 +5,7 @@
 
 TEST(Bilkovsky_Alexander_SalaryTest, throw_when_incorrect_input) {
     //  Arrange & Assert
-    EXPECT_ANY_THROW(Salary worker(-1, 200, 200, 9));
+    EXPECT_ANY_THROW(Salary worker(-1, 160, 160, 9));
 }
 TEST(Bilkovsky_Alexander_SalaryTest, throw_when_set_negative1) {
     //  Arrage
