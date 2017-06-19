@@ -4,7 +4,7 @@
 #define MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
 
 #include <string>
-#include "salary_calculationl.h"
+#include "../salary-calculation/include/salary_calculation.h"
 
 class Application {
  public:
