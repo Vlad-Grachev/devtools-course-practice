@@ -1,10 +1,10 @@
 // Copyright 2017 Kiselev Ivan
 
-#include "include\application.h";
+#include <string>
+#include "include\application.h"
 
-Application::Application() {
+Application::Application() {}
 
-}
 std::string Application::operator()(int argv, const char** argc) {
     return "Comleted";
 }
