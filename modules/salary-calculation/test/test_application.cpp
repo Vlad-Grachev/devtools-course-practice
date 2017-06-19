@@ -8,7 +8,7 @@ TEST(Application, first_simple_test) {
 }
 
 TEST(Application, Open_File) {
-	Salary* sal = new Salary();
-	EXPECT_NO_THROW(sal->CalculateSalary());
-	EXPECT_TRUE(sal->GetSalary() == 3200);
+    Salary* sal = new Salary();
+    EXPECT_NO_THROW(sal->CalculateSalary());
+    EXPECT_EQ(sal->GetSalary() , 3200);
 }

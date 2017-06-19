@@ -1,7 +1,7 @@
 // Copyright 2017 Kiselev Ivan
 
 #include <string>
-#include "../salary-calculation/include/application.h"
+#include "include\application.h"
 
 Application::Application() {}
 
