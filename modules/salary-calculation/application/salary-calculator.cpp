@@ -1,11 +1,11 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2017 Kiselev Ivan
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
 #include <string>
 
-#include "include/application.h"
+#include "../salary-calculation/include/Application.h"
 
 int main(int argc, const char** argv) {
     Application app;
