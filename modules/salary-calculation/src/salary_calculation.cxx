@@ -1,6 +1,6 @@
 // Copyright 2017 Bilkovsky Alexander
 
-#include "include\salary_calculation.h"
+#include "include/salary_calculation.h"
 
 Salary::Salary(int salary_per_hour, int needed_hours,
                int work_hours, int workday) {
