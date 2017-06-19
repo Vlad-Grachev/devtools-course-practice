@@ -5,6 +5,6 @@
 Application::Application() {
 
 }
-std::string Application::Application::operator()(int argv, const char** argc) {
+std::string Application::operator()(int argv, const char** argc) {
     return "Comleted";
 }

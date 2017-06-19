@@ -4,12 +4,12 @@
 #define MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
 
 #include <string>
-#include "salary_caculationl.h"
+#include "salary_calculationl.h"
 
 class Application {
  public:
     Application();
-    std::string Application::operator()(int argv, const char** argc);
+    std::string operator()(int argv, const char** argc);
 };
 
 #endif  // MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
