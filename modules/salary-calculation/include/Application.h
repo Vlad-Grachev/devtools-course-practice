@@ -3,9 +3,8 @@
 #ifndef MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
 #define MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
 
-
-#include "salary_caculationl.h"
 #include <string>
+#include "salary_caculationl.h"
 
 class Application {
  public:
@@ -13,4 +12,4 @@ class Application {
     std::string Application::operator()(int argv, const char** argc);
 };
 
-#endif // !MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
+#endif  // MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
