@@ -9,7 +9,7 @@
 class Application {
  public:
     Application();
-    int operator()(int argv, const char** argc);
+    int operator()(int argv,int args = 0);
     void PrintHelp();
 
  private:
