@@ -52,8 +52,7 @@ int Application::operator()(int argv, int args) {
             break;
         }
     }
-    worker_salary_->CalculateSalary();
-    return worker_salary_->GetSalary();
+    return argv;
 }
 
 void Application::PrintHelp() {

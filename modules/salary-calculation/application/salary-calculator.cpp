@@ -8,7 +8,7 @@
 
 int main(int argc, int args) {
     Application app;
-    int output = app(argc, args);
+    int output = app(argc, 100);
     printf("%i\n", output);
     return 0;
 }
