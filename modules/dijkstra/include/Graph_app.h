@@ -5,9 +5,8 @@
 
 #include "include/Graph.h"
 
-class GraphApp
-{
+class GraphApp {
  public:
  protected:
 };
-#endif // ! MODULES_DIJKSTRA_INCLUDE_GRAPH_APP_H_
+#endif  // MODULES_DIJKSTRA_INCLUDE_GRAPH_APP_H_

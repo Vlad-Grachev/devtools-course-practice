@@ -8,5 +8,5 @@ TEST(Kozlov_dijkstra_test, Null) {
   // Arrange
   // Act
   // Assert
-    ASSERT_TRUE();
+    ASSERT_TRUE(1);
 }
