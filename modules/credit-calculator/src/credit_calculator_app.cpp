@@ -22,7 +22,7 @@ void Application::Help(const char* appname, const char* message) {
         "<interest> <month_pas>\n" +
 
         "Where <amount>, <period> and <month_pas> are non-negative" +
-		"integer numbers,\n <interest> is non-negative rational number";
+        "integer numbers,\n <interest> is non-negative rational number";
 }
 
 bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
