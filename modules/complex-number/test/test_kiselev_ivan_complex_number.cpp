@@ -33,9 +33,9 @@ EXPECT_TRUE(result == first / second);
 //  This is fake test
 
 TEST(Kisele_Complex_Number_Test, Func_SetUp) {
-	SetUp();
+    SetUp();
 }
 
 TEST(Kisele_Complex_Number_Test, Func_TearDown) {
-	TearDown();
+    TearDown();
 }
