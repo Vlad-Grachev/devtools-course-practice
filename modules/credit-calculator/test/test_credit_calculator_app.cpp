@@ -1,7 +1,6 @@
 // Copyright 2017 Yashkov Vladislav
 
 #include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 #include <algorithm>
