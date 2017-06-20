@@ -5,9 +5,9 @@
 #include "../include/Application.h"
 
 Application::Application(int salary_per_hour, int needed_hours,
-	int work_hours, int workday, int overtime_bonus) {
+    int work_hours, int workday, int overtime_bonus) {
     worker_salary_ = new Salary(salary_per_hour,needed_hours,work_hours,
-		workday);
+        workday);
     worker_salary_->SetOvertimeBonus(overtime_bonus);
     worker_salary_->CalculateSalary();
 }
