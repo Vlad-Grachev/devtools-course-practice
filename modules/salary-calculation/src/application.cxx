@@ -3,8 +3,11 @@
 #include <string>
 #include "../include/Application.h"
 
-Application::Application() {}
+Application::Application() {
+    worker_salary_ = new Salary();
+    worker_salary_->CalculateSalary();
+}
 
-std::string Application::operator()(int argv, const char** argc) {
-    return "Comleted";
+int Application::operator()(int argv, const char** argc) {
+    return argv;    
 }

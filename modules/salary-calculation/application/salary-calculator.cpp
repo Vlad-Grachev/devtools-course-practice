@@ -3,13 +3,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
-#include <string>
 
 #include "../include/Application.h"
 
 int main(int argc, const char** argv) {
     Application app;
-    std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+    int output = app(argc, argv);
+    printf("%i\n", output);
     return 0;
 }

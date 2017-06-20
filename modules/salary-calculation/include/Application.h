@@ -9,7 +9,10 @@
 class Application {
  public:
     Application();
-    std::string operator()(int argv, const char** argc);
+    int operator()(int argv, const char** argc);
+
+ private:
+     Salary* worker_salary_;
 };
 
 #endif  // MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_
