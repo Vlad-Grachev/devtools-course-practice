@@ -5,11 +5,6 @@
 #include "include/Graph_app.h"
 
 void GraphApp::SetGraph() {
-    unsigned int _connection_from;
-    unsigned int _connection_to;
-    unsigned int _weight;
-
-    bool _solution = 1;
     ShowInfo(0);
     unsigned int _graph_size;
     std::cout << "Enter your graph's size: ";
@@ -18,7 +13,19 @@ void GraphApp::SetGraph() {
     system("cls");
     ShowInfo(_graph.GetSize());
     ShowGraph();
-    while(_solution != 0) {
+    AddConnections();
+    system("cls");
+    ShowInfo(_graph.GetSize());
+    ShowDijkstraResult();
+}
+    
+void GraphApp::FormConnections() {
+    unsigned int _connection_from;
+    unsigned int _connection_to;
+    unsigned int _weight;
+    bool _solution = 1;
+
+    while (_solution != 0) {
         std::cout << "Do you want to set a new edge?\n\t 1 - yes\t0-no\n";
         std::cin >> _solution;
         if (_solution == 1) {
@@ -43,9 +50,4 @@ void GraphApp::SetGraph() {
         ShowInfo(_graph.GetSize());
         ShowGraph();
     }
-    system("cls");
-    ShowInfo(_graph.GetSize());
-    ShowDijkstraResult();
-}
-    
 }

@@ -8,8 +8,9 @@
 
 class GraphApp {
  public:
-     void ShowResults();
+     void ShowGraph();
      void SetGraph();
+     void AddConnections();
  protected:
      void ShowInfo(int _graph_size);
 };
