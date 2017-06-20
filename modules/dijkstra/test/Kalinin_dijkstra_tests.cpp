@@ -87,3 +87,4 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
   for (int i = 0; i < 6; i++)
     EXPECT_EQ(correct_answer[i], tmp[i]);
 }
+*/

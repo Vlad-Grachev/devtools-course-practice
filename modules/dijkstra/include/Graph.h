@@ -23,7 +23,7 @@ class Graph {
   Graph();
   explicit Graph(int size);
 
-  void AddEdge(const int _weight, const int key1, const int key2);
+  bool AddEdge(const int _weight, const int key1, const int key2);
   bool IsConnect(const int key1, const int key2);
   int GetSize();
   Edge* GetNode(int n);

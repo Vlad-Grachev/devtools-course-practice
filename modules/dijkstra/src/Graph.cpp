@@ -24,9 +24,9 @@ Graph::Graph(int _size) : size_(_size) {
     node_[i] = 0;
 }
 
-void Graph::AddEdge(const int _weight, const int key1, const int key2) {
-  if (IsConnect(key1, key2))
-    return;
+bool Graph::AddEdge(const int _weight, const int key1, const int key2) {
+    if (IsConnect(key1, key2))
+        return 0;
   if (node_[key1] == 0) {
     node_[key1] = new Edge(_weight, key2);
   } else {
@@ -44,6 +44,7 @@ void Graph::AddEdge(const int _weight, const int key1, const int key2) {
       tmp = tmp->GetNext();
     tmp->SetNext(new Edge(_weight, key1));
   }
+  return 1;
 }
 
 bool Graph::IsConnect(const int key1, const int key2) {
