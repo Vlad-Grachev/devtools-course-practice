@@ -3,7 +3,7 @@
 #ifndef  MODULES_DIJKSTRA_INCLUDE_GRAPH_APP_H_
 #define MODULES_DIJKSTRA_INCLUDE_GRAPH_APP_H_
 
-#include "include\Graph.h"
+#include "include/Graph.h"
 
 class GraphApp
 {
