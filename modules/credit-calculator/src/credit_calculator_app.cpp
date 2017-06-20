@@ -21,8 +21,8 @@ void Application::Help(const char* appname, const char* message) {
         "  $ " + appname + " <amount> <period> " +
         "<interest> <month_pas>\n" +
 
-        "Where <amount>, <period> and <month_pas> are non-negative integer numbers,\n" +
-        "<interest> is non-negative rational number";
+        "Where <amount>, <period> and <month_pas> are non-negative" +
+		"integer numbers,\n <interest> is non-negative rational number";
 }
 
 bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
@@ -64,19 +64,18 @@ std::string Application::operator()(int argc, const char** argv) {
     catch (std::string& str) {
         return str;
     }
-    double monthlyPayment = CreditCalculator::MonthlyPayment(args.amount, 
+    double monthlyPayment = CreditCalculator::MonthlyPayment(args.amount,
         args.period, args.interest);
-    double totalPayout = CreditCalculator::TotalPayout(args.amount, 
+    double totalPayout = CreditCalculator::TotalPayout(args.amount,
         args.period, args.interest);
-	double overpaymentAmount = CreditCalculator::OverpaymentAmount(args.amount, 
+    double overpaymentAmount = CreditCalculator::OverpaymentAmount(args.amount,
         args.period, args.interest);
-    double checkBalance = CreditCalculator::CheckBalance(args.amount, 
-		args.period, args.interest, args.month_pas);
-
+    double checkBalance = CreditCalculator::CheckBalance(args.amount,
+        args.period, args.interest, args.month_pas);
     std::ostringstream stream;
-	stream << "Monthly Payment: " << monthlyPayment << "\nTotal Payout: " 
+    stream << "Monthly Payment: " << monthlyPayment << "\nTotal Payout: "
         << totalPayout << "\nOverpayment Amount: "
-		<< overpaymentAmount << "\nCheck Balance (" << args.month_pas << "): " 
+        << overpaymentAmount << "\nCheck Balance (" << args.month_pas << "): "
         << checkBalance;
     message_ = stream.str();
     return message_;
