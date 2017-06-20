@@ -29,7 +29,8 @@ ComplexNumber second(2.0, 2.0);
 ComplexNumber result(1.0, 0.0);
 EXPECT_TRUE(result == first / second);
 }
-/*//  This is fake test
+
+//  This is fake test
 
 TEST(Kisele_Complex_Number_Test, Func_SetUp) {
     SetUp();
@@ -39,4 +40,4 @@ TEST(Kisele_Complex_Number_Test, Func_SetUp) {
 TEST(Kisele_Complex_Number_Test, Func_TearDown) {
     TearDown();
     EXPECT_TRUE(true);
-}*/
+}
