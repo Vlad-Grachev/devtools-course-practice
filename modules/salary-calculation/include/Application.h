@@ -10,6 +10,7 @@ class Application {
  public:
     Application();
     int operator()(int argv, const char** argc);
+    void PrintHelp();
 
  private:
      Salary* worker_salary_;
