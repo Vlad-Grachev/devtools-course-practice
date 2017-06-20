@@ -8,7 +8,8 @@
 
 class Application {
  public:
-    Application();
+    Application(int salary_per_hour = 20, int needed_hours = 160,
+		int work_hours = 160, int workday = 9,int overtime_bonus = 25);
     int operator()(int argv,int args = 0);
     void PrintHelp();
 
