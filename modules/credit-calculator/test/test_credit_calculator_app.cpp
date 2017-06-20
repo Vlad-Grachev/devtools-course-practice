@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class AreaConverterAppTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
         options.push_back("appname");
@@ -29,7 +29,7 @@ protected:
     void Assert(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
-private:
+ private:
     Application app_;
     string output_;
 };
