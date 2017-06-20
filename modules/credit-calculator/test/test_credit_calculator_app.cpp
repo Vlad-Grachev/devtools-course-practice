@@ -51,3 +51,9 @@ TEST_F(AreaConverterAppTest, Can_Detect_Wrong_Number_Format) {
     Act(args);
     Assert("Wrong number format!*");
 }
+
+TEST_F(AreaConverterAppTest, Can_Calculate_Correct) {
+    vector<string> args = { "10000", "12", "5", "5"};
+    Act(args);
+    Assert("Monthly Payment: 856.075*");
+}
