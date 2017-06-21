@@ -2,8 +2,6 @@
 ##### Testing
 #############################################
 
-enable_testing()
-
 set(prefix "${MODULE}")
 
 add_test(
