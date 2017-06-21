@@ -1,7 +1,7 @@
 // Copyright 2017 Kozlov Ilya
 
-#include "include\Application.h"
-#include "include\Graph.h"
+#include "include/Application.h"
+#include "include/Graph.h"
 
 Application::Application() {}
 
@@ -72,3 +72,5 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
     }
     return true; 
 }
+
+std::string operator()(int argc, const char** argv);
