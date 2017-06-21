@@ -65,3 +65,35 @@ void Salary::CalculateSalary() {
             (work_hours_ - needed_hours_) * overtime_bonus_;
     }
 }
+
+int Salary::GetSalary() {
+    return salary_;
+}
+
+int Salary::GetAdminRest() {
+    return admin_rest_;
+}
+
+int Salary::GetOvertimeBonus() {
+    return overtime_bonus_;
+}
+
+int Salary::GetSalaryPerHour() {
+    return salary_per_hour_;
+}
+
+int Salary::GetNeededHours() {
+    return needed_hours_;
+}
+
+int Salary::GetWorkHours() {
+    return work_hours_;
+}
+
+int Salary::GetWorkDay() {
+    return workday_;
+}
+
+int Salary::GetPenalty() {
+    return penalty_;
+}

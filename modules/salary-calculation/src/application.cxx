@@ -74,6 +74,11 @@ void Application::PrintHelp() {
     std::cout << "7 - Get Salary\n";
 }
 
-int Application::ToInt(char** argc) {
-    return 100;
+int Application::ToInt(char** argc) { //  по приколу сделать римскую систему
+    int i = 0;
+    while (argc[i]) {
+        std::cout << argc[i] << std::endl;
+        i++;
+    }
+    return 100;  //  счисления. Ну или скучный разбор строк.
 }

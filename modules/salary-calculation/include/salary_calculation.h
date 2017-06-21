@@ -15,14 +15,14 @@ class Salary {
      void SetWorkDay(int val);
      void SetPenalty(int val);
      void CalculateSalary();
-     int GetSalary() { return salary_; }
-     int GetAdminRest() { return admin_rest_; }
-     int GetOvertimeBonus() { return overtime_bonus_; }
-     int GetSalaryPerHour() { return salary_per_hour_; }
-     int GetNeededHours() { return needed_hours_; }
-     int GetWorkHours() { return work_hours_; }
-     int GetWorkDay() { return workday_; }
-     int GetPenalty() { return penalty_; }
+     int GetSalary();
+     int GetAdminRest();
+     int GetOvertimeBonus();
+     int GetSalaryPerHour();
+     int GetNeededHours();
+     int GetWorkHours();
+     int GetWorkDay();
+     int GetPenalty();
 
  private:
      int salary_;
