@@ -34,25 +34,37 @@ class AreaConverterAppTest : public ::testing::Test {
 };
 
 TEST_F(AreaConverterAppTest, Do_Print_Help_Without_Arguments) {
+    // Arrange
     vector<string> args = {};
+    // Act
     Act(args);
+    // Assert
     Assert("This is a credit calculator application*");
 }
 
 TEST_F(AreaConverterAppTest, Is_Checking_Number_Of_Arguments) {
+    // Arrange
     vector<string> args = { "10000", "10"};
+    //Act
     Act(args);
+    // Assert
     Assert("ERROR: Incorrect arguments num.*");
 }
 
 TEST_F(AreaConverterAppTest, Can_Detect_Wrong_Number_Format) {
+    // Arrange
     vector<string> args = { "10000", "12", "five", "5"};
+    //Act
     Act(args);
+    // Assert
     Assert("Wrong number format!*");
 }
 
 TEST_F(AreaConverterAppTest, Can_Calculate_Correct) {
+    // Arrange
     vector<string> args = { "10000", "12", "5", "5"};
+    //Act
     Act(args);
+    // Assert
     Assert("Monthly Payment: 856.075*");
 }
