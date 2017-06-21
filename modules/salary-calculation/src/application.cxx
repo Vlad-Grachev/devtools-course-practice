@@ -74,11 +74,11 @@ void Application::PrintHelp() {
     std::cout << "7 - Get Salary\n";
 }
 
-int Application::ToInt(char** argc) { //  по приколу сделать римскую систему
-    int i = 0;
+int Application::ToInt(char** argc) {  //  LXIX
+    int i = 0;  //  or Str->int
     while (argc[i]) {
         std::cout << argc[i] << std::endl;
         i++;
     }
-    return 100;  //  счисления. Ну или скучный разбор строк.
+    return 100;
 }
