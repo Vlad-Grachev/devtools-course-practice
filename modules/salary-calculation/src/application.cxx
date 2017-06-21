@@ -12,7 +12,7 @@ Application::Application(int salary_per_hour, int needed_hours,
     worker_salary_->CalculateSalary();
 }
 
-Application::Application(Application& pApp) {
+Application::Application(const Application& pApp) {
    worker_salary_ = new Salary(pApp.worker_salary_->GetSalaryPerHour(),
        pApp.worker_salary_->GetNeededHours(),
        pApp.worker_salary_->GetWorkHours(),
@@ -54,7 +54,6 @@ int Application::operator()(int argv, int args) {
         case 7 : {
             worker_salary_->CalculateSalary();
             return worker_salary_->GetSalary();
-            break;
         }
         default: {
             PrintHelp();
