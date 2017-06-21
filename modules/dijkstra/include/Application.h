@@ -3,6 +3,12 @@
 #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
 #define MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <string>
+#include <sstream>
 #include <string>
 
 class Application {
@@ -17,7 +23,11 @@ private:
     int parseOperation(const char* arg);
     std::string message_;
     typedef struct {
-        //123
+        int nodes_number;
+        int weight;
+        int node_from;
+        int node_to;
+        int operation;
     } Arguments;
 };
 #endif // #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_

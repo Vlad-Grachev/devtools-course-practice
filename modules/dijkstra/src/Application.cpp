@@ -1,5 +1,11 @@
 // Copyright 2017 Kozlov Ilya
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
+#include <string>
+#include <sstream>
 #include "include/Application.h"
 #include "include/Graph.h"
 
@@ -36,7 +42,7 @@ void Application::help(const char* appname, const char* message) {
 
         "Operations and those argunents:\n\n" +
         "set_new_graph <nodes_number> -  sets new graph with selected number of nodes (must be done first!)\n" +
-        "set_new_edge <node_from> <node_to> <weight> - sets new edge between selected nodes with selected weight\n" +
+        "set_new_edge <weight> <node_from> <node_to> - sets new edge between selected nodes with selected weight\n" +
         "optimals_ways_from <node_from> - shows optimal way weights from selected node to other ones\n\n" +
         "show_graph - shows nodes and edges of the graph" +
 
@@ -62,10 +68,10 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
         return false;
     }
     else if (argc > 4 ||
-            (parseOperation(argv[1]) == 1 && argc != 1) ||
-            (parseOperation(argv[1]) == 2 && argc != 3) ||
-            (parseOperation(argv[1]) == 3 && argc != 1) ||
-            (parseOperation(argv[1]) == 4 && argc != 0))
+            (parseOperation(argv[1]) == 1 && argc != 2) ||
+            (parseOperation(argv[1]) == 2 && argc != 4) ||
+            (parseOperation(argv[1]) == 3 && argc != 2) ||
+            (parseOperation(argv[1]) == 4 && argc != 1))
     {
         help(argv[0], "ERROR: Incorrect arguments num.\n\n");
         return false;
@@ -73,4 +79,6 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
     return true; 
 }
 
-std::string operator()(int argc, const char** argv);
+std::string Application::operator()(int argc, const char** argv) {
+
+}
