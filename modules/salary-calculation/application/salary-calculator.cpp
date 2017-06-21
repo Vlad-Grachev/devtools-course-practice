@@ -6,9 +6,9 @@
 
 #include "../include/Application.h"
 
-int main(int argc, int args) {
+int main(int argv, char ** argc) {
     Application app;
-    int output = app(argc, 100);
+    int output = app(argv, argc);
     printf("%i\n", output);
     return 0;
 }

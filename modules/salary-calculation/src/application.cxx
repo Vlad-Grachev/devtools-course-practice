@@ -21,34 +21,35 @@ Application::Application(const Application& pApp) {
     worker_salary_->CalculateSalary();
 }
 
-int Application::operator()(int argv, int args) {
+int Application::operator()(int argv, char** argc) {
     if (argv == 0) {
         PrintHelp();
         return 0;
     }
+    int val = ToInt(argc);
     switch (argv) {
         case 1: {
-            worker_salary_->SetSalaryPerHour(args);
+            worker_salary_->SetSalaryPerHour(val);
             break;
         }
         case 2 : {
-            worker_salary_->SetWorkHours(args);
+            worker_salary_->SetWorkHours(val);
             break;
         }
         case 3 : {
-            worker_salary_->SetOvertimeBonus(args);
+            worker_salary_->SetOvertimeBonus(val);
             break;
         }
         case 4 : {
-            worker_salary_->SetAdminRest(args);
+            worker_salary_->SetAdminRest(val);
             break;
         }
         case 5 : {
-            worker_salary_->SetNeededHours(args);
+            worker_salary_->SetNeededHours(val);
             break;
         }
         case 6 : {
-            worker_salary_->SetWorkHours(args);
+            worker_salary_->SetWorkHours(val);
             break;
         }
         case 7 : {
@@ -71,4 +72,8 @@ void Application::PrintHelp() {
     std::cout << "5 - Set needed hours\n";
     std::cout << "6 - Set How many hours in workday , Value \n";
     std::cout << "7 - Get Salary\n";
+}
+
+int Application::ToInt(char** argc) {
+    return 100;
 }

@@ -11,8 +11,9 @@ class Application {
     Application(int salary_per_hour = 20, int needed_hours = 160,
         int work_hours = 160, int workday = 9, int overtime_bonus = 25);
     Application(const Application & pApp);
-    int operator()(int argv = 0, int args = 0);
+    int operator()(int argv = 0, char** argc = nullptr);
     void PrintHelp();
+    int ToInt(char** argc);
 
  private:
      Salary* worker_salary_;
