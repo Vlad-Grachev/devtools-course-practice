@@ -8,10 +8,17 @@
 
 class GraphApp {
  public:
-     void ShowGraph();
-     void SetGraph();
-     void AddConnections();
+     GraphApp();
+     ~GraphApp();
+     void Work();
  protected:
-     void ShowInfo(int _graph_size);
+     Graph* graph_;
+     void ShowDijkstraBetween(unsigned int _way_from);
+     void ShowInfo(unsigned int _graph_size);
+     void ShowGraph();
+     void AddConnections();
+     void MakeNewGraph();
+     void ShowOptimalWays();
+     void SetGraph();
 };
 #endif  // MODULES_DIJKSTRA_INCLUDE_GRAPH_APP_H_
