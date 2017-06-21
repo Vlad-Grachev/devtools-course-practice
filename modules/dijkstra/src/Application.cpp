@@ -6,6 +6,23 @@
 Application::Application() {}
 
 int parseOperation(const char* arg) {
+    int op = 0;
+    if (strcmp(arg, "set_new_graph") == 0) {
+        op = 1;
+    }
+    else if (strcmp(arg, "set_new_edge") == 0) {
+        op = 2;
+    }
+    else if (strcmp(arg, "optimals_ways_from") == 0) {
+        op = 3;
+    }
+    else if (strcmp(arg, "show_graph") == 0) {
+        op = 4;
+    }
+    else {
+        throw std::string("Wrong operation name!");
+    }
+    return op;
 }
 
 void Application::help(const char* appname, const char* message) {
@@ -29,3 +46,5 @@ void Application::help(const char* appname, const char* message) {
         "If nodes has no edges between the result of optimal_ways_from wil be 'inf'!\n\n";
 
 }
+
+

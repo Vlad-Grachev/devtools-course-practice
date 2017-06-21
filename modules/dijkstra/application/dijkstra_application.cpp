@@ -1,9 +1,15 @@
 // Copyright 2017 Kozlov Ilya
 
-#include <iostream>
-#include "include/Graph_app.h"
+#include <stdlib.h>
+ #include <stdio.h>
+ #include <string>
 
-void main()
-{
-    system("pause");
+#include "include/Application.h"
+
+int main(int argc, const char** argv) {
+    Application app;
+    std::string output = app(argc, argv);
+    printf("%s\n", output.c_str());
+    return 0;
+    
 }
