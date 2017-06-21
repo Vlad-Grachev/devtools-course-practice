@@ -7,8 +7,8 @@ enable_testing()
 set(prefix "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Add_Fractions
-    COMMAND ${APPLICATION} 1 200
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
 )
-set_tests_properties (${prefix}_can_Add_Fractions
-  PROPERTIES PASS_REGULAR_EXPRESSION 1)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
