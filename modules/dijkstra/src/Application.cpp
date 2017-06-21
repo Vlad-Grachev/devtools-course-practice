@@ -5,7 +5,7 @@
 
 Application::Application() {}
 
-int parseOperation(const char* arg) {
+int Application::parseOperation(const char* arg) {
     int op = 0;
     if (strcmp(arg, "set_new_graph") == 0) {
         op = 1;
@@ -32,7 +32,7 @@ void Application::help(const char* appname, const char* message) {
         "Please choose an operation and provide arguments " +
         "in the following format:\n\n" +
 
-        "  $ " + appname + "<argument1> <argument2> <argument3>\n\n" +
+        "  $ " + appname + "<operation> <argument1> <argument2> <argument3>\n\n" +
 
         "Operations and those argunents:\n\n" +
         "set_new_graph <nodes_number> -  sets new graph with selected number of nodes (must be done first!)\n" +
@@ -47,4 +47,28 @@ void Application::help(const char* appname, const char* message) {
 
 }
 
+int Application::parseInt(const char* arg) {
+    int value = atoi(arg);
 
+    if (value < 0) {
+        throw std::string("Wrong number format!");
+    }
+    return value;
+}
+
+bool Application::validateNumberOfArguments(int argc, const char** argv) {
+    if (argc == 1) {
+        help(argv[0]);
+        return false;
+    }
+    else if (argc > 4 ||
+            (parseOperation(argv[1]) == 1 && argc != 1) ||
+            (parseOperation(argv[1]) == 2 && argc != 3) ||
+            (parseOperation(argv[1]) == 3 && argc != 1) ||
+            (parseOperation(argv[1]) == 4 && argc != 0))
+    {
+        help(argv[0], "ERROR: Incorrect arguments num.\n\n");
+        return false;
+    }
+    return true; 
+}

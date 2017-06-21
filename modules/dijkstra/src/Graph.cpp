@@ -1,4 +1,4 @@
-// Copyright 2017 Kalinin Vladimir
+// Copyright 2017 Kozlov Ilya
 
 #include "include/Graph.h"
 #include <limits.h>
@@ -24,9 +24,9 @@ Graph::Graph(int _size) : size_(_size) {
     node_[i] = 0;
 }
 
-bool Graph::AddEdge(const int _weight, const int key1, const int key2) {
+void Graph::AddEdge(const int _weight, const int key1, const int key2) {
     if (IsConnect(key1, key2))
-        return 0;
+        return;
   if (node_[key1] == 0) {
     node_[key1] = new Edge(_weight, key2);
   } else {
@@ -44,7 +44,6 @@ bool Graph::AddEdge(const int _weight, const int key1, const int key2) {
       tmp = tmp->GetNext();
     tmp->SetNext(new Edge(_weight, key1));
   }
-  return 1;
 }
 
 bool Graph::IsConnect(const int key1, const int key2) {
@@ -101,4 +100,18 @@ int* Graph::Dijkstra(int node_index) {
   delete[] mark;
 
   return weight;
+}
+
+int* Graph::ConnectedWith(int n) {
+    int* _connections = 0;
+    unsigned int _connection_size = 0;
+    for (int i = 0; i < size_; i++) {
+        if (IsConnect(n, i) && (n != i)) {
+            _connections = new int;
+            _connections[_connection_size] = i;
+        }
+    }
+    int* res = _connections;
+    delete[] _connections;
+    return res;
 }

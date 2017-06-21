@@ -1,4 +1,4 @@
-// Copyright 2017 Kalinin Vladimir
+// Copyright 2017 Kozlov Ilya
 
 #ifndef MODULES_DIJKSTRA_INCLUDE_GRAPH_H_
 #define MODULES_DIJKSTRA_INCLUDE_GRAPH_H_
@@ -23,11 +23,11 @@ class Graph {
   Graph();
   explicit Graph(int size);
 
-  bool AddEdge(const int _weight, const int key1, const int key2);
+  void AddEdge(const int _weight, const int key1, const int key2);
   bool IsConnect(const int key1, const int key2);
   int GetSize();
   Edge* GetNode(int n);
-
+  int* ConnectedWith (int n);
   int * Dijkstra(int node_index);
 
  private:

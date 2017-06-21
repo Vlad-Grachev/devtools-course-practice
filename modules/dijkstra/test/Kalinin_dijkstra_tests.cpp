@@ -84,7 +84,23 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
   int* tmp = gr.Dijkstra(1);
 
   // Assert
-  for (int i = 0; i < 6; i++)
-    EXPECT_EQ(correct_answer[i], tmp[i]);
+  for (int i = 0; i < 6; i++) {
+      EXPECT_EQ(correct_answer[i], tmp[i]);
+  }
 }
-*/
+
+TEST(Kozlov_dijkstra_tests, ConnectioWith_is_working_correctly) {
+    // Arrange
+    int* result_to_test;
+    int predicted_result[2] = { 2, 3 };
+    int _weight = 10;
+    Graph graph_to_test(3);
+
+    // Act
+    result_to_test = graph_to_test.ConnectedWith(1);
+
+    // Assert
+    for (int i = 0; i < 1; i++) {
+        EXPECT_EQ(predicted_result[i], result_to_test[i]);
+    }
+}

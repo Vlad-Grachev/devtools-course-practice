@@ -12,7 +12,9 @@ public:
 
 private:
     void help(const char* appname, const char* message = "");
+    int parseInt(const char* arg);
     bool validateNumberOfArguments(int argc, const char** argv);
+    int parseOperation(const char* arg)
     std::string message_;
     typedef struct {
         // 123123
