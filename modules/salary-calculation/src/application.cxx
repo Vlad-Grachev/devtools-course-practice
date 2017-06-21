@@ -13,12 +13,12 @@ Application::Application(int salary_per_hour, int needed_hours,
 }
 
 Application::Application(const Application& pApp) {
-   worker_salary_ = new Salary(pApp.worker_salary_->GetSalaryPerHour(),
-       pApp.worker_salary_->GetNeededHours(),
-       pApp.worker_salary_->GetWorkHours(),
-       pApp.worker_salary_->GetWorkDay());
-   worker_salary_->SetOvertimeBonus(pApp.worker_salary_->GetOvertimeBonus());
-   worker_salary_->CalculateSalary();
+    worker_salary_ = new Salary(pApp.worker_salary_->GetSalaryPerHour(),
+        pApp.worker_salary_->GetNeededHours(),
+        pApp.worker_salary_->GetWorkHours(),
+        pApp.worker_salary_->GetWorkDay());
+    worker_salary_->SetOvertimeBonus(pApp.worker_salary_->GetOvertimeBonus());
+    worker_salary_->CalculateSalary();
 }
 
 int Application::operator()(int argv, int args) {
