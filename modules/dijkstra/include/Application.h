@@ -8,12 +8,12 @@
 
 
 class Application {
-public:
+ public:
     ~Application();
     Application();
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     int parseInt(const char* arg);
     bool validateNumberOfArguments(int argc, const char** argv);
@@ -24,5 +24,5 @@ private:
         int operation, arg1, arg2, arg3;
     } Arguments;
 };
-#endif // #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
+#endif  // #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
 
