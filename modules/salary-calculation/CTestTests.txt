@@ -12,9 +12,58 @@ set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_first_test
+    NAME ${prefix}_1_test
     COMMAND ${APPLICATION} 1 10
 )
-set_tests_properties (${prefix}_first_test PROPERTIES
+set_tests_properties (${prefix}_1_test PROPERTIES
     PASS_REGULAR_EXPRESSION "1"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_2_test
+    COMMAND ${APPLICATION} 2 10
+)
+set_tests_properties (${prefix}_2_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "2"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_3_test
+    COMMAND ${APPLICATION} 3 10
+)
+set_tests_properties (${prefix}_3_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "3"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_4_test
+    COMMAND ${APPLICATION} 4 10
+)
+set_tests_properties (${prefix}_4_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "4"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_5_test
+    COMMAND ${APPLICATION} 5 10
+)
+set_tests_properties (${prefix}_5_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "5"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_6_test
+    COMMAND ${APPLICATION} 6 10
+)
+set_tests_properties (${prefix}_6_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "6"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_7_test
+    COMMAND ${APPLICATION} 1 0
+)
+set_tests_properties (${prefix}_7_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "3200"
+    LABELS "${MODULE}")
+
