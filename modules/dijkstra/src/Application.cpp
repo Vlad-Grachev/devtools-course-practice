@@ -13,13 +13,13 @@ Application::Application() {}
 
 int Application::parseOperation(const char* arg) {
     int op = 0;
-    if (strcmp(arg, "set_new_graph") == 0) {
+    if (strcmp(arg, "add_nodes") == 0) {
         op = 1;
     }
     else if (strcmp(arg, "set_new_edge") == 0) {
         op = 2;
     }
-    else if (strcmp(arg, "optimals_ways_from") == 0) {
+    else if (strcmp(arg, "optimal_weights_from") == 0) {
         op = 3;
     }
     else if (strcmp(arg, "show_graph") == 0) {
@@ -41,14 +41,14 @@ void Application::help(const char* appname, const char* message) {
         "  $ " + appname + "<operation> <argument1> <argument2> <argument3>\n\n" +
 
         "Operations and those argunents:\n\n" +
-        "set_new_graph <nodes_number> -  sets new graph with selected number of nodes (must be done first!)\n" +
+        "add_nodes <nodes_number> -  adds a value of nodes\n" +
         "set_new_edge <weight> <node_from> <node_to> - sets new edge between selected nodes with selected weight\n" +
         "optimals_ways_from <node_from> - shows optimal way weights from selected node to other ones\n\n" +
         "show_graph - shows nodes and edges of the graph" +
 
         "Hints:\n" +
         "All arguments must be unsigned integers!\n" +
-        "set_new_graph <nodes_number> must be done first!" +
+        "You're to set a graph by adding some nodes and edges at first!" +
         "If nodes has no edges between the result of optimal_ways_from wil be 'inf'!\n\n";
 
 }
@@ -81,8 +81,7 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 
 std::string Application::operator()(int argc, const char** argv) {
     Arguments args;
-    bool _existance_of_graph;
-    Graph* graph;
+    Graph graph;
 
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
@@ -100,4 +99,16 @@ std::string Application::operator()(int argc, const char** argv) {
     catch (std::string& str) {
         return str;
     }
+
+    std::ostringstream stream;
+    switch (args.operation) {
+    case 1:
+        graph.AddNodes(args.arg1);
+        break;
+    case 2:
+        graph.AddEdge(args.arg1, args.arg2, args.arg3);
+        break;
+    case 3:
+        // 1 --> 12 = 10
+        break;
 }
