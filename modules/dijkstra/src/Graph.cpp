@@ -144,3 +144,11 @@ int* Graph::ConnectedWith(int n) {
     delete[] _connections;
     return res;
 }
+
+Graph::~Graph() {
+
+    for (int i = 0; i < size_; i++) {
+        delete[] node_[i];
+    }
+    delete[] node_;
+}
