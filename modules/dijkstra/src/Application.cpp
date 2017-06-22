@@ -81,7 +81,7 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 
 std::string Application::operator()(int argc, const char** argv) {
     Arguments args;
-    bool _existance = 1;
+    int* res = nullptr;
     Graph* graph = new Graph;
 
     if (!validateNumberOfArguments(argc, argv)) {
@@ -108,8 +108,15 @@ std::string Application::operator()(int argc, const char** argv) {
         graph[0].AddEdge(args.arg1, args.arg2, args.arg3);
         break;
     case 3:
-        // 1 --> 12 = 10
-
+        res = graph[0].Dijkstra(args.arg1);
+        for (int i = 0; i = graph[0].GetSize(); i++) {
+            if (res[i] != INT_MAX) {
+                stream << "\n" << args.arg1 << "-->" << i << "=" << res[i];
+            }
+            else if (res[i] == INT_MAX) {
+                stream << "\n" << args.arg1 << "-->" << i << "= inf";
+            }
+        }
         break;
     case 4:
         delete[] graph;
