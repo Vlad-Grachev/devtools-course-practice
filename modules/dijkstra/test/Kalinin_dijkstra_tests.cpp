@@ -105,18 +105,41 @@ TEST(Kozlov_dijkstra_tests, ConnectioWith_is_working_correctly) {
     }
 }
 
-TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly) {
+TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_1) {
     // Arrange
-    int* result_to_test;
-    int predicted_result[2] = { 2, 3 };
-    int _weight = 10;
-    Graph graph_to_test(3);
+    int val = 10;
+    Graph to_test;
 
     // Act
-    result_to_test = graph_to_test.ConnectedWith(1);
+    to_test.AddNodes(val);
 
     // Assert
-    for (int i = 0; i < 1; i++) {
-        EXPECT_EQ(predicted_result[i], result_to_test[i]);
+    EXPECT_EQ(val, to_test.GetSize());
+}
+
+TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_2) {
+    // Arrange
+    Edge* tmp;
+    int val = 10;
+    Graph to_test;
+
+    // Act
+    to_test.AddNodes(val);
+
+    // Assert
+    for (int i = 0; i < to_test.GetSize; i++) {
+        EXPECT_NO_FATAL_FAILURE(tmp = to_test.GetNode(i));
     }
+}
+
+TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_3) {
+    // Arrange
+    int val = 0;
+    Graph to_test;
+
+    // Act
+    to_test.AddNodes(val);
+
+    // Assert
+    EXPECT_EQ(0, to_test.GetSize())
 }
