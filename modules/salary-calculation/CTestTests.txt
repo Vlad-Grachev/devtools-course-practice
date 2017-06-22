@@ -61,9 +61,9 @@ set_tests_properties (${prefix}_6_test PROPERTIES
 
 add_test(
     NAME ${prefix}_7_test
-    COMMAND ${APPLICATION} 7 0
+    COMMAND ${APPLICATION} 7 10
 )
 set_tests_properties (${prefix}_7_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "c80"
+    PASS_REGULAR_EXPRESSION 3200
     LABELS "${MODULE}")
 
