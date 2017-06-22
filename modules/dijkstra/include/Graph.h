@@ -29,8 +29,9 @@ class Graph {
   bool IsConnect(const int key1, const int key2);
   int GetSize();
   Edge* GetNode(int n);
-  int* ConnectedWith (int n);
-  int * Dijkstra(int node_index);
+  // int* ConnectedWith (int n);
+  int* Dijkstra(int node_index);
+  // int** CalculateOptimalWaysFrom(int node_index);
 
  private:
   int size_;
