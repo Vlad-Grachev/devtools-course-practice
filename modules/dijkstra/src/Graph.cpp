@@ -131,7 +131,6 @@ int* Graph::Dijkstra(int node_index) {
   return weight;
 }
 
-
 Graph::~Graph() {
 
     for (int i = 0; i < size_; i++) {
