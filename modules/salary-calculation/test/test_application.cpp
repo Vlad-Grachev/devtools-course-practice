@@ -29,37 +29,37 @@ TEST(Application, Operator_0) {
 TEST(Application, Operator_1) {
     Application app;
     char** chr = nullptr;
-    EXPECT_EQ(app(1, chr),1);
+    EXPECT_EQ(app(1, chr), 1);
 }
 
 TEST(Application, Operator_2) {
     Application app;
     char** chr = nullptr;
-    EXPECT_EQ(app(2, chr),2);
+    EXPECT_EQ(app(2, chr), 2);
 }
 
 TEST(Application, Operator_3) {
     Application app;
     char** chr = nullptr;
-    EXPECT_EQ(app(3, chr),3);
+    EXPECT_EQ(app(3, chr), 3);
 }
 
 TEST(Application, Operator_4) {
     Application app;
     char** chr = nullptr;
-    EXPECT_EQ(app(4, chr),4);
+    EXPECT_EQ(app(4, chr), 4);
 }
 
 TEST(Application, Operator_5) {
     Application app;
     char** chr = nullptr;
-    EXPECT_EQ(app(5, chr),5);
+    EXPECT_EQ(app(5, chr), 5);
 }
 
 TEST(Application, Operator_6) {
     Application app;
     char** chr = nullptr;
-    EXPECT_EQ(app(6, chr),6);
+    EXPECT_EQ(app(6, chr), 6);
 }
 
 TEST(Application, Operator_7) {
