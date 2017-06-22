@@ -121,7 +121,6 @@ TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_1) {
 
 TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_2) {
     // Arrange
-    Edge* tmp;
     int val = 10;
     Graph to_test;
 
@@ -130,7 +129,7 @@ TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_2) {
 
     // Assert
     for (int i = 0; i < to_test.GetSize(); i++) {
-        EXPECT_NO_FATAL_FAILURE(tmp = to_test.GetNode(i));
+        EXPECT_NO_FATAL_FAILURE(to_test.GetNode(i));
     }
 }
 
