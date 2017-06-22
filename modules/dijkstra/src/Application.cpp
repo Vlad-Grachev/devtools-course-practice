@@ -110,5 +110,10 @@ std::string Application::operator()(int argc, const char** argv) {
         break;
     case 3:
         // 1 --> 12 = 10
+
         break;
+    }
+
+    message_ = stream.str();
+    return message_;
 }

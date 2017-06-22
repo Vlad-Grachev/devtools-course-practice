@@ -141,5 +141,5 @@ TEST(Kozlov_dijkstra_tests, AddNode_is_working_correctly_3) {
     to_test.AddNodes(val);
 
     // Assert
-    EXPECT_EQ(0, to_test.GetSize())
+    EXPECT_EQ(0, to_test.GetSize());
 }

@@ -25,10 +25,10 @@ Graph::Graph(int _size) : size_(_size) {
 }
 
 void Graph::AddNodes(const unsigned int nodes_value) {
-    if (nodes_value == 0) {
+    if (nodes_value <= 0) {
         return;
     }
-    unsigned int new_size = size_ + nodes_value;
+    int new_size = size_ + nodes_value;
     Edge** new_node;
 
     new_node = new Edge*[new_size];
