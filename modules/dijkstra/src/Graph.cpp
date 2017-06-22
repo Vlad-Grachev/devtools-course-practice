@@ -131,21 +131,6 @@ int* Graph::Dijkstra(int node_index) {
   return weight;
 }
 
-/*
-int* Graph::ConnectedWith(int n) {
-    int* _connections = 0;
-    unsigned int _connection_size = 0;
-    for (int i = 0; i < size_; i++) {
-        if (IsConnect(n, i) && (n != i)) {
-            _connections = new int;
-            _connections[_connection_size] = i;
-        }
-    }
-    int* res = _connections;
-    delete[] _connections;
-    return res;
-}
-*/
 
 Graph::~Graph() {
 
@@ -155,31 +140,3 @@ Graph::~Graph() {
     delete[] node_;
 }
 
-/*
-int** Graph::CalculateOptimalWaysFrom(int node_index) {
-    int** res;
-    res = new int*[size_];
-    for (int i = 0; i < size_; i++) {
-        res[i] = new int[size_];
-    }
-    for (int i = 0; i < size_; i++) {
-        for (int j = 0; j < size_; j++) {
-            res[i][j] = INT_MIN;
-       }
-    }
-
-    
-
-
-
-
-
-
-
-    for (int i = 0; i < size_; i++) {
-        delete[] res[i];
-        }
-    delete[] res;
-    }
-}
-*/

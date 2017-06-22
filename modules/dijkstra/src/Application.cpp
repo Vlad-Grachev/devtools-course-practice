@@ -83,7 +83,7 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 std::string Application::operator()(int argc, const char** argv) {
     Arguments args;
     int* res = nullptr;
-    Graph* graph = new Graph;
+    graph = new Graph;
 
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
@@ -125,6 +125,9 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     message_ = stream.str();
-    delete[] graph;
     return message_;
+}
+
+Application::~Application() {
+    delete[] graph;
 }
