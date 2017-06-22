@@ -9,6 +9,6 @@
 int main(int argv, char ** argc) {
     Application app;
     int output = app(argv, argc);
-    printf("%i", output);
+    printf("%i\n", output);
     return 0;
 }

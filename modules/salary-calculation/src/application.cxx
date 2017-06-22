@@ -26,6 +26,10 @@ int Application::operator()(int argv, char** argc) {
         PrintHelp();
         return 0;
     }
+	if (argv == 7) {
+		worker_salary_->CalculateSalary();
+		return worker_salary_->GetSalary();
+	}
     int val = ToInt(argc);
     switch (argv) {
         case 1: {
@@ -51,10 +55,6 @@ int Application::operator()(int argv, char** argc) {
         case 6 : {
             worker_salary_->SetWorkHours(val);
             break;
-        }
-        case 7 : {
-            worker_salary_->CalculateSalary();
-            return worker_salary_->GetSalary();
         }
         default: {
             PrintHelp();
