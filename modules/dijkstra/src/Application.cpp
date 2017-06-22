@@ -22,7 +22,7 @@ int Application::parseOperation(const char* arg) {
     else if (strcmp(arg, "optimal_weights_from") == 0) {
         op = 3;
     }
-    else if (strcmp(arg, "show_graph") == 0) {
+    else if (strcmp(arg, "new_graph") == 0) {
         op = 4;
     }
     else {
@@ -31,7 +31,7 @@ int Application::parseOperation(const char* arg) {
     return op;
 }
 
-void Application::help(const char* appname, const char* message) {
+void Application::help(const char* appname, const char* message)  {
     message_ =
         std::string(message) +
         "This is a optimal way calculator application.\n\n" +
@@ -44,11 +44,11 @@ void Application::help(const char* appname, const char* message) {
         "add_nodes <nodes_number> -  adds a value of nodes\n" +
         "set_new_edge <weight> <node_from> <node_to> - sets new edge between selected nodes with selected weight\n" +
         "optimals_ways_from <node_from> - shows optimal way weights from selected node to other ones\n\n" +
-        "show_graph - shows nodes and edges of the graph" +
+        "new_graph <nodes_number> - creates a new graph with selected nodes (old is being deleted)" +
 
         "Hints:\n" +
         "All arguments must be unsigned integers!\n" +
-        "You're to set a graph by adding some nodes and edges at first!" +
+        "You're to set a graph by adding some nodes and edges or creating new at first!" +
         "If nodes has no edges between the result of optimal_ways_from wil be 'inf'!\n\n";
 
 }
@@ -81,16 +81,15 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 
 std::string Application::operator()(int argc, const char** argv) {
     Arguments args;
-    Graph graph;
+    bool _existance = 1;
+    Graph* graph = new Graph;
 
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
-        args.operation = parseOperation(argv[1]);
-        if (args.operation < 4) {
+            args.operation = parseOperation(argv[1]);
             args.arg1 = parseOperation(argv[2]);
-        }
         if (args.operation == 2) {
             args.arg2 = parseOperation(argv[3]);
             args.arg3 = parseOperation(argv[4]);
@@ -103,17 +102,21 @@ std::string Application::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     switch (args.operation) {
     case 1:
-        graph.AddNodes(args.arg1);
+        graph[0].AddNodes(args.arg1);
         break;
     case 2:
-        graph.AddEdge(args.arg1, args.arg2, args.arg3);
+        graph[0].AddEdge(args.arg1, args.arg2, args.arg3);
         break;
     case 3:
         // 1 --> 12 = 10
 
         break;
+    case 4:
+        delete[] graph;
+        graph = new Graph(args.arg1);
     }
 
     message_ = stream.str();
+    delete[] graph;
     return message_;
 }
