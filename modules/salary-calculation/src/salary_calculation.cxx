@@ -52,6 +52,7 @@ void Salary::SetPenalty(int val) {
     penalty_ = val;
 }
 void Salary::CalculateSalary() {
+    salary_ = 0;
     if (work_hours_ < needed_hours_) {
         salary_ = work_hours_ * salary_per_hour_;
         if (!admin_rest_)

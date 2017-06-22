@@ -76,6 +76,7 @@ void Application::PrintHelp() {
 
 int Application::ToInt(char** argc) {  //  LXIX
     int i = 0;  //  or Str->int
+    if (argc == nullptr) return 100;
     while (argc[i]) {
         std::cout << argc[i] << std::endl;
         i++;
