@@ -1,5 +1,6 @@
 // Copyright 2017 Kozlov Ilya
 
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

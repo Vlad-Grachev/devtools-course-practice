@@ -3,6 +3,7 @@
 #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
 #define MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
 
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
