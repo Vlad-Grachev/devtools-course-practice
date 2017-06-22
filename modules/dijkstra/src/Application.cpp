@@ -80,5 +80,24 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 std::string Application::operator()(int argc, const char** argv) {
+    Arguments args;
+    bool _existance_of_graph;
+    Graph* graph;
 
+    if (!validateNumberOfArguments(argc, argv)) {
+        return message_;
+    }
+    try {
+        args.operation = parseOperation(argv[1]);
+        if (args.operation < 4) {
+            args.arg1 = parseOperation(argv[2]);
+        }
+        if (args.operation == 2) {
+            args.arg2 = parseOperation(argv[3]);
+            args.arg3 = parseOperation(argv[4]);
+        }
+    }
+    catch (std::string& str) {
+        return str;
+    }
 }

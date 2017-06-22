@@ -23,11 +23,7 @@ private:
     int parseOperation(const char* arg);
     std::string message_;
     typedef struct {
-        int nodes_number;
-        int weight;
-        int node_from;
-        int node_to;
-        int operation;
+        int operation, arg1, arg2, arg3;
     } Arguments;
 };
 #endif // #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_

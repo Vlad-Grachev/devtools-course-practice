@@ -21,8 +21,10 @@ struct Edge {
 class Graph {
  public:
   Graph();
+  ~Graph();
   explicit Graph(int size);
 
+  void AddNodes(const unsigned int nodes_value);
   void AddEdge(const int _weight, const int key1, const int key2);
   bool IsConnect(const int key1, const int key2);
   int GetSize();
