@@ -109,7 +109,7 @@ std::string Application::operator()(int argc, const char** argv) {
         break;
     case 3:
         res = graph[0].Dijkstra(args.arg1);
-        for (int i = 0; i = graph[0].GetSize(); i++) {
+        for (int i = 0; i < graph[0].GetSize(); i++) {
             if (res[i] != INT_MAX) {
                 stream << "\n" << args.arg1 << "-->" << i << "=" << res[i];
             }
