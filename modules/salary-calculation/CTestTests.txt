@@ -10,3 +10,11 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_first_test
+    COMMAND ${APPLICATION} 1 10
+)
+set_tests_properties (${prefix}_first_test PROPERTIES
+    PASS_REGULAR_EXPRESSION "1"
+    LABELS "${MODULE}")
