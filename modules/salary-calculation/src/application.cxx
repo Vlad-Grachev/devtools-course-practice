@@ -10,7 +10,7 @@ Application::Application(int salary_per_hour, int needed_hours,
         workday);
     worker_salary_->SetOvertimeBonus(overtime_bonus);
     worker_salary_->CalculateSalary();
-    instructions_ = new int[20];
+    instructions_ = new int[14];
 }
 
 Application::Application(const Application& pApp) {
@@ -31,8 +31,8 @@ int Application::operator()(int argv, char** argc) {
     ToIntArray(argc);
     //  cicle with options
     int i = 0;
-    int result;
-    while (instructions_[i] && i < 14) {
+    int result = 0;
+    while (instructions_[i] && i < 13) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
         i += 2;
     }
@@ -66,7 +66,7 @@ int Application::OneStep(int instruction, int value) {
             break;
         }
         case 6: {
-            worker_salary_->SetWorkHours(value);
+            worker_salary_->SetWorkDay(value);
             break;
         }
         case 7: {
@@ -83,7 +83,7 @@ int Application::OneStep(int instruction, int value) {
 
 void Application::ToIntArray(char** argc) {
     int i = 0;
-    while (argc[i] && i < 14) {
+    while (argc[i] != nullptr) {
         instructions_[i] = ToInt(argc[i]);
         i++;
     }

@@ -108,8 +108,8 @@ TEST(Application, Char_To_Int_2) {
     EXPECT_EQ(app.ToInt(a), 1);
 }
 
-/*TEST(Application, Hard_Test) {
-    char** arr = new char*[14];
+TEST(Application, Hard_Test) {
+    char** arr = new char*[15];
     Application app;
     for (int i = 0; i <= 12; i += 2) {
         arr[i] = new char[1];
@@ -133,6 +133,7 @@ TEST(Application, Char_To_Int_2) {
     arr[11][0] = '8';
     arr[13] = new char[1];
     arr[13][0] = '0';
+    arr[14] = nullptr;
     int res = app(0, arr);
     EXPECT_EQ(res,1600);
-}*/
+}
