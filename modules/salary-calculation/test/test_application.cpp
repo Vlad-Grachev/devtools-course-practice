@@ -49,7 +49,7 @@ TEST(Application, Hard_Test) {
     Application app;
     for (int i = 1; i <= 13; i += 2) {
         arr[i] = new char[1];
-        arr[i][0] = '0' + ( i - 1 ) / 2 + 1;
+        arr[i][0] = '0' + (i - 1) / 2 + 1;
     }
     arr[2] = new char[2];
     arr[2][0] = '5';
