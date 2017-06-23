@@ -33,7 +33,8 @@ int Application::operator()(int argv, char** argc) {
     int i = 0;
     int result;
     while (instructions_[i]) {
-        result = OneStep(instructions_[i], instructions_[i + 1]);
+        //result = OneStep(instructions_[i], instructions_[i + 1]);
+        std::cout << instructions_[i] << "   " << instructions_[i + 1] << std::endl;
         i += 2;
     }
     //  return result
@@ -83,7 +84,7 @@ int Application::OneStep(int instruction, int value) {
 
 void Application::ToIntArray(char** argc) {
     int i = 0;
-    while (argc[i]) {
+    while (argc[i] && i < 14) {
         instructions_[i] = ToInt(argc[i]);
         i++;
     }

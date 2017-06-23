@@ -108,15 +108,31 @@ TEST(Application, Char_To_Int_2) {
     EXPECT_EQ(app.ToInt(a), 1);
 }
 
-/*TEST(Application, Arr_Char_To_Int_Arr) {
-    char** arr = new char*[2];
-    arr[0] = new char[1];
-    arr[1] = new char[2];
-    arr[0][0] = '2';
-    arr[1][0] = '2';
-    arr[1][1] = '0';
+TEST(Application, Hard_Test) {
+    char** arr = new char*[14];
     Application app;
-    app.ToIntArray(arr);
-    EXPECT_EQ(app.GetArray()[0], 2);
-    EXPECT_EQ(app.GetArray()[1], 20);
-}*/
+    for (int i = 0; i <= 12; i += 2) {
+        arr[i] = new char[1];
+        arr[i][0] = '0' + i / 2 + 1;
+    }
+    arr[1] = new char[2];
+    arr[1][0] = '5';
+    arr[1][1] = '0';
+    arr[3] = new char[2];
+    arr[3][0] = '3';
+    arr[3][1] = '0';
+    arr[5] = new char[2];
+    arr[5][0] = '6';
+    arr[5][1] = '0';
+    arr[7] = new char[1];
+    arr[7][0] = '0';
+    arr[9] = new char[2];
+    arr[9][0] = '2';
+    arr[9][1] = '0';
+    arr[11] = new char[1];
+    arr[11][0] = '8';
+    arr[13] = new char[1];
+    arr[13][0] = '0';
+    int res = app(0, arr);
+    EXPECT_EQ(res,1600);
+}
