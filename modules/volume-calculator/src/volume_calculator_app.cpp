@@ -264,7 +264,7 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
             stream << "Volume = " << result;
             break;
         case 13:
-            result = Calc.RectangularParallelepiped(Arguments[0], 
+            result = Calc.RectangularParallelepiped(Arguments[0],
                 Arguments[1], Arguments[2]);
             stream << "Volume = " << result;
             break;
