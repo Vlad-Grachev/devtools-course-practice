@@ -54,7 +54,7 @@ TEST_F(VolumeCalculatorTest, Can_Detect_Wrong_Type_Format) {
 
     Act(args);
 
-    Assert("Wrong number format!");
+    Assert("Type must be integer");
 }
 
 TEST_F(VolumeCalculatorTest, Can_Detect_Wrong_Argument_Format) {
@@ -239,14 +239,6 @@ TEST_F(VolumeCalculatorTest, Can_Calculate_Volume_Of_Type_6) {
     Act(args);
 
     Assert("Volume = 4.2336");
-}
-
-TEST_F(VolumeCalculatorTest, Can_Calculate_Volume_Of_Type_7) {
-    vector<string> args = { "7", "3", "2" };
-
-    Act(args);
-
-    Assert("Volume = 2");
 }
 
 TEST_F(VolumeCalculatorTest, Can_Calculate_Volume_Of_Type_8) {
