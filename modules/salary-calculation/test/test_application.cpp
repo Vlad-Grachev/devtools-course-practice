@@ -97,6 +97,6 @@ TEST(Application, Arr_Char_To_Int_Arr) {
     arr[1][1] = '0';
     Application app;
     app.ToIntArray(arr);
-	EXPECT_EQ(app.GetArray()[0], 2);
-	EXPECT_EQ(app.GetArray()[1], 20);
+    EXPECT_EQ(app.GetArray()[0], 2);
+    EXPECT_EQ(app.GetArray()[1], 20);
 }
