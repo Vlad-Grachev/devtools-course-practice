@@ -179,6 +179,7 @@ bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
             return true;
             break;
         default:
+            help(argv[0], "Incorrect type.\n\n");
             return false;
         }
     }
@@ -206,7 +207,6 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
     
     std::ostringstream stream;
 
-    try {
         switch (Type) {
         case 1:
             result = Calc.Cube(Arguments[0]);
@@ -265,10 +265,7 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
             stream << "Volume = " << result;
             break;
         }
-    }
-    catch (std::string& str) {
-        return str;
-    }
+
     message_ = stream.str();
     return message_;
 }

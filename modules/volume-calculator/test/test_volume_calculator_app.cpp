@@ -185,6 +185,14 @@ TEST_F(VolumeCalculatorTest, Is_Checking_Number_Of_Arguments_Of_Type_14) {
     Assert("ERROR: Should be 3 arguments\\..*");
 }
 
+TEST_F(VolumeCalculatorTest, Is_Checking_Number_Of_Arguments_Of_Invalid_type) {
+    vector<string> args = { "18", "1", "1", "1", "1", "1", "1", "1", "1" };
+
+    Act(args);
+
+    Assert("Incorrect type\\..*");
+}
+
 TEST_F(VolumeCalculatorTest, Can_Calculate_Volume_Of_Type_1) {
     vector<string> args = { "1", "3" };
 
