@@ -32,7 +32,7 @@ int Application::operator()(int argv, char** argc) {
     //  cicle with options
     int i = 0;
     int result = 0;
-    while (instructions_[i] != -1) {
+    while ((instructions_[i] != -1 ) && i < 20) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
         i += 2;
     }
