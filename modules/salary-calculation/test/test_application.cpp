@@ -20,81 +20,18 @@ TEST(Application, Constructor_copir) {
     EXPECT_NO_FATAL_FAILURE(Application app2(app1));
 }
 
-/*TEST(Application, Operator_0) {
-    Application app;
-    char** chr = nullptr;
-    EXPECT_NO_FATAL_FAILURE(app(0, chr));
-}
-
-TEST(Application, Operator_1) {
-    Application app;
-    char** chr = new char*[1];
-    chr[0] = new char[2];
-    chr[0][0] = '1';
-    chr[0][1] = '0';
-    EXPECT_EQ(app(1, chr), 0);
-}
-
-TEST(Application, Operator_2) {
-    Application app;
-    char** chr = new char*[1];
-    chr[0] = new char[2];
-    chr[0][0] = '1';
-    chr[0][1] = '0';
-    EXPECT_EQ(app(2, chr), 0);
-}
-
-TEST(Application, Operator_3) {
-    Application app;
-    char** chr = new char*[1];
-    chr[0] = new char[2];
-    chr[0][0] = '1';
-    chr[0][1] = '0';
-    EXPECT_EQ(app(3, chr), 0);
-}
-
-TEST(Application, Operator_4) {
-    Application app;
-    char** chr = new char*[1];
-    chr[0] = new char[2];
-    chr[0][0] = '1';
-    chr[0][1] = '0';
-    EXPECT_EQ(app(4, chr), 0);
-}
-
-TEST(Application, Operator_5) {
-    Application app;
-    char** chr = new char*[1];
-    chr[0] = new char[2];
-    chr[0][0] = '1';
-    chr[0][1] = '0';
-    EXPECT_EQ(app(5, chr), 0);
-}
-
-TEST(Application, Operator_6) {
-    Application app;
-    char** chr = new char*[1];
-    chr[0] = new char[2];
-    chr[0][0] = '1';
-    chr[0][1] = '0';
-    EXPECT_EQ(app(6, chr), 0);
-}
-
 TEST(Application, Operator_7) {
     Application app;
-    char** chr = new char*[1];
+    char** chr = new char*[3];
     chr[0] = new char[1];
-    chr[0][0] = '1';
+    chr[0][0] = '7';
+    chr[1] = new char[1];
+    chr[1][0] = '1';
+    chr[2] = nullptr;
     Salary sal;
     sal.CalculateSalary();
-    EXPECT_EQ(app(7, chr), sal.GetSalary());
+    EXPECT_EQ(app(7, chr), 3200);
 }
-
-TEST(Application, Operator_8) {
-    Application app;
-    char** chr = nullptr;
-    EXPECT_NO_FATAL_FAILURE(app(8, chr));
-}*/
 
 TEST(Application, Char_To_Int_1) {
     char a[3] = { '1', '2', '3' };
@@ -135,5 +72,5 @@ TEST(Application, Hard_Test) {
     arr[13][0] = '0';
     arr[14] = nullptr;
     int res = app(0, arr);
-    EXPECT_EQ(res,1600);
+    EXPECT_EQ(res, 1600);
 }
