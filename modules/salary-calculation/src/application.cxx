@@ -87,7 +87,7 @@ int Application::OneStep(int instruction, int value) {
 
 void Application::ToIntArray(int kol, char** argc) {
     int i = 1;
-    while (i < kol-1 && argc[i][0] != 'e') {
+    while (i < kol-1) {
         instructions_[i-1] = ToInt(argc[i]);
         i++;
     }
