@@ -64,12 +64,10 @@ double parseDouble(const char* arg) {
 int parseInt(const char* arg) {
     int value = atoi(arg);
     double whole = parseDouble(arg);
-        if (whole!=value) {
+        if (whole != value) {
             throw std::string("Wrong number format!");
     }
-        return value;
-  
-    
+        return value;  
 }
 
 
@@ -78,13 +76,12 @@ bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else{
+    } else {
         try {
             mode = parseInt(argv[1]);
         }
         catch (std::string& str) {
-            //help(argv[0], "Wrong type format!");
+            // help(argv[0], "Wrong type format!");
             return true;
         }
         
