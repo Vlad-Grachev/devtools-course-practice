@@ -26,7 +26,7 @@ add_test(
     COMMAND ${APPLICATION} 3.22 3.22
 )
 set_tests_properties (${prefix}_Can_Detect_Wrong_Type_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    PASS_REGULAR_EXPRESSION "Type must be integer"
     LABELS "${MODULE}")
 
 add_test(
