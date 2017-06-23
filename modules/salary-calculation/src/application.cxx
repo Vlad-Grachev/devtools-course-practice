@@ -32,14 +32,11 @@ int Application::operator()(int argv, char** argc) {
     //  cicle with options
     int i = 0;
     int result = 0;
-    std::cout << argv << std::endl;
     while (i < argv-1) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
-        std::cout << instructions_[i] << "    " << instructions_[i + 1];
-        std::cout << std::endl;
         i += 2;
     }
-    if (instructions_[i] == 7) result = OneStep();
+    //  if (instructions_[i] == 7) result = OneStep();
     //  return result
     return result;
 }
