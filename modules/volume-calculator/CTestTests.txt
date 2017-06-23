@@ -162,6 +162,13 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Of_Type_14 PROPERT
     PASS_REGULAR_EXPRESSION "ERROR: Should be 3 arguments."
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Of_Type_14
+    COMMAND ${APPLICATION} 18 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Of_Type_14 PROPERTIES
+    PASS_REGULAR_EXPRESSION "Incorrect type"
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Calculate_Volume_Of_Type_1

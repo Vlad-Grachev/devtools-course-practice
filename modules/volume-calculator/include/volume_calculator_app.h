@@ -6,14 +6,14 @@
 #include <string>
 
 class VolumeCalculator {
-    public:
-        VolumeCalculator();
-        std::string operator()(int argc, const char** argv);
+ public:
+    VolumeCalculator();
+    std::string operator()(int argc, const char** argv);
 
-    private:
-        void help(const char* appname, const char* message = "");
-        bool validateNumberOfArguments(int argc, const char** argv);
-        std::string message_;
+ private:
+    void help(const char* appname, const char* message = "");
+    bool validateNumberOfArguments(int argc, const char** argv);
+    std::string message_;
 };
 
 #endif  // MODULES_VOLUME_CALCULATOR_INCLUDE_VOLUME_CALCULATOR_APP_H_
