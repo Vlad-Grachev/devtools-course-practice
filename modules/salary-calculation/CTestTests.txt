@@ -61,7 +61,7 @@ set_tests_properties (${prefix}_6_test PROPERTIES
 
 add_test(
     NAME ${prefix}_7_test
-    COMMAND ${APPLICATION} 7 7 10 e
+    COMMAND ${APPLICATION} 7 e
 )
 set_tests_properties (${prefix}_7_test PROPERTIES
     PASS_REGULAR_EXPRESSION "3200"
