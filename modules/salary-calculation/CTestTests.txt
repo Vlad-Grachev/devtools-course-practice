@@ -6,14 +6,14 @@ set(prefix "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Run
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} e
 )
 set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_1_test
-    COMMAND ${APPLICATION} 1 10 e
+    COMMAND ${APPLICATION} 1 1 10 e
 )
 set_tests_properties (${prefix}_1_test PROPERTIES
     PASS_REGULAR_EXPRESSION "1"
@@ -21,7 +21,7 @@ set_tests_properties (${prefix}_1_test PROPERTIES
 
 add_test(
     NAME ${prefix}_2_test
-    COMMAND ${APPLICATION} 2 10 e
+    COMMAND ${APPLICATION} 1 2 10 e
 )
 set_tests_properties (${prefix}_2_test PROPERTIES
     PASS_REGULAR_EXPRESSION "2"
@@ -29,7 +29,7 @@ set_tests_properties (${prefix}_2_test PROPERTIES
 
 add_test(
     NAME ${prefix}_3_test
-    COMMAND ${APPLICATION} 3 10 e
+    COMMAND ${APPLICATION} 1 3 10 e
 )
 set_tests_properties (${prefix}_3_test PROPERTIES
     PASS_REGULAR_EXPRESSION "3"
@@ -37,7 +37,7 @@ set_tests_properties (${prefix}_3_test PROPERTIES
 
 add_test(
     NAME ${prefix}_4_test
-    COMMAND ${APPLICATION} 4 10 e
+    COMMAND ${APPLICATION} 1 4 10 e
 )
 set_tests_properties (${prefix}_4_test PROPERTIES
     PASS_REGULAR_EXPRESSION "4"
@@ -45,7 +45,7 @@ set_tests_properties (${prefix}_4_test PROPERTIES
 
 add_test(
     NAME ${prefix}_5_test
-    COMMAND ${APPLICATION} 5 10 e
+    COMMAND ${APPLICATION} 1 5 10 e
 )
 set_tests_properties (${prefix}_5_test PROPERTIES
     PASS_REGULAR_EXPRESSION "5"
@@ -53,7 +53,7 @@ set_tests_properties (${prefix}_5_test PROPERTIES
 
 add_test(
     NAME ${prefix}_6_test
-    COMMAND ${APPLICATION} 6 10 e
+    COMMAND ${APPLICATION} 1 6 10 e
 )
 set_tests_properties (${prefix}_6_test PROPERTIES
     PASS_REGULAR_EXPRESSION "6"
@@ -61,7 +61,7 @@ set_tests_properties (${prefix}_6_test PROPERTIES
 
 add_test(
     NAME ${prefix}_7_test
-    COMMAND ${APPLICATION} 7 0 e
+    COMMAND ${APPLICATION} 1 7 0 e
 )
 set_tests_properties (${prefix}_7_test PROPERTIES
     PASS_REGULAR_EXPRESSION "3200"
@@ -69,7 +69,7 @@ set_tests_properties (${prefix}_7_test PROPERTIES
 
 add_test(
     NAME ${prefix}_8_HARD_TEST
-    COMMAND ${APPLICATION} 1 50 2 30 3 60 4 0 5 20 6 8 7 0 e
+    COMMAND ${APPLICATION} 7 1 50 2 30 3 60 4 0 5 20 6 8 7 0 e
 )
 set_tests_properties (${prefix}_8_HARD_TEST PROPERTIES
     PASS_REGULAR_EXPRESSION "1600"
