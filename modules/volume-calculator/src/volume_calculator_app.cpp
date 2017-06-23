@@ -72,13 +72,12 @@ int parseInt(const char* arg) {
 
 
 bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
-    int mode;
     if (argc == 1) {
         help(argv[0]);
         return false;
     } else {
         try {
-            mode = parseInt(argv[1]);
+           int mode = parseInt(argv[1]);
         }
         catch (std::string& str) {
             message_ = "Type must be integer";
@@ -264,7 +263,7 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
             stream << "Volume = " << result;
             break;
         case 13:
-            result = Calc.RectangularParallelepiped(Arguments[0], 
+            result = Calc.RectangularParallelepiped(Arguments[0],
                 Arguments[1], Arguments[2]);
             stream << "Volume = " << result;
             break;
