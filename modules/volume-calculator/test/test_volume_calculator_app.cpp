@@ -36,7 +36,7 @@ class VolumeCalculatorTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-  private:
+ private:
     VolumeCalculator app_;
     string output_;
 };
