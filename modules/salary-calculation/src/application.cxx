@@ -32,7 +32,7 @@ int Application::operator()(int argv, char** argc) {
     //  cicle with options
     int i = 0;
     int result = 0;
-    while (i < argv*2) {
+    while (i < argv * 2) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
         i += 2;
     }
@@ -84,7 +84,7 @@ int Application::OneStep(int instruction, int value) {
 
 void Application::ToIntArray(int kol, char** argc) {
     int i = 0;
-    while (i < kol*2) {
+    while (i < kol * 2) {
         instructions_[i] = ToInt(argc[i]);
         i++;
     }
