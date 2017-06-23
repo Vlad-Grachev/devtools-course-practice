@@ -28,15 +28,15 @@ Application::Application(const Application& pApp) {
 int Application::operator()(int argv, char** argc) {
     //  function char** -> int**
     if (argc == nullptr) return 0;
-    ToIntArray(argc);
+    ToIntArray(argv, argc);
     //  cicle with options
     int i = 0;
     int result = 0;
-    while (instructions_[i] != 7 && instructions_[i] != -1) {
+    while (i < argv*2) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
         i += 2;
     }
-	if (instructions_[i] == 7) result = OneStep();
+    if (instructions_[i] == 7) result = OneStep();
     //  return result
     return result;
 }
@@ -82,14 +82,12 @@ int Application::OneStep(int instruction, int value) {
     return 0;
 }
 
-void Application::ToIntArray(char** argc) {
+void Application::ToIntArray(int kol, char** argc) {
     int i = 0;
-    while (argc[i] != nullptr && argc[i][0] != 'e') {
+    while (i < kol*2) {
         instructions_[i] = ToInt(argc[i]);
         i++;
     }
-    instructions_[i] = -1;
-    instructions_[i + 1] = -1;
 }
 
 int Application::ToInt(char* numb) {

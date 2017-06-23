@@ -20,17 +20,16 @@ TEST(Application, Constructor_copir) {
     EXPECT_NO_FATAL_FAILURE(Application app2(app1));
 }
 
-TEST(Application, Operator_7) {
+TEST(Application, Operator) {
     Application app;
-    char** chr = new char*[3];
+    char** chr = new char*[2];
     chr[0] = new char[1];
     chr[0][0] = '7';
     chr[1] = new char[1];
     chr[1][0] = '1';
-    chr[2] = nullptr;
     Salary sal;
     sal.CalculateSalary();
-    EXPECT_EQ(app(7, chr), 3200);
+    EXPECT_EQ(app(1, chr), 3200);
 }
 
 TEST(Application, Char_To_Int_1) {
@@ -46,7 +45,7 @@ TEST(Application, Char_To_Int_2) {
 }
 
 TEST(Application, Hard_Test) {
-    char** arr = new char*[15];
+    char** arr = new char*[14];
     Application app;
     for (int i = 0; i <= 12; i += 2) {
         arr[i] = new char[1];
@@ -70,8 +69,6 @@ TEST(Application, Hard_Test) {
     arr[11][0] = '8';
     arr[13] = new char[1];
     arr[13][0] = '0';
-    arr[14] = new char[1];
-    arr[14][0] = 'e';
-    int res = app(0, arr);
+    int res = app(7, arr);
     EXPECT_EQ(res, 1600);
 }

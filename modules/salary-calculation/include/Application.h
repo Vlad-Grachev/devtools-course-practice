@@ -14,7 +14,7 @@ class Application {
     int operator()(int argv = 0, char** argc = nullptr);
     void PrintHelp();
     int OneStep(int instruction = 7, int value = 0);
-    void ToIntArray(char** arr);
+    void ToIntArray(int kol, char** arr);
     int ToInt(char* numb);
 
     int* GetArray();
