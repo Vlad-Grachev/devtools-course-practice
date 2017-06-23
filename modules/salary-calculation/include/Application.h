@@ -13,10 +13,15 @@ class Application {
     Application(const Application & pApp);
     int operator()(int argv = 0, char** argc = nullptr);
     void PrintHelp();
-    int ToInt(char** argc);
+    int OneStep(int instruction = 7, int value = 0);
+    void ToIntArray(char** arr);
+    int ToInt(char* numb);
+
+    int* GetArray();
 
  private:
      Salary* worker_salary_;
+     int* instructions_;
 };
 
 #endif  // MODULES_SALARY_CALCULATION_INCLUDE_APPLICATION_H_

@@ -10,6 +10,7 @@ Application::Application(int salary_per_hour, int needed_hours,
         workday);
     worker_salary_->SetOvertimeBonus(overtime_bonus);
     worker_salary_->CalculateSalary();
+    instructions_ = new int[20];
 }
 
 Application::Application(const Application& pApp) {
@@ -19,49 +20,86 @@ Application::Application(const Application& pApp) {
         pApp.worker_salary_->GetWorkDay());
     worker_salary_->SetOvertimeBonus(pApp.worker_salary_->GetOvertimeBonus());
     worker_salary_->CalculateSalary();
+    instructions_ = new int[20];
+    for (int i = 0; i < 20; i++)
+        instructions_[i] = pApp.instructions_[i];
 }
 
 int Application::operator()(int argv, char** argc) {
-    if (argv == 0) {
-        PrintHelp();
-        return 0;
+    //  function char** -> int**
+    ToIntArray(argc);
+    //  cicle with options
+    int i = 0;
+    int result;
+    while (instructions_[i]) {
+        result = OneStep(instructions_[i], instructions_[i + 1]);
+        i++;
     }
-    if (argv == 7) {
-        worker_salary_->CalculateSalary();
-        return worker_salary_->GetSalary();
-    }
-    int val = ToInt(argc);
-    switch (argv) {
+    //  return result
+    return result;
+}
+
+int Application::OneStep(int instruction, int value) {
+    switch (instruction) {
+        case 0 : {
+            PrintHelp();
+        }
         case 1: {
-            worker_salary_->SetSalaryPerHour(val);
+            worker_salary_->SetSalaryPerHour(value);
             break;
         }
-        case 2 : {
-            worker_salary_->SetWorkHours(val);
+        case 2: {
+            worker_salary_->SetWorkHours(value);
             break;
         }
-        case 3 : {
-            worker_salary_->SetOvertimeBonus(val);
+        case 3: {
+            worker_salary_->SetOvertimeBonus(value);
             break;
         }
-        case 4 : {
-            worker_salary_->SetAdminRest(val);
+        case 4: {
+            worker_salary_->SetAdminRest(value);
             break;
         }
-        case 5 : {
-            worker_salary_->SetNeededHours(val);
+        case 5: {
+            worker_salary_->SetNeededHours(value);
             break;
         }
-        case 6 : {
-            worker_salary_->SetWorkHours(val);
+        case 6: {
+            worker_salary_->SetWorkHours(value);
             break;
+        }
+        case 7: {
+            worker_salary_->CalculateSalary();
+            return worker_salary_->GetSalary();
         }
         default: {
             PrintHelp();
             break;
         }
     }
-    return argv;
+    return 0;
+}
+
+void Application::ToIntArray(char** argc) {
+    int i = 0;
+    while (argc[i]) {
+        instructions_[i] = ToInt(argc[i]);
+        i++;
+    }
+}
+
+int Application::ToInt(char* numb) {
+    int i = 0, j = 0, result = 0;
+    while (numb[i]) {
+        if (numb[i]<'0' || numb[i] > '9') return 0;
+        i++;
+    }
+        
+    while (j < i) {
+        result = result * 10 + (numb[j] - '0');
+        j++;
+    }
+    return result;
 }
 
 void Application::PrintHelp() {
@@ -74,12 +112,6 @@ void Application::PrintHelp() {
     std::cout << "7 - Get Salary\n";
 }
 
-int Application::ToInt(char** argc) {  //  LXIX
-    int i = 0;  //  or Str->int
-    if (argc == nullptr) return 100;
-    while (argc[i]) {
-        std::cout << argc[i] << std::endl;
-        i++;
-    }
-    return 100;
+int* Application::GetArray() {
+    return instructions_;
 }
