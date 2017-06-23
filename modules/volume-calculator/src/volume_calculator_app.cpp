@@ -21,25 +21,34 @@ void VolumeCalculator::help(const char* appname, const char* message) {
         "  $ " + appname + " <type of figure> " +
         "<...> - parameters \n\n" +
 
-        "Where all parameters are double-unsigned numbers, " + 
-        "And Type is unsigned integer\n" + 
-        "The parameters are arranged in the order of their description\n" + 
-        "Types and parameters:\n" + 
-        "1 - Cube and Parameters is: a is side length of cube \n" + 
-        "2 - Dodecahedron and Parameters is: a is rib length of dodecahedron \n" + 
-        "3 - Cylinder and Parameters is: h is height of cylinder, r is radius \n" + 
-        "4 - Parallelepiped and Parameters is: S is base area, h is height \n" + 
-        "5 - Parallelepiped and Parameters is: a,b is rib of base area, h is height \n" + 
-        "6 - Parallelepiped and Parameters is: a,b,c is non parallel rib, x is argument of sine of slope angle\n" + 
-        "7 - Pyramid and Parameters is: S is base area of pyramid, h is height\n" + 
-        "8 - Pyramid and Parameters is: a is rid of base triangle of pyramid, base_h is height of base triangle\n" +
-        " pyramid_h is height of pyramid /n" + 
-        "9 - Cone and Parameters is: h is height of cone, r is radius of cone \n" + 
-        "10 - Sphere and Parameters is: r is radius of sphere \n" + 
-        "11 - Ellipsoid and Parameters is: a, b, c is radius of perpendicular axis of ellipsoid \n" + 
-        "12 - Paraboloid and Parameters is: r is rarius of paraboloid, h is height of paraboloid \n" + 
-        "13 - RectangularParallelepiped and Parameters is: a,b,c is perpendicular rib of rectangular parallelepiped \n" +
-        "14 - Frustum and Parameters is: r_base_1, r_base_2 is radius of bases of frustum, h is height of frustum \n";
+        "Where all parameters are double-unsigned numbers, " +
+        "And Type is unsigned integer\n" +
+        "The parameters are arranged in the order of their description\n" +
+        "Types and parameters:\n" +
+        "1 - Cube and Parameters is: a is side length \n" +
+        "2 - Dodecahedron and Parameters is: a is rib length \n" +
+        "3 - Cylinder and Parameters is: h is height of cylinder, r \n" +
+        "4 - Parallelepiped and Parameters is: S is base area, h] \n" +
+        "5 - Parallelepiped and Parameters is: a,b is rib of" +
+        " base area, h is height \n" +
+        "6 - Parallelepiped and Parameters is: a,b,c is non parallel" +
+        " rib, x is argument of sine of slope angle\n" +
+        "7 - Pyramid and Parameters is: S is base area of" +
+        " pyramid, h is height\n" +
+        "8 - Pyramid and Parameters is: a is rid of base triangle" +
+        " of pyramid, base_h is height of base triangle\n" +
+        " pyramid_h is height of pyramid /n" +
+        "9 - Cone and Parameters is: h is height of cone," +
+        " r is radius of cone \n" +
+        "10 - Sphere and Parameters is: r is radius of sphere \n" +
+        "11 - Ellipsoid and Parameters is: a, b, c is" +
+        " radius of perpendicular axis of ellipsoid \n" +
+        "12 - Paraboloid and Parameters is: r" +
+        " is rarius of paraboloid, h is height of paraboloid \n" +
+        "13 - RectangularParallelepiped and Parameters is: a,b,c" +
+        " is perpendicular rib of rectangular parallelepiped \n" +
+        "14 - Frustum and Parameters is: r_base_1, r_base_2 is" +
+        " radius of bases of frustum, h is height of frustum \n";
 }
 
 double parseDouble(const char* arg) {
