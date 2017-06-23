@@ -71,7 +71,6 @@ add_test(
     NAME ${prefix}_8_HARD_TEST_EXPECT_FAILED
     COMMAND ${APPLICATION} 1 50 2 30 3 60 4 0 5 20 6 8 7 0
 )
-set_tests_properties (${prefix}_8_HARD_TEST_EXPECT_FAILED
+set_tests_properties (${prefix}_8_HARD_TEST_EXPECT_FAILED PROPERTIES
     PASS_REGULAR_EXPRESSION "1600"
     LABELS "${MODULE}")
-
