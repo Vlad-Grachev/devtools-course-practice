@@ -29,7 +29,7 @@ TEST(Application, Operator) {
     chr[1][0] = '1';
     Salary sal;
     sal.CalculateSalary();
-    EXPECT_EQ(app(3, chr), 3200);
+    EXPECT_EQ(app(4, chr), 3200);
 }
 
 TEST(Application, Char_To_Int_1) {
