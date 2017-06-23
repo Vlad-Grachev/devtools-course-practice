@@ -29,7 +29,7 @@ TEST(Application, Operator) {
     chr[1][0] = '1';
     Salary sal;
     sal.CalculateSalary();
-    EXPECT_EQ(app(1, chr), 3200);
+    EXPECT_EQ(app(3, chr), 3200);
 }
 
 TEST(Application, Char_To_Int_1) {
@@ -69,6 +69,6 @@ TEST(Application, Hard_Test) {
     arr[11][0] = '8';
     arr[13] = new char[1];
     arr[13][0] = '0';
-    int res = app(7, arr);
+    int res = app(15, arr);
     EXPECT_EQ(res, 1600);
 }

@@ -33,9 +33,10 @@ int Application::operator()(int argv, char** argc) {
     int i = 0;
     int result = 0;
     std::cout << argv << std::endl;
-    while (i < argv * 2) {
+    while (i < argv-1) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
-        std::cout << instructions_[i] << "    " << instructions_[i + 1] << std::endl;
+        std::cout << instructions_[i] << "    " << instructions_[i + 1];
+        std::cout << std::endl;
         i += 2;
     }
     if (instructions_[i] == 7) result = OneStep();
@@ -86,7 +87,7 @@ int Application::OneStep(int instruction, int value) {
 
 void Application::ToIntArray(int kol, char** argc) {
     int i = 0;
-    while (i < kol * 2 && argc[i][0] != 'e') {
+    while (i < kol-1 && argc[i][0] != 'e') {
         instructions_[i] = ToInt(argc[i]);
         i++;
     }
