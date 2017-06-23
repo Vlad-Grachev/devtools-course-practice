@@ -26,8 +26,8 @@ Application::Application(const Application& pApp) {
 }
 
 int Application::operator()(int argv, char** argc) {
-    //  function char** -> int**
     if (argc == nullptr) return 0;
+    //  function char** -> int**
     ToIntArray(argv, argc);
     //  cicle with options
     int i = 0;
@@ -36,8 +36,6 @@ int Application::operator()(int argv, char** argc) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
         i += 2;
     }
-    //  if (instructions_[i] == 7) result = OneStep();
-    //  return result
     return result;
 }
 
