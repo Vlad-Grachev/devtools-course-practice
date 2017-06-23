@@ -40,7 +40,7 @@ TEST(Application, Char_To_Int_1) {
 }
 
 TEST(Application, Char_To_Int_2) {
-    char a[3] = { '1' };
+    char a[1] = { '1' };
     Application app;
     EXPECT_EQ(app.ToInt(a), 1);
 }
@@ -70,7 +70,8 @@ TEST(Application, Hard_Test) {
     arr[11][0] = '8';
     arr[13] = new char[1];
     arr[13][0] = '0';
-    arr[14] = nullptr;
+    arr[14] = new char[1];
+    arr[14][0] = 'e';
     int res = app(0, arr);
     EXPECT_EQ(res, 1600);
 }
