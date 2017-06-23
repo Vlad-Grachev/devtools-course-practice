@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 class VolumeCalculatorTest : public ::testing::Test {
-protected:
+ protected:
     // virtual void SetUp() {}
 
     void Act(vector<string> args_) {
@@ -36,7 +36,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+  private:
     VolumeCalculator app_;
     string output_;
 };
@@ -239,7 +239,6 @@ TEST_F(VolumeCalculatorTest, Can_Calculate_Volume_Of_Type_6) {
     Act(args);
 
     Assert("Volume = 4.2336");
-
 }
 
 TEST_F(VolumeCalculatorTest, Can_Calculate_Volume_Of_Type_7) {

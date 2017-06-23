@@ -67,7 +67,7 @@ int parseInt(const char* arg) {
         if (whole != value) {
             throw std::string("Wrong number format!");
     }
-        return value;  
+        return value;
 }
 
 
@@ -84,7 +84,6 @@ bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
             // help(argv[0], "Wrong type format!");
             return true;
         }
-        
         switch (mode) {
         case 1:
             if (argc != 3) {
@@ -194,7 +193,7 @@ bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
 
 
 std::string VolumeCalculator::operator()(int argc, const char** argv) {
-    int Arguments [4];
+    int Arguments[4];
     int Type;
     Volume Calc;
     double result;
@@ -203,14 +202,13 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
     }
     try {
         Type = parseInt(argv[1]);
-        for (int i = 2; i < argc;i++)
+        for (int i = 2; i < argc; i++)
             Arguments[i - 2] = parseDouble(argv[i]);
     }
     catch (std::string& str) {
         return str;
     }
 
-    
     std::ostringstream stream;
 
         switch (Type) {
@@ -231,11 +229,13 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
             stream << "Volume = " << result;
             break;
         case 5:
-            result = Calc.Parallelepiped(Arguments[0], Arguments[1], Arguments[2]);
+            result = Calc.Parallelepiped(Arguments[0],
+                    Arguments[1], Arguments[2]);
             stream << "Volume = " << result;
             break;
         case 6:
-            result = Calc.Parallelepiped(Arguments[0], Arguments[1], Arguments[2], Arguments[3]);
+            result = Calc.Parallelepiped(Arguments[0],
+                Arguments[1], Arguments[2], Arguments[3]);
             stream << "Volume = " << result;
             break;
         case 7:
@@ -243,7 +243,8 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
             stream << "Volume = " << result;
             break;
         case 8:
-            result = Calc.Pyramid(Arguments[0], Arguments[1], Arguments[2]);
+            result = Calc.Pyramid(Arguments[0],
+                Arguments[1], Arguments[2]);
             stream << "Volume = " << result;
             break;
         case 9:
@@ -263,7 +264,8 @@ std::string VolumeCalculator::operator()(int argc, const char** argv) {
             stream << "Volume = " << result;
             break;
         case 13:
-            result = Calc.RectangularParallelepiped(Arguments[0], Arguments[1], Arguments[2]);
+            result = Calc.RectangularParallelepiped(Arguments[0],
+                Arguments[1], Arguments[2]);
             stream << "Volume = " << result;
             break;
         case 14:
