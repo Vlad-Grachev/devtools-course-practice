@@ -79,7 +79,7 @@ int Application::OneStep(int instruction, int value) {
             break;
         }
     }
-    return 0;
+    return instruction;
 }
 
 void Application::ToIntArray(int kol, char** argc) {

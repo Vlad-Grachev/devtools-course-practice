@@ -16,7 +16,7 @@ add_test(
     COMMAND ${APPLICATION} 1 1 10
 )
 set_tests_properties (${prefix}_1_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "0"
+    PASS_REGULAR_EXPRESSION "1"
     LABELS "${MODULE}")
 
 add_test(
@@ -24,7 +24,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2 10
 )
 set_tests_properties (${prefix}_2_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "0"
+    PASS_REGULAR_EXPRESSION "2"
     LABELS "${MODULE}")
 
 add_test(
@@ -32,7 +32,7 @@ add_test(
     COMMAND ${APPLICATION} 1 3 10
 )
 set_tests_properties (${prefix}_3_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "0"
+    PASS_REGULAR_EXPRESSION "3"
     LABELS "${MODULE}")
 
 add_test(
@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} 1 4 10
 )
 set_tests_properties (${prefix}_4_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "0"
+    PASS_REGULAR_EXPRESSION "4"
     LABELS "${MODULE}")
 
 add_test(
@@ -48,7 +48,7 @@ add_test(
     COMMAND ${APPLICATION} 1 5 10
 )
 set_tests_properties (${prefix}_5_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "0"
+    PASS_REGULAR_EXPRESSION "5"
     LABELS "${MODULE}")
 
 add_test(
@@ -56,7 +56,7 @@ add_test(
     COMMAND ${APPLICATION} 1 6 10
 )
 set_tests_properties (${prefix}_6_test PROPERTIES
-    PASS_REGULAR_EXPRESSION "0"
+    PASS_REGULAR_EXPRESSION "6"
     LABELS "${MODULE}")
 
 add_test(
