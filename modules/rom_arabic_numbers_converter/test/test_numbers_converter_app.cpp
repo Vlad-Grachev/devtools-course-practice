@@ -16,7 +16,7 @@ using std::string;
 
 
 class NumbersConverterTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char *> options;
 
@@ -35,7 +35,7 @@ protected:
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     Application app_;
     string output_;
 };
