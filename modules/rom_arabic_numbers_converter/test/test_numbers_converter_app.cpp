@@ -81,7 +81,7 @@ TEST_F(NumbersConverterTest, Can_Detect_Wrong_Roman_Number_Format) {
 }
 
 TEST_F(NumbersConverterTest, Can_Detect_Wrong_Arabic_Number_Format) {
-    vector<string> args = { "three" };
+    vector<string> args = { "1oo" };
 
     Act(args);
 
