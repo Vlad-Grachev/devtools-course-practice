@@ -39,7 +39,8 @@ TEST(Application, Char_To_Int_1) {
 }
 
 TEST(Application, Char_To_Int_2) {
-    char a[1] = { '1' };
+    char* a = new char[1];
+    a[0] = '1';
     Application app;
     EXPECT_EQ(app.ToInt(a), 1);
 }
