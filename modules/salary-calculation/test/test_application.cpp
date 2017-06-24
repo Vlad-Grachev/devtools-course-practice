@@ -20,7 +20,67 @@ TEST(Application, Constructor_copir) {
     EXPECT_NO_FATAL_FAILURE(Application app2(app1));
 }
 
-TEST(Application, Operator) {
+TEST(Application, Operator_1) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '1';
+    chr[2] = new char[1];
+    chr[2][0] = '1';
+    EXPECT_EQ(app(3, chr), 1);
+}
+
+TEST(Application, Operator_2) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '2';
+    chr[2] = new char[1];
+    chr[2][0] = '10';
+    EXPECT_EQ(app(3, chr), 2);
+}
+
+TEST(Application, Operator_3) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '3';
+    chr[2] = new char[1];
+    chr[2][0] = '1';
+    EXPECT_EQ(app(3, chr), 3);
+}
+
+TEST(Application, Operator_4) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '4';
+    chr[2] = new char[1];
+    chr[2][0] = '1';
+    EXPECT_EQ(app(3, chr), 4);
+}
+
+TEST(Application, Operator_5) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '5';
+    chr[2] = new char[1];
+    chr[2][0] = '1';
+    EXPECT_EQ(app(3, chr), 5);
+}
+
+TEST(Application, Operator_6) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '6';
+    chr[2] = new char[1];
+    chr[2][0] = '1';
+    EXPECT_EQ(app(3, chr), 6);
+}
+
+TEST(Application, Operator_7) {
     Application app;
     char** chr = new char*[3];
     chr[1] = new char[1];
