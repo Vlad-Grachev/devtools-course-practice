@@ -1,14 +1,14 @@
 // Copyright 2017 Vinogradova Ekaterina
 
-#include "include/numbers_converter_app.h"
-#include "include/rom_numbers_converter.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+
+#include "include/numbers_converter_app.h"
+#include "include/rom_numbers_converter.h"
 
 Application::Application() : message_("") {}
 
@@ -69,8 +69,7 @@ std::string Application::operator()(int argc, const char** argv) {
         if (argv[1][0] >= '0' && argv[1][0] <= '9') {
             args.arabic_number = parseArabic(argv[1]);
             args.flag = Arabic;
-        }
-        else {
+        } else {
             args.roman_number = parseRoman(argv[1]);
             args.flag = Roman;
         }
