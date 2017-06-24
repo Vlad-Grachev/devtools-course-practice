@@ -13,7 +13,7 @@
 Application::Application() : message_("") {}
 
 int parseArabic(const char* arg) {
-    for (int i = 0; i < strlen(arg); i++) {
+    for (unsigned int i = 0; i < strlen(arg); i++) {
         if (arg[i] < '0' || arg[i] > '9')
             throw std::string("Wrong number format!");
     }
@@ -26,7 +26,7 @@ int parseArabic(const char* arg) {
 }
 
 string parseRoman(const char* arg) {
-    for (int i = 0; i < strlen(arg); i++) {
+    for (unsigned int i = 0; i < strlen(arg); i++) {
         if (arg[i] != 'M' && arg[i] != 'D' && arg[i] != 'C' && arg[i] != 'L'
             && arg[i] != 'X' && arg[i] != 'V' && arg[i] != 'I')
             throw std::string("Wrong number format!");
