@@ -74,7 +74,7 @@ int Application::OneStep(int instruction, int value) {
         }
         default: {
             PrintHelp();
-            break;
+            return 0;
         }
     }
     return instruction;
@@ -108,8 +108,4 @@ void Application::PrintHelp() {
     std::cout << "5 - Set needed hours\n";
     std::cout << "6 - Set How many hours in workday , Value \n";
     std::cout << "7 - Get Salary\n";
-}
-
-int* Application::GetArray() {
-    return instructions_;
 }

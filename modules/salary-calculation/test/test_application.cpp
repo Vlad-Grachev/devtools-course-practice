@@ -73,3 +73,27 @@ TEST(Application, Hard_Test) {
     int res = app(15, arr);
     EXPECT_EQ(res, 1600);
 }
+
+TEST(Application, New_Test) {
+        Application app;
+        char** chr = new char*[3];
+        chr[1] = new char[1];
+        chr[1][0] = '0';
+        chr[2] = new char[1];
+        chr[2][0] = '1';
+        Salary sal;
+        sal.CalculateSalary();
+        EXPECT_EQ(app(3, chr), 0);
+}
+
+TEST(Application, New_Test_2) {
+    Application app;
+    char** chr = new char*[3];
+    chr[1] = new char[1];
+    chr[1][0] = '8';
+    chr[2] = new char[1];
+    chr[2][0] = '1';
+    Salary sal;
+    sal.CalculateSalary();
+    EXPECT_EQ(app(3, chr), 0);
+}

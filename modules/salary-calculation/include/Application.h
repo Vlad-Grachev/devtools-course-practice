@@ -17,8 +17,6 @@ class Application {
     void ToIntArray(int kol, char** arr);
     int ToInt(char* numb);
 
-    int* GetArray();
-
  private:
      Salary* worker_salary_;
      int* instructions_;
