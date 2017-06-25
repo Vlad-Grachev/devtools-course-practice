@@ -72,19 +72,13 @@ int parseInt(const char* arg) {
 
 
 bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
-    int mode;
+    
     if (argc == 1) {
         help(argv[0]);
         return false;
     } else {
         try {
-            mode = parseInt(argv[1]);
-        }
-        catch (std::string& str) {
-            message_ = "Type must be integer";
-            return false;
-        }
-        switch (mode) {
+        switch (parseInt(argv[1])) {
         case 1:
             if (argc != 3) {
                 help(argv[0], "ERROR: Should be 1 arguments.\n\n");
@@ -185,6 +179,11 @@ bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
             break;
         default:
             help(argv[0], "Incorrect type.\n\n");
+            return false;
+        }
+        }
+        catch (std::string& str) {
+            message_ = "Type must be integer";
             return false;
         }
     }
