@@ -72,7 +72,6 @@ int parseInt(const char* arg) {
 
 
 bool VolumeCalculator::validateNumberOfArguments(int argc, const char** argv) {
-    
     if (argc == 1) {
         help(argv[0]);
         return false;
