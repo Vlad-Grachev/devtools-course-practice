@@ -9,7 +9,6 @@
 
 class Application {
  public:
-    ~Application();
     Application();
     std::string operator()(int argc, const char** argv);
 
@@ -17,12 +16,18 @@ class Application {
     void help(const char* appname, const char* message = "");
     int parseInt(const char* arg);
     bool validateNumberOfArguments(int argc, const char** argv);
-    int parseOperation(const char* arg);
     std::string message_;
-    Graph* graph;
     typedef struct {
-        int operation, arg1, arg2, arg3;
+        int start_node_;
+        int size_;
+        int connected_nodes_;
     } Arguments;
+    typedef struct {
+        int weight_;
+        int start_;
+        int end_;
+    } Connection;
 };
 #endif  // #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
+
 

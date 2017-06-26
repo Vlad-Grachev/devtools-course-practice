@@ -12,55 +12,29 @@
 
 Application::Application() {}
 
-int Application::parseOperation(const char* arg) {
-    int op = 0;
-    if (strcmp(arg, "add_nodes") == 0) {
-        op = 1;
-    }
-    else if (strcmp(arg, "set_new_edge") == 0) {
-        op = 2;
-    }
-    else if (strcmp(arg, "optimal_weights_from") == 0) {
-        op = 3;
-    }
-    else if (strcmp(arg, "new_graph") == 0) {
-        op = 4;
-    }
-    else {
-        throw std::string("Wrong operation name!");
-    }
-    return op;
-}
-
-void Application::help(const char* appname, const char* message)  {
+void Application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is a optimal way calculator application.\n\n" +
-        "Please choose an operation and provide arguments " +
-        "in the following format:\n\n" +
+        "Pleaseprovide arguments in the following format:\n\n" +
 
-        "  $ " + appname + "<operation> <argument1> <argument2> <argument3>\n\n" +
+        "  $ " + appname + "<size> <start_node_index> <edge1> <edge2> ... <edgeN>\n" +
+        "WHERE <edgeN> = <weightN> <nodeIndexA> <nodeIndexB>\n\n" +
 
-        "Operations and those argunents:\n\n" +
-        "add_nodes <nodes_number> -  adds a value of nodes\n" +
-        "set_new_edge <weight> <node_from> <node_to> - sets new edge between selected nodes with selected weight\n" +
-        "optimals_ways_from <node_from> - shows optimal way weights from selected node to other ones\n\n" +
-        "new_graph <nodes_number> - creates a new graph with selected nodes (old is being deleted)" +
-
-        "Hints:\n" +
-        "All arguments must be unsigned integers!\n" +
-        "You're to set a graph by adding some nodes and edges or creating new at first!" +
-        "If nodes has no edges between the result of optimal_ways_from wil be 'inf'!\n\n";
-
-}
+        "ATTENTION:\n"
+        "\n*All arguments should be unsingned integer values!" +
+        "\n*The number of arguments should be > 2 and 2 + n, where the 'n' is a multiple of 3!" +
+        "\n*Carefully observe the format where typing the edges!";
+};
 
 int Application::parseInt(const char* arg) {
-    int value = atoi(arg);
-
-    if (value < 0) {
-        throw std::string("Wrong number format!");
+    int value;
+    try {
+        value = std::stoi(arg);
     }
-    return value;
+    catch (std::invalid_argument exc) {
+        throw std::string("ERROR: Incorrect number format.\n\n");
+    }
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
@@ -68,66 +42,60 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
         help(argv[0]);
         return false;
     }
-    else if (argc > 4 ||
-            (parseOperation(argv[1]) == 1 && argc != 2) ||
-            (parseOperation(argv[1]) == 2 && argc != 4) ||
-            (parseOperation(argv[1]) == 3 && argc != 2) ||
-            (parseOperation(argv[1]) == 4 && argc != 1))
+    else if (argc >= 2)
     {
-        help(argv[0], "ERROR: Incorrect arguments num.\n\n");
-        return false;
+        if (argc > 2 && (argc - 2) % 3 != 0) {
+            help(argv[0], "ERROR: Incorrect arguments num.\n\n");
+            return false;
+        }
     }
-    return true; 
+    return true;
 }
 
 std::string Application::operator()(int argc, const char** argv) {
+    int* dijkstra;
+    Connection* cnn;
     Arguments args;
-    int* res = nullptr;
-    graph = new Graph;
+    std::ostringstream stream;
+
 
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
-            args.operation = parseOperation(argv[1]);
-            args.arg1 = parseOperation(argv[2]);
-        if (args.operation == 2) {
-            args.arg2 = parseOperation(argv[3]);
-            args.arg3 = parseOperation(argv[4]);
+        args.size_ = parseInt(argv[1]);
+        args.start_node_ = parseInt(argv[2]);
+        args.connected_nodes_ = (argc - 2) / 3;
+        cnn = new Connection[args.connected_nodes_];
+        for (int i = 3, int k; i + 3 <= argc - 2; i += 3, k++) {
+            cnn[k].weight_ = parseInt(argv[i]);
+            cnn[k].start_= parseInt(argv[i+1]);
+            cnn[k].end_= parseInt(argv[i+2]);
         }
     }
-    catch (std::string& str) {
-        return str;
+        catch (std::string& str) {
+            return str;
     }
-
-    std::ostringstream stream;
-    switch (args.operation) {
-    case 1:
-        graph[0].AddNodes(args.arg1);
-        break;
-    case 2:
-        graph[0].AddEdge(args.arg1, args.arg2, args.arg3);
-        break;
-    case 3:
-        res = graph[0].Dijkstra(args.arg1);
-        for (int i = 0; i < graph[0].GetSize(); i++) {
-            if (res[i] != INT_MAX) {
-                stream << "\n" << args.arg1 << "-->" << i << "=" << res[i];
+    Graph graph(args.size_);
+    for (int i = 0; i < args.connected_nodes_; i++) {
+        graph.AddEdge(cnn[i].weight_, cnn[i].start_, cnn[i].weight_);
+    }
+    dijkstra = graph.Dijkstra(args.start_node_);
+    for (int i = 0; i < args.size_; i++) {
+        if (i != args.start_node_) {
+            if (dijkstra[i] != INT_MAX) {
+                stream << args.start_node_ << " --> " << i;
+                stream << " = " << dijkstra[i] << "\n";
             }
-            else if (res[i] == INT_MAX) {
-                stream << "\n" << args.arg1 << "-->" << i << "= inf";
+            else if (dijkstra[i] == INT_MAX) {
+                stream << args.start_node_ << " --> " << i;
+                stream << " = " << "inf" << "\n";
             }
         }
-        break;
-    case 4:
-        delete[] graph;
-        graph = new Graph(args.arg1);
     }
 
+    delete[] cnn;
     message_ = stream.str();
     return message_;
 }
 
-Application::~Application() {
-    delete[] graph;
-}

@@ -24,34 +24,6 @@ Graph::Graph(int _size) : size_(_size) {
     node_[i] = 0;
 }
 
-void Graph::AddNodes(const unsigned int nodes_value) {
-    if (nodes_value <= 0) {
-        return;
-    }
-    int new_size = size_ + nodes_value;
-    Edge** new_node;
-
-    new_node = new Edge*[new_size];
-    for (int i = 0; i < new_size; i++) {
-        new_node[i] = 0;
-    }
-    for (int i = 0; i < size_; i++) {
-        new_node[i] = node_[i];
-    }
-    for (int i = 0; i < size_; i++) {
-        delete[] node_[i];
-    }
-    delete[] node_;
-    size_ = new_size;
-    node_ = new Edge*[size_];
-    for (int i = 0; i < size_; i++) {
-        node_[i] = new_node[i];
-    } 
-    for (int i = 0; i < size_; i++) {
-        delete[] new_node[i];
-    }
-    delete[] new_node;
-}
 
 void Graph::AddEdge(const int _weight, const int key1, const int key2) {
     if (IsConnect(key1, key2))
