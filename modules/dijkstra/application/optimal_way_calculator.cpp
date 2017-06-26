@@ -1,9 +1,8 @@
 // Copyright 2017 Kozlov Ilya
 
 #include <stdlib.h>
- #include <stdio.h>
- #include <string>
-
+#include <stdio.h>
+#include <string>
 #include "include/Application.h"
 
 int main(int argc, const char** argv) {
@@ -11,5 +10,4 @@ int main(int argc, const char** argv) {
     std::string output = app(argc, argv);
     printf("%s\n", output.c_str());
     return 0;
-    
 }

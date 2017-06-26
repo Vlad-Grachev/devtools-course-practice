@@ -104,7 +104,6 @@ int* Graph::Dijkstra(int node_index) {
 }
 
 Graph::~Graph() {
-
     for (int i = 0; i < size_; i++) {
         delete[] node_[i];
     }
