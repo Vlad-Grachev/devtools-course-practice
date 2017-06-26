@@ -20,7 +20,7 @@ set_tests_properties (${prefix}_Can_Print_Help_Without_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments1
+    NAME ${prefix}_Can_Check_Number_Of_Arguments1
     COMMAND ${APPLICATION} 10
 )
 set_tests_properties (${prefix}_Can_Check_Number_Of_Arguments PROPERTIES
@@ -28,7 +28,7 @@ set_tests_properties (${prefix}_Can_Check_Number_Of_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments2
+    NAME ${prefix}_Can_Check_Number_Of_Arguments2
     COMMAND ${APPLICATION} 10 10 10
 )
 set_tests_properties (${prefix}_Can_Check_Number_Of_Arguments PROPERTIES
