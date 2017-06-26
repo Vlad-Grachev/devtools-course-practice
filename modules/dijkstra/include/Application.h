@@ -28,6 +28,4 @@ class Application {
         int end_;
     } Connection;
 };
-#endif  // #ifndef MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
-
-
+#endif  // MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_

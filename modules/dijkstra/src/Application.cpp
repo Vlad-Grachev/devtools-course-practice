@@ -28,13 +28,7 @@ void Application::help(const char* appname, const char* message) {
 };
 
 int Application::parseInt(const char* arg) {
-    int value;
-    try {
-        value = std::stoi(arg);
-    }
-    catch (std::invalid_argument exc) {
-        throw std::string("ERROR: Incorrect number format.\n\n");
-    }
+    return std::stoi(arg);
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
@@ -53,6 +47,7 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 }
 
 std::string Application::operator()(int argc, const char** argv) {
+    int k = 0;
     int* dijkstra;
     Connection* cnn;
     Arguments args;
@@ -67,10 +62,11 @@ std::string Application::operator()(int argc, const char** argv) {
         args.start_node_ = parseInt(argv[2]);
         args.connected_nodes_ = (argc - 2) / 3;
         cnn = new Connection[args.connected_nodes_];
-        for (int i = 3, int k; i + 3 <= argc - 2; i += 3, k++) {
+        for (int i = 3; i + 3 <= argc - 2; i += 3) {
             cnn[k].weight_ = parseInt(argv[i]);
             cnn[k].start_= parseInt(argv[i+1]);
             cnn[k].end_= parseInt(argv[i+2]);
+            k++;
         }
     }
         catch (std::string& str) {

@@ -8,7 +8,7 @@
 #include <functional>
 #include <iterator>
 
-#include "include\Application.h"
+#include "include/Application.h"
 
 
 using ::testing::internal::RE;
@@ -64,17 +64,7 @@ TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments2) {
     Assert("ERROR: Incorrect arguments num.*");
 }
 
-TEST_F(OptimalWayCalculatorAppTest, Can_Detect_Wrong_Number_Format) {
-    // Arrange
-    const string test_val = "ten";
-    vector<string> args = { test_val,test_val };
-    // Act
-    Act(args);
-    // Assert
-    Assert("Wrong number format!*");
-}
-
-TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correct) {
+TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correctly) {
     // Arrange
     vector<string> args = { "6", "1",
                             "7", "1", "2",
