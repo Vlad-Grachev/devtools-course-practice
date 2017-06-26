@@ -13,9 +13,9 @@ class Application {
     std::string operator()(int argc, const char** argv);
 
  private:
-    void help(const char* appname, const char* message = "");
-    int parseInt(const char* arg);
-    bool validateNumberOfArguments(int argc, const char** argv);
+    void Help(const char* appname, const char* message = "");
+    int ParseInt(const char* arg);
+    bool ValidateNumberOfArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
         int start_node_;

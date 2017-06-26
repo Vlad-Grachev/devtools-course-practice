@@ -12,7 +12,7 @@
 
 Application::Application() {}
 
-void Application::help(const char* appname, const char* message) {
+void Application::Help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
         "This is an optimal way calculator application.\n\n" +
@@ -27,13 +27,13 @@ void Application::help(const char* appname, const char* message) {
         "\n*Carefully observe the format where typing the edges!";
 };
 
-int Application::parseInt(const char* arg) {
+int Application::ParseInt(const char* arg) {
     return std::stoi(arg);
 }
 
-bool Application::validateNumberOfArguments(int argc, const char** argv) {
+bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
-        help(argv[0]);
+        Help(argv[0]);
         return false;
     }
 
@@ -41,7 +41,7 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
         return true;
     }
 
-    help(argv[0], "ERROR: Incorrect arguments num.\n\n");
+    Help(argv[0], "ERROR: Incorrect arguments num.\n\n");
     return false;
 }
 
@@ -53,18 +53,18 @@ std::string Application::operator()(int argc, const char** argv) {
     std::ostringstream stream;
 
 
-    if (!validateNumberOfArguments(argc, argv)) {
+    if (!ValidateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
-        args.size_ = parseInt(argv[1]);
-        args.start_node_ = parseInt(argv[2]);
+        args.size_ = ParseInt(argv[1]);
+        args.start_node_ = ParseInt(argv[2]);
         args.connected_nodes_ = (argc - 3) / 3;
         cnn = new Connection[args.connected_nodes_];
         for (int i = 3; i + 3 <= argc - 3; i += 3) {
-            cnn[k].weight_ = parseInt(argv[i]);
-            cnn[k].start_= parseInt(argv[i+1]);
-            cnn[k].end_= parseInt(argv[i+2]);
+            cnn[k].weight_ = ParseInt(argv[i]);
+            cnn[k].start_= ParseInt(argv[i+1]);
+            cnn[k].end_= ParseInt(argv[i+2]);
             k++;
         }
     }
