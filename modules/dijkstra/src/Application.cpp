@@ -36,14 +36,18 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
         help(argv[0]);
         return false;
     }
-    else if (argc >= 2)
+    else if (argc >= 3)
     {
-        if (argc > 2 && (argc - 2) % 3 != 0) {
+        if (argc > 3 && (argc - 3) % 3 != 0) {
             help(argv[0], "ERROR: Incorrect arguments num.\n\n");
             return false;
         }
+        return true;
     }
-    return true;
+    else if (argc < 3) {
+        help(argv[0], "ERROR: Incorrect arguments num.\n\n");
+        return false;
+    }
 }
 
 std::string Application::operator()(int argc, const char** argv) {
@@ -60,9 +64,9 @@ std::string Application::operator()(int argc, const char** argv) {
     try {
         args.size_ = parseInt(argv[1]);
         args.start_node_ = parseInt(argv[2]);
-        args.connected_nodes_ = (argc - 2) / 3;
+        args.connected_nodes_ = (argc - 3) / 3;
         cnn = new Connection[args.connected_nodes_];
-        for (int i = 3; i + 3 <= argc - 2; i += 3) {
+        for (int i = 3; i + 3 <= argc - 3; i += 3) {
             cnn[k].weight_ = parseInt(argv[i]);
             cnn[k].start_= parseInt(argv[i+1]);
             cnn[k].end_= parseInt(argv[i+2]);
