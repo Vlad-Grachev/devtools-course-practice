@@ -15,7 +15,7 @@ Application::Application() {}
 void Application::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-        "This is a optimal way calculator application.\n\n" +
+        "This is an optimal way calculator application.\n\n" +
         "Pleaseprovide arguments in the following format:\n\n" +
 
         "  $ " + appname + "<size> <start_node_index> <edge1> <edge2> ... <edgeN>\n" +

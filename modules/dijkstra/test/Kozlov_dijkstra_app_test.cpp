@@ -41,7 +41,7 @@ TEST_F(OptimalWayCalculatorAppTest, Do_Print_Help_Without_Arguments) {
     // Act
     Act(args);
     // Assert
-    Assert("This is a optimal way calculator application*");
+    Assert("This is an optimal way calculator application*");
 }
 
 TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments1) {
