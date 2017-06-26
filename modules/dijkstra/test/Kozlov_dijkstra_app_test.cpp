@@ -64,7 +64,7 @@ TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments2) {
     // Assert
     Assert("ERROR: Incorrect arguments num.*");
 }
-/*
+
 TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correctly) {
     // Arrange
     vector<string> args = { "6", "1",
@@ -84,7 +84,6 @@ TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correctly) {
     // Assert
     Assert(expected_answer);
 }
-*/
 
 TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_With_Unrelated_Graph) {
     // Arrange
