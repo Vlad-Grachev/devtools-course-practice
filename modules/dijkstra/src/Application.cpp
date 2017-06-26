@@ -36,18 +36,13 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
         help(argv[0]);
         return false;
     }
-    else if (argc >= 3)
-    {
-        if (argc > 3 && (argc - 3) % 3 != 0) {
-            help(argv[0], "ERROR: Incorrect arguments num.\n\n");
-            return false;
-        }
+
+    if (argc >= 3 && (argc - 3) % 3 == 0) {
         return true;
     }
-    else if (argc < 3) {
-        help(argv[0], "ERROR: Incorrect arguments num.\n\n");
-        return false;
-    }
+
+    help(argv[0], "ERROR: Incorrect arguments num.\n\n");
+    return false;
 }
 
 std::string Application::operator()(int argc, const char** argv) {
