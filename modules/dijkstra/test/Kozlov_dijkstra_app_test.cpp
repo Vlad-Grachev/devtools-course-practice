@@ -47,7 +47,8 @@ TEST_F(OptimalWayCalculatorAppTest, Do_Print_Help_Without_Arguments) {
 TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments1) {
     // Arrange
     const string test_val = "10";
-    vector<string> args = { test_val };
+    vector<string> args;
+    args.push_back(test_val);
     // Act
     Act(args);
     // Assert
