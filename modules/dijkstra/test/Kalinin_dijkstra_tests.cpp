@@ -66,12 +66,12 @@ TEST(Kozlov_dijkstra_tests, Can_Not_Create_Edge_With_Incorrect_Params) {
     // Act
 
     // Assert
-    EXPECT_ANY_THROW(gr.AddEdge(1, 1, 1));
-    EXPECT_ANY_THROW(Graph gr(1, 2, 1);
-    EXPECT_ANY_THROW(Graph gr(1, 1, 2);
-    EXPECT_ANY_THROW(Graph gr(22222222, 1, 0));
-    EXPECT_ANY_THROW(Graph gr(1, 22222222, 0));
-    EXPECT_ANY_THROW(Graph gr(1, 1, 22222222));
+    EXPECT_ANY_THROW(gr.AddEdge(1, 1, 1););
+    EXPECT_ANY_THROW(Graph gr(1, 2, 1););
+    EXPECT_ANY_THROW(Graph gr(1, 1, 2););
+    EXPECT_ANY_THROW(Graph gr(22222222, 1, 0););
+    EXPECT_ANY_THROW(Graph gr(1, 22222222, 0););
+    EXPECT_ANY_THROW(Graph gr(1, 1, 22222222););
 }
 
 TEST(Kozlov_dijkstra_tests, Can_Not_Dijkstra_With_Incorrect_Param) {
