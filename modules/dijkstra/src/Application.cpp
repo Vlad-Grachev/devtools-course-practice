@@ -79,11 +79,12 @@ std::string Application::operator()(int argc, const char** argv) {
     dijkstra = graph.Dijkstra(args.start_node_);
     for (int i = 0; i < args.size_; i++) {
         if (i != args.start_node_) {
-            if (dijkstra[i] != INT_MAX) {
+            if (dijkstra[i] < INT_MAX / 100) {
                 stream << args.start_node_ << " --> " << i;
                 stream << " = " << dijkstra[i] << "\n";
             }
-            else if (dijkstra[i] == INT_MAX) {
+            else if (dijkstra[i] >=
+                INT_MAX / 100) {
                 stream << args.start_node_ << " --> " << i;
                 stream << " = " << "inf" << "\n";
             }

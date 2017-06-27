@@ -1,6 +1,6 @@
 // Copyright 2017 Kalinin Vladimir
 #include <gtest/gtest.h>
-
+#include <limits.h>
 #include "include/Graph.h"
 
 
@@ -87,4 +87,18 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
   for (int i = 0; i < 6; i++) {
       EXPECT_EQ(correct_answer[i], tmp[i]);
   }
+}
+
+TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
+    // Arrange
+    Graph gr(2);
+    int correct_answer[2] = { 0, INT_MAX };
+
+    // Act
+    int* tmp = gr.Dijkstra(0);
+
+    // Assert
+    for (int i = 0; i < 6; i++) {
+        EXPECT_EQ(correct_answer[i], tmp[i]);
+    }
 }
