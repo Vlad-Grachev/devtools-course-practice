@@ -31,10 +31,10 @@ Graph::Graph(const size_t _size) : size_(_size) {
 void Graph::AddEdge(const unsigned int _weight,
                     const size_t _node_A,
                     const size_t _node_B) {
-    if (size_ >= _node_A) {
+    if (size_ <= _node_A) {
         throw "ERROR: Forbidden index of node A";
     }
-    if (size_ >= _node_B) {
+    if (size_ <= _node_B) {
         throw "ERROR: Forbidden index of node B";
     }
     if (_node_A == _node_B) {
@@ -45,13 +45,15 @@ void Graph::AddEdge(const unsigned int _weight,
 }
 
 bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
-    if (size_ >= _node_A) {
-        throw "ERROR: Forbidden index of start node A";
+    if (size_ <= _node_A) {
+        throw "ERROR: Forbidden index of node A";
     }
-    if (size_ >= _node_B) {
-        throw "ERROR: Forbidden index of finish node B";
+    if (size_ <= _node_B) {
+        throw "ERROR: Forbidden index of node B";
     }
-
+    if (_node_A == _node_B) {
+        throw "ERROR: The graph is not able to have cycles";
+    }
     if (graph_[_node_A][_node_B].weight == INF) {
         return 0;
     }
@@ -77,8 +79,8 @@ vector<int> Graph::Dijkstra(size_t _start_n) {
         }
         u[v] = true;
         for (size_t j = 0; j < size_; j++) {
-            int to = graph_[v][j].weight,
-                len = graph_[v][j].connection;
+            int to = graph_[v][j].connection,
+                len = graph_[v][j].weight;
             if (d[v] + len < d[to]) {
                 d[to] = d[v] + len;
                 p[to] = v;

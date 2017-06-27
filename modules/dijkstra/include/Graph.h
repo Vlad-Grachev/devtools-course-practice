@@ -3,6 +3,7 @@
 #ifndef MODULES_DIJKSTRA_INCLUDE_GRAPH_H_
 #define MODULES_DIJKSTRA_INCLUDE_GRAPH_H_
 
+#include <limits>
 #include <algorithm>
 #include <vector>
 #include <utility>
@@ -20,7 +21,7 @@ public:
     vector<int> Dijkstra(size_t _start_n);
     bool IsConnect(const size_t _node_A, const size_t _node_B);
     size_t GetSize();
-    const int INF = 1000000000;
+    const int INF = INT_MAX - 10;
 protected:
     class Edge :public pair<int, int> {
     public:
