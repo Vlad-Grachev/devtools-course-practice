@@ -67,6 +67,9 @@ bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
 }
 
 vector<int> Graph::Dijkstra(size_t _start_n) {
+    if (_start_n >= size_) {
+        throw "ERROR: Forbidden index of start node";
+    }
     const int selected = -1;
     const int s = _start_n;
     const int n = size_;

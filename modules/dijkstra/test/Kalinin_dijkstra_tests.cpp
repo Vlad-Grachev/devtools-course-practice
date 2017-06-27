@@ -1,4 +1,4 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kalinin Vladimir & Kozlov Ilya
 
 #include <gtest/gtest.h>
 #include "include/Graph.h"
@@ -18,6 +18,15 @@ TEST(Kalinin_dijkstra_tests, Can_Create_Graph) {
   EXPECT_EQ(gr2.GetSize(), 5);
 }
 
+TEST(Kozlov_dijkstra_tests, Can_Not_Create_Graph_With_Incorrect_Size) {
+    // Arrange
+
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(Graph gr(22222222));
+}
+
 TEST(Kalinin_dijkstra_tests, IsConnect_Works) {
   // Arrange
   Graph gr(6);
@@ -29,6 +38,49 @@ TEST(Kalinin_dijkstra_tests, IsConnect_Works) {
   EXPECT_EQ(gr.IsConnect(1, 3), true);
   EXPECT_EQ(gr.IsConnect(3, 1), true);
   EXPECT_EQ(gr.IsConnect(1, 2), false);
+}
+
+TEST(Kalinin_dijkstra_tests, IsConnect_Does_Now_Works_With_Incorrect_Params) {
+    // Arrange
+    Graph gr(2);
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(gr.IsConnect(1,1));
+    EXPECT_ANY_THROW(gr.IsConnect(3, 1));
+    EXPECT_ANY_THROW(gr.IsConnect(1, 3));
+}
+
+TEST(Kozlov_dijkstra_tests, Can_Create_Edge) {
+    // Arrange
+    Graph gr(2);
+    // Act
+
+    // Assert
+    EXPECT_NO_THROW(gr.AddEdge(1,1,0));
+}
+
+TEST(Kozlov_dijkstra_tests, Can_Not_Create_Edge_With_Incorrect_Params) {
+    // Arrange
+    Graph gr(2);
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(gr.AddEdge(1, 1, 1));
+    EXPECT_ANY_THROW(Graph gr(1, 2, 1);
+    EXPECT_ANY_THROW(Graph gr(1, 1, 2);
+    EXPECT_ANY_THROW(Graph gr(22222222, 1, 0));
+    EXPECT_ANY_THROW(Graph gr(1, 22222222, 0));
+    EXPECT_ANY_THROW(Graph gr(1, 1, 22222222));
+}
+
+TEST(Kozlov_dijkstra_tests, Can_Not_Dijkstra_With_Incorrect_Param) {
+    // Arrange
+    Graph gr(2);
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(gr.Dijkstra(100));
 }
 
 TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
@@ -66,4 +118,24 @@ TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
     for (int i = 0; i < 6; i++) {
         EXPECT_EQ(correct_answer[i], tmp[i]);
     }
+}
+
+TEST(Kozlov_dijkstra_tests, Can_GetSize) {
+    // Arrange
+    const unsigned int size_to_test = 2;
+    Graph gr(size_to_test);
+    // Act
+
+    // Assert
+    EXPECT_NO_THROW(gr.GetSize());
+}
+
+TEST(Kozlov_dijkstra_tests, GetSize_Is_Working_Correctly) {
+    // Arrange
+    const unsigned int size_to_test = 2;
+    Graph gr(size_to_test);
+    // Act
+
+    // Assert
+    EXPECT_EQ(gr.GetSize(), size_to_test);
 }
