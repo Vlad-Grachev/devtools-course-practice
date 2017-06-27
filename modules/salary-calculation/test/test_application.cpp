@@ -74,7 +74,7 @@ TEST(Application, Hard_Test) {
     EXPECT_EQ(res, 1600);
 }
 
-TEST(Application, New_Test) {
+TEST(Application, Print_Help_1 ) {
         Application app;
         char** chr = new char*[3];
         chr[1] = new char[1];
@@ -86,7 +86,7 @@ TEST(Application, New_Test) {
         EXPECT_EQ(app(3, chr), 0);
 }
 
-TEST(Application, New_Test_2) {
+TEST(Application, Print_Help_2 ) {
     Application app;
     char** chr = new char*[3];
     chr[1] = new char[1];
