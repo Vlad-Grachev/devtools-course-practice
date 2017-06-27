@@ -8,6 +8,7 @@
 #include <functional>
 #include <iterator>
 
+#include "include/Graph.h"
 #include "include/Application.h"
 
 
@@ -65,6 +66,16 @@ TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments2) {
     Assert("ERROR: Incorrect arguments num.*");
 }
 
+TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Values_Of_Arguments) {
+    // Arrange
+    const string test_val = std::to_string(INF + 1);
+    vector<string> args = { test_val, test_val };
+    // Act
+    Act(args);
+    // Assert
+    Assert("ERROR:Too huge argument's value.*");
+}
+
 TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correctly) {
     // Arrange
     vector<string> args = { "6", "1",
@@ -92,6 +103,6 @@ TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_With_Unrelated_Graph) {
     // Act
     Act(args);
     // Assert
-    Assert("0 --> 1 = inf\n");
+    Assert("0 inf");
 }
 

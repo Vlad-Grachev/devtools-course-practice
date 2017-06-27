@@ -33,7 +33,7 @@ void Application::Help(const char* appname, const char* message) {
 int Application::ParseInt(const char* arg) {
     int val = std::stoi(arg);
     if (val > INF) {
-        throw("ERROR:Too huge argument's value");
+        throw("ERROR:Too huge argument's value.\n\n");
     }
     return val;
 }
@@ -73,8 +73,8 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     Graph graph(args.size_);
-    for (int i = 0; i < args.connected_nodes_ * 3; i+=3) {
-        graph.AddEdge(args.edges_[i], args.edges_[i + 1], args.edges_[i+2]);
+    for (int i = 0; i < args.connected_nodes_ * 3; i += 3) {
+        graph.AddEdge(args.edges_[i], args.edges_[i + 1], args.edges_[i + 2]);
     }
     vector<unsigned int> res = graph.Dijkstra(args.start_node_);
     for (unsigned int i = 0; i < graph.GetSize(); i++) {
