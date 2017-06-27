@@ -11,7 +11,7 @@ class Application {
     Application(int salary_per_hour = 20, int needed_hours = 160,
         int work_hours = 160, int workday = 9, int overtime_bonus = 0);
     Application(const Application & pApp);
-    int operator()(int argv = 0, char** argc = nullptr);
+    int operator()(int argc = 0, char** argv = nullptr);
     void PrintHelp();
     int OneStep(int instruction = 7, int value = 0);
     void ToIntArray(int kol, char** arr);

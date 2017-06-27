@@ -25,14 +25,14 @@ Application::Application(const Application& pApp) {
         instructions_[i] = pApp.instructions_[i];
 }
 
-int Application::operator()(int argv, char** argc) {
-    if (argc == nullptr) return 0;
+int Application::operator()(int argc, char** argv) {
+    if (argc == 1) return 0;
     //  function char** -> int**
-    ToIntArray(argv, argc);
+    ToIntArray(argc, argv);
     //  cicle with options
     int i = 0;
     int result = 0;
-    while (i < argv-1) {
+    while (i < argc-1) {
         result = OneStep(instructions_[i], instructions_[i + 1]);
         i += 2;
     }
@@ -80,10 +80,10 @@ int Application::OneStep(int instruction, int value) {
     return instruction;
 }
 
-void Application::ToIntArray(int kol, char** argc) {
+void Application::ToIntArray(int argc, char** argv) {
     int i = 1;
-    while (i < kol) {
-        instructions_[i-1] = ToInt(argc[i]);
+    while (i < argc) {
+        instructions_[i-1] = ToInt(argv[i]);
         i++;
     }
 }
