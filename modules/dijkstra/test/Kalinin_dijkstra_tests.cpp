@@ -69,9 +69,9 @@ TEST(Kozlov_dijkstra_tests, Can_Not_Create_Edge_With_Incorrect_Params) {
     EXPECT_ANY_THROW({ gr.AddEdge(1, 1, 1); });
     EXPECT_ANY_THROW({ gr.AddEdge(1, 2, 1); });
     EXPECT_ANY_THROW({gr.AddEdge(1, 1, 2);});
-    EXPECT_ANY_THROW({ gr.AddEdge(22222222, 1, 0); });
-    EXPECT_ANY_THROW({gr.AddEdge(1, 22222222, 0); });
-    EXPECT_ANY_THROW({ gr.AddEdge(1, 1, 22222222); });
+    EXPECT_ANY_THROW({ gr.AddEdge(gr.INF + 1, 1, 0); });
+    EXPECT_ANY_THROW({gr.AddEdge(1, gr.INF + 1, 0); });
+    EXPECT_ANY_THROW({ gr.AddEdge(1, 1, gr.INF + 1); });
 }
 
 TEST(Kozlov_dijkstra_tests, Can_Not_Dijkstra_With_Incorrect_Param) {
@@ -80,7 +80,7 @@ TEST(Kozlov_dijkstra_tests, Can_Not_Dijkstra_With_Incorrect_Param) {
     // Act
 
     // Assert
-    EXPECT_ANY_THROW(gr.Dijkstra(100););
+    EXPECT_ANY_THROW(gr.Dijkstra(gr.INF + 1););
 }
 
 TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
@@ -109,10 +109,10 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
 TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
     // Arrange
     Graph gr(2);
-    std::vector<unsigned int> correct_answer = { 0, gr.INF };
+    std::vector < std:: size_t > correct_answer = { 0, gr.INF };
 
     // Act
-    std::vector<unsigned int> tmp = gr.Dijkstra(0);
+    std::vector<std::size_t> tmp = gr.Dijkstra(0);
 
     // Assert
     for (int i = 0; i < 6; i++) {
