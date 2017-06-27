@@ -48,9 +48,7 @@ bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
     if (graph_[_node_A][_node_B].weight == INF) {
         return 0;
     }
-    else if (graph_[_node_A][_node_B].weight != INF) {
-        return 1;
-    }
+    return 1;
 }
 
 vector<int> Graph::GetOptimalWayFrom(size_t _start_n) {
@@ -81,4 +79,8 @@ vector<int> Graph::GetOptimalWayFrom(size_t _start_n) {
         }
     }
     return d;
+}
+
+size_t Graph::GetSize() {
+    return size_;
 }

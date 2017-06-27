@@ -18,6 +18,7 @@ public:
     void AddEdge(const unsigned int _weight, const size_t _node_A, const size_t _node_B);
     vector<int> GetOptimalWayFrom(size_t _start_n);
     bool IsConnect(const size_t _node_A, const size_t _node_B);
+    size_t GetSize() {}
     const int INF = 1000000000;
 protected:
     class Edge:public pair<int, int> {
