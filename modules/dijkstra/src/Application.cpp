@@ -75,7 +75,7 @@ std::string Application::operator()(int argc, const char** argv) {
     for (int i = 0; i < args.connected_nodes_; i++) {
         graph.AddEdge(cnn[i].weight_, cnn[i].start_, cnn[i].weight_);
     }
-    dijkstra = graph.GetOptimalWayFrom(args.start_node_);
+    dijkstra = graph.Dijkstra(args.start_node_);
     for (int i = 0; i < args.size_; i++) {
         if (i != args.start_node_) {
             if (dijkstra[i] < graph.INF / 100) {

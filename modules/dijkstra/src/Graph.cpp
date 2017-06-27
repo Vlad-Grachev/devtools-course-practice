@@ -53,7 +53,7 @@ bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
     return 1;
 }
 
-vector<int> Graph::GetOptimalWayFrom(size_t _start_n) {
+vector<int> Graph::Dijkstra(size_t _start_n) {
     const int selected = -1;
     const int s = _start_n;
     const int n = size_;
