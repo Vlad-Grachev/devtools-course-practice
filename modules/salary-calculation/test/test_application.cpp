@@ -45,7 +45,7 @@ TEST(Application, Char_To_Int_2) {
     EXPECT_EQ(app.ToInt(a), 1);
 }
 
-TEST(Application, Hard_Test) {
+TEST(Application, Imitation_real_work_test) {
     char** arr = new char*[15];
     Application app;
     for (int i = 1; i <= 13; i += 2) {
