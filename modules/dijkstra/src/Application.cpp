@@ -1,12 +1,12 @@
 // Copyright 2017 Kozlov Ilya
 
-#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
+#include <vector>
 #include "include/Application.h"
 #include "include/Graph.h"
 
@@ -47,7 +47,7 @@ bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
 
 std::string Application::operator()(int argc, const char** argv) {
     int k = 0;
-    int* dijkstra;
+    std::vector<int> dijkstra;
     Connection* cnn;
     Arguments args;
     std::ostringstream stream;
@@ -75,23 +75,20 @@ std::string Application::operator()(int argc, const char** argv) {
     for (int i = 0; i < args.connected_nodes_; i++) {
         graph.AddEdge(cnn[i].weight_, cnn[i].start_, cnn[i].weight_);
     }
-    dijkstra = new int[args.size_];
-    dijkstra = graph.Dijkstra(args.start_node_);
+    dijkstra = graph.GetOptimalWayFrom(args.start_node_);
     for (int i = 0; i < args.size_; i++) {
         if (i != args.start_node_) {
-            if (dijkstra[i] < INT_MAX / 100) {
+            if (dijkstra[i] < graph.INF / 100) {
                 stream << args.start_node_ << " --> " << i;
                 stream << " = " << dijkstra[i] << "\n";
             }
             else if (dijkstra[i] >=
-                INT_MAX / 100) {
+                graph.INF / 100) {
                 stream << args.start_node_ << " --> " << i;
                 stream << " = " << "inf" << "\n";
             }
         }
     }
-    
-    delete[] dijkstra;
     delete[] cnn;
     message_ = stream.str();
     return message_;

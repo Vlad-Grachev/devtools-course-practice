@@ -1,37 +1,27 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kalinin Vladimir & Kozlov Ilya
 
 #ifndef MODULES_DIJKSTRA_INCLUDE_GRAPH_H_
 #define MODULES_DIJKSTRA_INCLUDE_GRAPH_H_
 
-struct Edge {
- public:
-  Edge();
-  Edge(const int _weight, const int _key);
-  void SetNext(Edge* _next);
-  Edge* GetNext();
-  int GetWeight();
-  int GetKey();
+#include <algorithm>
+#include <vector>
+#include <utility>
 
- private:
-  int weight_;
-  int key_;
-  Edge* next_;
-};
+using std::pair;
+using std::vector;
 
-class Graph {
- public:
-  Graph();
-  ~Graph();
-  explicit Graph(int size);
-  void AddEdge(const int _weight, const int key1, const int key2);
-  bool IsConnect(const int key1, const int key2);
-  int GetSize();
-  Edge* GetNode(int n);
-  int* Dijkstra(int node_index);
-
- private:
-  int size_;
-  Edge **node_;
+class Graph
+{
+public:
+    Graph();
+    explicit Graph(const size_t _size);
+    void AddEdge(const unsigned int _weight, const size_t _node_A, const size_t _node_B);
+    vector<int> GetOptimalWayFrom(size_t _start_n);
+    bool IsConnect(const size_t _node_A, const size_t _node_B);
+    const int INF = 1000000000;
+protected:
+    vector< vector<pair<int,int>>> graph_;
+    size_t size_;
 };
 
 #endif  // MODULES_DIJKSTRA_INCLUDE_GRAPH_H_

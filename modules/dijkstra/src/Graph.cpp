@@ -1,112 +1,84 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kalinin Vladimir & Kozlov Ilya
 
 #include "include/Graph.h"
-#include <limits.h>
+#include <vector>
+#include <algorithm>
+#include <utility>
 
-Edge::Edge() : weight_(0), key_(0), next_(0) {}
+using std::size_t;
+using std::vector;
+using std::pair;
 
-Edge::Edge(const int _weight, const int _key) :
-  weight_(_weight), key_(_key), next_(0) {}
+Graph::Graph():size_(0) {}
 
-void Edge::SetNext(Edge* _next) { next_ = _next; }
-
-int Edge::GetWeight() { return weight_; }
-
-int Edge::GetKey() { return key_; }
-
-Edge* Edge::GetNext() { return next_; }
-
-Graph::Graph() : size_(0), node_(0) {}
-
-Graph::Graph(int _size) : size_(_size) {
-  node_ = new Edge*[size_];
-  for (int i = 0; i < size_; i++)
-    node_[i] = 0;
+Graph::Graph(const size_t _size) :size_(_size) {
+    for (size_t i = 0; i < size_; i++) {
+        for (size_t j = 0; j < size_; j++) {
+            if (i != j) {
+                graph_[i][j].first = INF;
+                graph_[i][j].second = j;
+            }
+            else if (i == j) {
+                graph_[i][j].first = 0;
+                graph_[i][j].second = j;
+            }
+        }
+    }
 }
 
-
-void Graph::AddEdge(const int _weight, const int key1, const int key2) {
-    if (IsConnect(key1, key2))
-        return;
-  if (node_[key1] == 0) {
-    node_[key1] = new Edge(_weight, key2);
-  } else {
-    Edge* tmp = node_[key1];
-    while (tmp->GetNext())
-      tmp = tmp->GetNext();
-    tmp->SetNext(new Edge(_weight, key2));
-  }
-
-  if (node_[key2] == 0) {
-    node_[key2] = new Edge(_weight, key1);
-  } else {
-    Edge* tmp = node_[key2];
-    while (tmp->GetNext())
-      tmp = tmp->GetNext();
-    tmp->SetNext(new Edge(_weight, key1));
-  }
+void Graph::AddEdge(const unsigned int _weight, const size_t _node_A, const size_t _node_B) {
+    if (size_ >= _node_A) {
+        throw "ERROR: Forbidden index of node A";
+    }
+    if (size_ >= _node_B) {
+        throw "ERROR: Forbidden index of node B";
+        }
+    graph_[_node_A][_node_B].first = _weight;
+    graph_[_node_B][_node_A].first = _weight;
 }
 
-bool Graph::IsConnect(const int key1, const int key2) {
-  Edge* tmp = node_[key1];
-  while (tmp) {
-    if (tmp->GetKey() == key2)
-      return true;
-    tmp = tmp->GetNext();
-  }
-  return false;
-}
-
-int Graph::GetSize() {
-  return size_;
-}
-
-Edge* Graph::GetNode(int n) {
-  return node_[n];
-}
-
-int* Graph::Dijkstra(int node_index) {
-  int* weight = new int[size_];
-  for (int i = 0; i < size_; i++)
-    weight[i] = INT_MAX;
-  weight[node_index] = 0;
-
-  int* mark = new int[size_];
-  for (int i = 0; i < size_; i++)
-    mark[i] = 0;
-
-  bool allNodesMarked = false;
-
-  while (!allNodesMarked) {
-    int minWeightNode, minWeight = INT_MAX;
-    for (int i = 0; i < size_; i++)
-      if (mark[i] == 0 && weight[i] < minWeight) {
-        minWeight = weight[i];
-        minWeightNode = i;
-      }
-    mark[minWeightNode] = 1;
-    Edge* tmp = node_[minWeightNode];
-    while (tmp) {
-      if (weight[tmp->GetKey()] > weight[minWeightNode] +
-        tmp->GetWeight() && mark[tmp->GetKey()] == 0)
-        weight[tmp->GetKey()] = weight[minWeightNode] + tmp->GetWeight();
-      tmp = tmp->GetNext();
+bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
+    if (size_ >= _node_A) {
+        throw "ERROR: Forbidden index of start node A";
+    }
+    if (size_ >= _node_B) {
+        throw "ERROR: Forbidden index of finish node B";
     }
 
-    allNodesMarked = true;
-    for (int i = 0; i < size_; i++)
-      if (mark[i] == 0)
-        allNodesMarked = false;
-  }
-  delete[] mark;
-
-  return weight;
-}
-
-Graph::~Graph() {
-    for (int i = 0; i < size_; i++) {
-        delete[] node_[i];
+    if (graph_[_node_A][_node_B].first == INF) {
+        return 0;
     }
-    delete[] node_;
+    else if (graph_[_node_A][_node_B].first != INF) {
+        return 1;
+    }
 }
 
+vector<int> Graph::GetOptimalWayFrom(size_t _start_n) {
+    const int selected = -1;
+    const int s = _start_n;
+    const int n = size_;
+    vector<int> d(n, INF), p(n);
+    vector<bool> u(n);
+    d[s] = 0;
+    for (int i = 0; i < n; i++) {
+        int v = selected;
+        for (int j = 0; j < n; j++) {
+            if (!u[j] && (v == selected || d[j] < d[v])) {
+                v = j;
+            }
+        }
+        if (d[v] == INF) {
+            break;
+        }
+        u[v] = true;
+        for (size_t j = 0; j < size_; j++) {
+            int to = graph_[v][j].first,
+                len = graph_[v][j].second;
+            if (d[v] + len < d[to]) {
+                d[to] = d[v] + len;
+                p[to] = v;
+            }
+        }
+    }
+    return d;
+}

@@ -1,4 +1,4 @@
-// Copyright 2017 Kozlov Ilya
+// Copyright 2017 Kalinin Vladimir & Kozlov Ilya
 
 #include <stdlib.h>
 #include <stdio.h>

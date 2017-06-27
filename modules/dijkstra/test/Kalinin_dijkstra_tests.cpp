@@ -1,33 +1,10 @@
-// Copyright 2017 Kalinin Vladimir
+// Copyright 2017 Kozlov Ilya
+
 #include <gtest/gtest.h>
-#include <limits.h>
 #include "include/Graph.h"
-
-
-TEST(Kalinin_dijkstra_tests, Can_Create_Edge) {
-  // Arrange
-  Edge a1;
-  Edge a2(1, 2);
-
-  // Act
-
-  // Assert
-  EXPECT_EQ(a2.GetWeight(), 1);
-  EXPECT_EQ(a2.GetKey(), 2);
-  EXPECT_EQ(a1.GetWeight(), 0);
-  EXPECT_EQ(a1.GetKey(), 0);
-}
-
-TEST(Kalinin_dijkstra_tests, Can_Set_Next) {
-  // Arrange
-  Edge a1;
-  Edge a2;
-  // Act
-  a1.SetNext(&a2);
-
-  // Assert
-  EXPECT_EQ(a1.GetNext(), &a2);
-}
+#include <algorithm>
+#include <vector>
+#include <utility>
 
 TEST(Kalinin_dijkstra_tests, Can_Create_Graph) {
   // Arrange
@@ -78,10 +55,10 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
   gr.AddEdge(2, 3, 0);
   gr.AddEdge(9, 5, 0);
   gr.AddEdge(6, 4, 5);
-  int correct_answer[6] = { 11, 0, 7, 9, 20, 20 };
+  std::vector<int> correct_answer = { 11, 0, 7, 9, 20, 20 };
 
   // Act
-  int* tmp = gr.Dijkstra(1);
+  vector<int> tmp = gr.Dijkstra(1);
 
   // Assert
   for (int i = 0; i < 6; i++) {
@@ -92,10 +69,10 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
 TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
     // Arrange
     Graph gr(2);
-    int correct_answer[2] = { 0, INT_MAX };
+    std::vector<int> correct_answer = { 0, gr.INF };
 
     // Act
-    int* tmp = gr.Dijkstra(0);
+    std::vector<int> tmp = gr.Dijkstra(0);
 
     // Assert
     for (int i = 0; i < 6; i++) {
