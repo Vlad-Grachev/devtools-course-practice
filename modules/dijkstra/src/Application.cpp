@@ -23,7 +23,7 @@ void Application::Help(const char* appname, const char* message) {
 
         "ATTENTION:\n"
         "\n*All arguments should be unsingned integer values!" +
-        "\n*The max value of any argument is " + INF + "!" +
+        "\n*The max value of any argument is " + std::to_string(INF) + "!" +
         "\n*If there is no edge between nodes, the result of optimal way" +
         "between them will be 'inf'" +
         "\n*The number of arguments should be > 2 and 2 + n, where the 'n' is a multiple of 3!" +
