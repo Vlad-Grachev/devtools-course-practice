@@ -95,10 +95,10 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
   gr.AddEdge(2, 3, 0);
   gr.AddEdge(9, 5, 0);
   gr.AddEdge(6, 4, 5);
-  std::vector<int> correct_answer = { 11, 0, 7, 9, 20, 20 };
+  std::vector<unsigned int> correct_answer = { 11, 0, 7, 9, 20, 20 };
 
   // Act
-  vector<int> tmp = gr.Dijkstra(1);
+  vector<unsigned int> tmp = gr.Dijkstra(1);
 
   // Assert
   for (int i = 0; i < 6; i++) {
@@ -109,10 +109,10 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
 TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
     // Arrange
     Graph gr(2);
-    std::vector<int> correct_answer = { 0, gr.INF };
+    std::vector<unsigned int> correct_answer = { 0, gr.INF };
 
     // Act
-    std::vector<int> tmp = gr.Dijkstra(0);
+    std::vector<unsigned int> tmp = gr.Dijkstra(0);
 
     // Assert
     for (int i = 0; i < 6; i++) {
