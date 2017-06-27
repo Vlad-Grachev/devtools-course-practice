@@ -12,6 +12,9 @@ using std::pair;
 Graph::Graph() :size_(0) {}
 
 Graph::Graph(const size_t _size) : size_(_size) {
+    if (size_ > INF) {
+        throw ("ERROR: One of arguments is out of limit = " + INF);
+    }
     graph_.resize(size_);
     for (size_t i = 0; i < size_; i++) {
         graph_[i].resize(size_);
@@ -29,8 +32,8 @@ Graph::Graph(const size_t _size) : size_(_size) {
 }
 
 void Graph::AddEdge(const unsigned int _weight,
-                    const size_t _node_A,
-                    const size_t _node_B) {
+    const size_t _node_A,
+    const size_t _node_B) {
     if (size_ <= _node_A) {
         throw "ERROR: Forbidden index of node A";
     }
@@ -39,6 +42,9 @@ void Graph::AddEdge(const unsigned int _weight,
     }
     if (_node_A == _node_B) {
         throw "ERROR: The graph is not able to have cycles";
+    }
+    if (INF < _node_A || INF < _node_B || INF < _weight) {
+        throw ("ERROR: One of arguments is out of limit = " + INF);
     }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;
