@@ -48,7 +48,7 @@ bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
 std::string Application::operator()(int argc, const char** argv) {
     int k = 0;
     std::vector<int> dijkstra;
-    Connection* cnn;
+    vector < Connection > cnn;
     Arguments args;
     std::ostringstream stream;
 
@@ -60,7 +60,7 @@ std::string Application::operator()(int argc, const char** argv) {
         args.size_ = ParseInt(argv[1]);
         args.start_node_ = ParseInt(argv[2]);
         args.connected_nodes_ = (argc - 3) / 3;
-        cnn = new Connection[args.connected_nodes_];
+        cnn.reserve(args.connected_nodes_);
         for (int i = 3; i + 3 <= argc - 3; i += 3) {
             cnn[k].weight_ = ParseInt(argv[i]);
             cnn[k].start_= ParseInt(argv[i+1]);
@@ -78,18 +78,17 @@ std::string Application::operator()(int argc, const char** argv) {
     dijkstra = graph.Dijkstra(args.start_node_);
     for (int i = 0; i < args.size_; i++) {
         if (i != args.start_node_) {
-            if (dijkstra[i] < graph.INF / 100) {
+            if (dijkstra[i] < graph.INF) {
                 stream << args.start_node_ << " --> " << i;
                 stream << " = " << dijkstra[i] << "\n";
             }
             else if (dijkstra[i] >=
-                graph.INF / 100) {
+                graph.INF) {
                 stream << args.start_node_ << " --> " << i;
                 stream << " = " << "inf" << "\n";
             }
         }
     }
-    delete[] cnn;
     message_ = stream.str();
     return message_;
 }
