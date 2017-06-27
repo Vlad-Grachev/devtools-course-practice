@@ -24,7 +24,7 @@ TEST(Kozlov_dijkstra_tests, Can_Not_Create_Graph_With_Incorrect_Size) {
     // Act
 
     // Assert
-    EXPECT_ANY_THROW(Graph gr(22222222););
+    EXPECT_ANY_THROW({ Graph gr(22222222); });
 }
 
 TEST(Kalinin_dijkstra_tests, IsConnect_Works) {
@@ -46,9 +46,9 @@ TEST(Kalinin_dijkstra_tests, IsConnect_Does_Now_Works_With_Incorrect_Params) {
     // Act
 
     // Assert
-    EXPECT_ANY_THROW(gr.IsConnect(1, 1););
-    EXPECT_ANY_THROW(gr.IsConnect(3, 1););
-    EXPECT_ANY_THROW(gr.IsConnect(1, 3););
+    EXPECT_ANY_THROW({ gr.IsConnect(1, 1); });
+    EXPECT_ANY_THROW({ gr.IsConnect(3, 1); });
+    EXPECT_ANY_THROW({ gr.IsConnect(1, 3); });
 }
 
 TEST(Kozlov_dijkstra_tests, Can_Create_Edge) {
@@ -57,7 +57,7 @@ TEST(Kozlov_dijkstra_tests, Can_Create_Edge) {
     // Act
 
     // Assert
-    EXPECT_NO_THROW(gr.AddEdge(1, 1, 0););
+    EXPECT_NO_THROW({ gr.AddEdge(1, 1, 0); });
 }
 
 TEST(Kozlov_dijkstra_tests, Can_Not_Create_Edge_With_Incorrect_Params) {
@@ -66,12 +66,12 @@ TEST(Kozlov_dijkstra_tests, Can_Not_Create_Edge_With_Incorrect_Params) {
     // Act
 
     // Assert
-    EXPECT_ANY_THROW(gr.AddEdge(1, 1, 1););
-    EXPECT_ANY_THROW(Graph gr(1, 2, 1););
-    EXPECT_ANY_THROW(Graph gr(1, 1, 2););
-    EXPECT_ANY_THROW(Graph gr(22222222, 1, 0););
-    EXPECT_ANY_THROW(Graph gr(1, 22222222, 0););
-    EXPECT_ANY_THROW(Graph gr(1, 1, 22222222););
+    EXPECT_ANY_THROW({ gr.AddEdge(1, 1, 1); });
+    EXPECT_ANY_THROW({ gr.AddEdge(1, 2, 1); });
+    EXPECT_ANY_THROW({gr.AddEdge(1, 1, 2);});
+    EXPECT_ANY_THROW({ gr.AddEdge(22222222, 1, 0); });
+    EXPECT_ANY_THROW({gr.AddEdge(1, 22222222, 0); });
+    EXPECT_ANY_THROW({ gr.AddEdge(1, 1, 22222222); });
 }
 
 TEST(Kozlov_dijkstra_tests, Can_Not_Dijkstra_With_Incorrect_Param) {
