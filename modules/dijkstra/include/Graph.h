@@ -11,7 +11,7 @@ using std::pair;
 using std::vector;
 
 class Graph {
-public:
+ public:
     Graph();
     explicit Graph(const size_t _size);
     void AddEdge(const unsigned int _weight,
@@ -21,9 +21,9 @@ public:
     bool IsConnect(const size_t _node_A, const size_t _node_B);
     size_t GetSize();
     const int INF = 100000000;
-protected:
+ protected:
     class Edge :public pair<int, int> {
-    public:
+     public:
         int weight = first;
         int connection = second;
     };
