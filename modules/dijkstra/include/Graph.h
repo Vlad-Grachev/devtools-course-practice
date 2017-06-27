@@ -20,7 +20,12 @@ public:
     bool IsConnect(const size_t _node_A, const size_t _node_B);
     const int INF = 1000000000;
 protected:
-    vector< vector<pair<int,int>>> graph_;
+    class Edge:public pair<int, int> {
+     public:
+         int weight = first;
+         int connection = second;
+    };
+    vector< vector<Edge>> graph_;
     size_t size_;
 };
 
