@@ -20,7 +20,7 @@ class Graph {
     vector<int> Dijkstra(size_t _start_n);
     bool IsConnect(const size_t _node_A, const size_t _node_B);
     size_t GetSize();
-    const int INF = 100000000;
+    const unsigned int INF = 100000000;
  protected:
     class Edge :public pair<int, int> {
      public:
