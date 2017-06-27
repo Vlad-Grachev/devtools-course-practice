@@ -30,7 +30,7 @@ Enter n pair of numbers
 1 - instuction's code
 2 - parameter's value
 
-Last instuctions must be 7 + random n > 0
+Last instuctions must be 7 + random number > 0
 
 All instruction's codes:
 
