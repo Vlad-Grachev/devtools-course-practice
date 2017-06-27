@@ -9,10 +9,12 @@ using std::size_t;
 using std::vector;
 using std::pair;
 
-Graph::Graph():size_(0) {}
+Graph::Graph() :size_(0) {}
 
-Graph::Graph(const size_t _size) :size_(_size) {
+Graph::Graph(const size_t _size) : size_(_size) {
+    graph_.resize(size_);
     for (size_t i = 0; i < size_; i++) {
+        graph_[i].resize(size_);
         for (size_t j = 0; j < size_; j++) {
             if (i != j) {
                 graph_[i][j].weight = INF;
@@ -34,7 +36,10 @@ void Graph::AddEdge(const unsigned int _weight,
     }
     if (size_ >= _node_B) {
         throw "ERROR: Forbidden index of node B";
-        }
+    }
+    if (_node_A == _node_B) {
+        throw "ERROR: The graph is not able to have cycles";
+    }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;
 }
