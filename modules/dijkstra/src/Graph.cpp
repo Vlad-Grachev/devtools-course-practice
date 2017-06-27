@@ -13,7 +13,7 @@ Graph::Graph() :size_(0) {}
 
 Graph::Graph(const size_t _size) : size_(_size) {
     if (size_ > INF) {
-        throw ("ERROR: One of arguments is out of limit = " + INF);
+        throw("ERROR: One of arguments is out of limit = " + INF);
     }
     graph_.resize(size_);
     for (size_t i = 0; i < size_; i++) {
@@ -22,10 +22,10 @@ Graph::Graph(const size_t _size) : size_(_size) {
             if (i != j) {
                 graph_[i][j].weight = INF;
                 graph_[i][j].connection = j;
-            }
-            else if (i == j) {
-                graph_[i][j].weight = 0;
-                graph_[i][j].connection = j;
+            } else
+                if (i == j) {
+                    graph_[i][j].weight = 0;
+                    graph_[i][j].connection = j;
             }
         }
     }
@@ -44,7 +44,7 @@ void Graph::AddEdge(const unsigned int _weight,
         throw "ERROR: The graph is not able to have cycles";
     }
     if (INF < _node_A || INF < _node_B || INF < _weight) {
-        throw ("ERROR: One of arguments is out of limit = " + INF);
+        throw("ERROR: One of arguments is out of limit = " + INF);
     }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;
@@ -66,7 +66,7 @@ bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
     return 1;
 }
 
-vector<int> Graph::Dijkstra(size_t _start_n) {
+vector<unsigned int> Graph::Dijkstra(size_t _start_n) {
     if (_start_n >= size_) {
         throw "ERROR: Forbidden index of start node";
     }

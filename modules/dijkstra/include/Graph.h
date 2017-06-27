@@ -17,15 +17,15 @@ class Graph {
     void AddEdge(const unsigned int _weight,
         const size_t _node_A,
         const size_t _node_B);
-    vector<int> Dijkstra(size_t _start_n);
+    vector<unsigned int> Dijkstra(size_t _start_n);
     bool IsConnect(const size_t _node_A, const size_t _node_B);
     size_t GetSize();
     const unsigned int INF = 100000000;
  protected:
     class Edge :public pair<unsigned int, unsigned int> {
      public:
-        int weight = first;
-        int connection = second;
+        unsigned int weight = first;
+        unsigned int connection = second;
     };
     vector< vector<Edge>> graph_;
     size_t size_;
