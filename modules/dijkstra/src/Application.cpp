@@ -69,7 +69,7 @@ std::string Application::operator()(int argc, const char** argv) {
     for (int i = 0; i < args.connected_nodes_ * 3; i+=3) {
         graph.AddEdge(args.edges_[i], args.edges_[i + 1], args.edges_[i+2]);
     }
-    vector<int> res = graph.Dijkstra(args.start_node_);
+    vector<unsigned int> res = graph.Dijkstra(args.start_node_);
     for (unsigned int i = 0; i < graph.GetSize(); i++) {
         stream << res[i];
         message_ += stream.str() + " ";
