@@ -31,18 +31,6 @@ TEST(Kalinin_dijkstra_tests, IsConnect_Works) {
   EXPECT_EQ(gr.IsConnect(1, 2), false);
 }
 
-TEST(Kalinin_dijkstra_tests, Can_Set_Edge_Weight) {
-  // Arrange
-  Graph gr(6);
-
-  // Act
-  gr.AddEdge(9, 1, 3);
-
-  // Assert
-  EXPECT_EQ(gr.GetNode(1)->GetWeight(), 9);
-  EXPECT_EQ(gr.GetNode(3)->GetWeight(), 9);
-}
-
 TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
   // Arrange
   Graph gr(6);
