@@ -26,7 +26,9 @@ Graph::Graph(const size_t _size) :size_(_size) {
     }
 }
 
-void Graph::AddEdge(const unsigned int _weight, const size_t _node_A, const size_t _node_B) {
+void Graph::AddEdge(const unsigned int _weight,
+                    const size_t _node_A,
+                    const size_t _node_B) {
     if (size_ >= _node_A) {
         throw "ERROR: Forbidden index of node A";
     }
