@@ -22,7 +22,7 @@ class Graph {
     size_t GetSize();
     const unsigned int INF = 100000000;
  protected:
-    class Edge :public pair<int, int> {
+    class Edge :public pair<unsigned int, unsigned int> {
      public:
         int weight = first;
         int connection = second;

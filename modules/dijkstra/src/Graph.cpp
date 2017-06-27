@@ -73,7 +73,7 @@ vector<int> Graph::Dijkstra(size_t _start_n) {
     const int selected = -1;
     const int s = _start_n;
     const int n = size_;
-    vector<int> d(n, INF), p(n);
+    vector<unsigned int> d(n, INF), p(n);
     vector<bool> u(n);
     d[s] = 0;
     for (int i = 0; i < n; i++) {
