@@ -4,6 +4,7 @@
 #define MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_
 
 #include <string>
+#include <vector>
 #include "include/Graph.h"
 
 
@@ -21,6 +22,7 @@ class Application {
         int start_node_;
         int size_;
         int connected_nodes_;
+        std::vector<unsigned int> edges_;
     } Arguments;
     typedef struct {
         int weight_;

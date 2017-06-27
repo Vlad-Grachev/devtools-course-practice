@@ -46,9 +46,6 @@ bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
 }
 
 std::string Application::operator()(int argc, const char** argv) {
-    int k = 0;
-    std::vector<int> dijkstra;
-    vector < Connection > cnn;
     Arguments args;
     std::ostringstream stream;
 
@@ -60,36 +57,24 @@ std::string Application::operator()(int argc, const char** argv) {
         args.size_ = ParseInt(argv[1]);
         args.start_node_ = ParseInt(argv[2]);
         args.connected_nodes_ = (argc - 3) / 3;
-        cnn.reserve(args.connected_nodes_);
-        for (int i = 3; i + 3 <= argc - 3; i += 3) {
-            cnn[k].weight_ = ParseInt(argv[i]);
-            cnn[k].start_= ParseInt(argv[i+1]);
-            cnn[k].end_= ParseInt(argv[i+2]);
-            k++;
+        for (int i = 3; i < args.connected_nodes_; i++) {
+            args.edges_.push_back(ParseInt(argv[i]));
         }
     }
-        catch (std::string& str) {
-            return str;
+    catch (std::string& str) {
+        return str;
     }
+
     Graph graph(args.size_);
-    for (int i = 0; i < args.connected_nodes_; i++) {
-        graph.AddEdge(cnn[i].weight_, cnn[i].start_, cnn[i].weight_);
+    for (int i = 0; i < args.connected_nodes_ * 3; i+=3) {
+        graph.AddEdge(args.edges_[i], args.edges_[i + 1], args.edges_[i+2]);
     }
-    dijkstra = graph.Dijkstra(args.start_node_);
-    for (int i = 0; i < args.size_; i++) {
-        if (i != args.start_node_) {
-            if (dijkstra[i] < graph.INF) {
-                stream << args.start_node_ << " --> " << i;
-                stream << " = " << dijkstra[i] << "\n";
-            }
-            else if (dijkstra[i] >=
-                graph.INF) {
-                stream << args.start_node_ << " --> " << i;
-                stream << " = " << "inf" << "\n";
-            }
-        }
+    vector<int> res = graph.Dijkstra(args.start_node_);
+    for (int i = 0; i < res.size(); i++) {
+        stream << res[i];
+        message_ += stream.str() + " ";
     }
-    message_ = stream.str();
+    message_.pop_back();
     return message_;
 }
 
