@@ -63,7 +63,7 @@ add_test(
     NAME ${prefix}_Can_calculate_default_salary
     COMMAND ${APPLICATION} 7 0
 )
-set_tests_properties (${prefix}_7_test PROPERTIES
+set_tests_properties (${prefix}_Can_calculate_default_salary PROPERTIES
     PASS_REGULAR_EXPRESSION "3200"
     LABELS "${MODULE}")
 
