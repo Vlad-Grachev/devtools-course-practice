@@ -10,6 +10,8 @@
 using std::pair;
 using std::vector;
 
+const unsigned int INF = 100000000;
+
 class Graph {
  public:
     Graph();
@@ -20,7 +22,6 @@ class Graph {
     vector<unsigned int> Dijkstra(size_t _start_n);
     bool IsConnect(const size_t _node_A, const size_t _node_B);
     size_t GetSize();
-    const unsigned int INF = 100000000;
  protected:
     class Edge :public pair<unsigned int, unsigned int> {
      public:

@@ -77,8 +77,7 @@ TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correctly) {
                             "2", "3", "0",
                             "9", "5", "0",
                             "6", "4", "5" };
-    const string expected_answer = std::string(expected_answer) + "1 --> 0 = 11\n" +
-        "1 --> 2 = 7\n" + "1 --> 3 = 9\n" + "1 --> 4 = 20\n" + "1 --> 5 = 20\n";
+    const string expected_answer = "11 0 7 9 20 20";
     // Act
     Act(args);
     // Assert

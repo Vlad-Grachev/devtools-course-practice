@@ -23,12 +23,19 @@ void Application::Help(const char* appname, const char* message) {
 
         "ATTENTION:\n"
         "\n*All arguments should be unsingned integer values!" +
+        "\n*The max value of any argument is " + INF + "!" +
+        "\n*If there is no edge between nodes, the result of optimal way" +
+        "between them will be 'inf'" +
         "\n*The number of arguments should be > 2 and 2 + n, where the 'n' is a multiple of 3!" +
         "\n*Carefully observe the format where typing the edges!";
 };
 
 int Application::ParseInt(const char* arg) {
-    return std::stoi(arg);
+    int val = std::stoi(arg);
+    if (val > INF) {
+        throw("ERROR:Too huge argument's value");
+    }
+    return val;
 }
 
 bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
@@ -71,7 +78,12 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     vector<unsigned int> res = graph.Dijkstra(args.start_node_);
     for (unsigned int i = 0; i < graph.GetSize(); i++) {
-        stream << res[i];
+        if (res[i] < INF) {
+            stream << res[i];
+        }
+        else if (res[i] >= INF) {
+            stream << "inf";
+        }
         message_ += stream.str() + " ";
     }
     message_.pop_back();
