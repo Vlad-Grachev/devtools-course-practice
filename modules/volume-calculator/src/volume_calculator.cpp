@@ -90,5 +90,6 @@ double Volume::RectangularParallelepiped(double a, double b, double c) {
 double Volume::Frustum(double r_base_1, double r_base_2, double h) {
     if (r_base_1 <= 0 || r_base_2 <= 0 || h <= 0)
         throw std::string("error of class \"Volume\": incorrect arguments");
-    return M_PI * h * (pow(r_base_1, 2) + r_base_1 * r_base_2 + pow(r_base_2, 2)) / 3;
+    return M_PI * h * (pow(r_base_1, 2) +
+        r_base_1 * r_base_2 + pow(r_base_2, 2)) / 3;
 }
