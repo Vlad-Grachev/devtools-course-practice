@@ -22,7 +22,7 @@ void Application::help(const char* appname, const char* message) {
           "<type> <operation>\n\n" +
 
           "<operation> is one of '+', '-', '*', '/'\n\n" +
-          "<type> is one of "HEX", "OCT", "BIN".\n\n" +
+          "<type> is one of \"HEX\", \"OCT\", \"BIN\".\n\n" +
           "Number's types should be equal " +
           "and numbers should be greater than zero.\n\n";
 }
