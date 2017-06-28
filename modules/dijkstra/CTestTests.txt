@@ -31,6 +31,6 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     NAME ${prefix}_can_Check_Value_Of_Arguments
     COMMAND ${APPLICATION} 10
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties (${prefix}_can_Check_Value_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: One of arguments is out of limit"
     LABELS "${MODULE}")
