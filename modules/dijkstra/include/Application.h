@@ -22,6 +22,6 @@ class Application {
     typedef struct {
         int start_node_;
         std::vector <std::vector<unsigned int>> gm_;
-    } Arguments
+    } Arguments;
 };
 #endif  // MODULES_DIJKSTRA_INCLUDE_APPLICATION_H_

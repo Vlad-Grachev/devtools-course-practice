@@ -45,7 +45,7 @@ void Graph::AddEdge(const unsigned int _weight,
         throw "ERROR: The graph is not able to have cycles";
     }
     if (INF < _node_A || INF < _node_B || INF < _weight) {
-        throw "ERROR: One of arguments is out of limit"
+        throw "ERROR: One of arguments is out of limit";
     }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;

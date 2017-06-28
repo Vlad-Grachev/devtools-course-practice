@@ -42,7 +42,7 @@ int Application::ParseInt(const char* arg) {
 vector<vector<unsigned int>> Application::ParseGraph(const int argc, const char** argv) {
     const int gr_size = argc - 3;
     vector<vector<unsigned int>> res (gr_size);
-    for (int i = 0; i < res.size(); i++) {
+    for (unsigned int i = 0; i < res.size(); i++) {
         res[i].resize(3);
     }
     for (int i = 3; i < gr_size; i++) {
@@ -85,11 +85,11 @@ std::string Application::operator()(int argc, const char** argv) {
         return str;
     }
     Graph gr(args.gm_.size());
-    for (int i = 0; i < args.gm_.size(); i++) {
+    for (unsigned int i = 0; i < args.gm_.size(); i++) {
         gr.AddEdge(args.gm_[i][0], args.gm_[i][1], args.gm_[i][2]);
     }
     res = gr.Dijkstra(args.start_node_);
-    for (int i = 0; i < res.size(); i++) {
+    for (unsigned int i = 0; i < res.size(); i++) {
         if (res[i] == INF) {
             stream << "inf ";
         }
