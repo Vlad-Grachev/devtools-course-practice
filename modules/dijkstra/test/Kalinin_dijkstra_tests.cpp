@@ -1,10 +1,10 @@
 // Copyright 2017 Kalinin Vladimir & Kozlov Ilya
 
-#include <gtest/gtest.h>
-#include "include/Graph.h"
 #include <algorithm>
 #include <vector>
 #include <utility>
+#include <gtest/gtest.h>
+#include "include/Graph.h"
 
 TEST(Kalinin_dijkstra_tests, Can_Create_Graph) {
   // Arrange

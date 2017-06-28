@@ -1,13 +1,12 @@
 // Copyright 2017 Kozlov Ilya
 
-#include <gtest/gtest.h>
-
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <functional>
 #include <iterator>
 
+#include <gtest/gtest.h>
 #include "include/Graph.h"
 #include "include/Application.h"
 
@@ -105,4 +104,3 @@ TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_With_Unrelated_Graph) {
     // Assert
     Assert("0 inf");
 }
-
