@@ -115,7 +115,7 @@ TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
     std::vector<unsigned int> tmp = gr.Dijkstra(0);
 
     // Assert
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 2; i++) {
         EXPECT_EQ(correct_answer[i], tmp[i]);
     }
 }
