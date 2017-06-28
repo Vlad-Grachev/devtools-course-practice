@@ -31,14 +31,12 @@ void Application::Help(const char* appname, const char* message) {
 };
 
 int Application::ParseInt(const char* arg) {
-    unsigned int val = INF;
     try {
-        unsigned int val = std::stoi(arg);
+        return std::stoi(arg);
     }
     catch (std::string& str) {
         throw str;
     }
-    return val;
 }
 
 bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
