@@ -17,7 +17,7 @@ using std::vector;
 using std::string;
 
 class OptimalWayCalculatorAppTest : public ::testing::Test {
-protected:
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
         options.push_back("appname");
@@ -31,7 +31,7 @@ protected:
     void Assert(std::string expected) {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
-private:
+ private:
     Application app_;
     string output_;
 };
@@ -59,7 +59,7 @@ TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments1) {
 TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments2) {
     // Arrange
     const string test_val = "10";
-    vector<string> args = { test_val,test_val, test_val };
+    vector<string> args = { test_val, test_val, test_val };
     // Act
     Act(args);
     // Assert

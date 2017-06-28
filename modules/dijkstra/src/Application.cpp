@@ -20,7 +20,8 @@ void Application::Help(const char* appname, const char* message) {
         "This is an optimal way calculator application.\n\n" +
         "Pleaseprovide arguments in the following format:\n\n" +
 
-        "  $ " + appname + "<size> <start_node_index> <edge1> <edge2> ... <edgeN>\n" +
+        "  $ " + appname + "<size> <start_node_index>" +
+        "<edge1> <edge2> ... <edgeN>\n" +
         "WHERE <edgeN> = <weightN> <nodeIndexA> <nodeIndexB>\n\n" +
 
         "ATTENTION:\n"
@@ -28,9 +29,10 @@ void Application::Help(const char* appname, const char* message) {
         "\n*The max value of any argument is " + std::to_string(INF) + "!" +
         "\n*If there is no edge between nodes, the result of optimal way" +
         "between them will be 'inf'" +
-        "\n*The number of arguments should be > 2 and 2 + n, where the 'n' is a multiple of 3!" +
+        "\n*The number of arguments should be > 2 " +
+        "and 2 + n, where the 'n' is a multiple of 3!" +
         "\n*Carefully observe the format where typing the edges!";
-};
+}
 
 int Application::ParseInt(const char* arg) {
     int val = std::stoi(arg);
@@ -40,9 +42,10 @@ int Application::ParseInt(const char* arg) {
     return val;
 }
 
-vector<vector<unsigned int>> Application::ParseGraph(const int argc, const char** argv) {
+vector<vector<unsigned int>> Application::ParseGraph(const int argc,
+                                                     const char** argv) {
     const int gr_size = (argc - 3) / 3;
-    vector<vector<unsigned int>> res (gr_size);
+    vector<vector<unsigned int>> res(gr_size);
     for (unsigned int i = 0; i < res.size(); i++) {
         res[i].resize(3);
     }
