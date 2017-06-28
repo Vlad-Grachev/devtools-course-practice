@@ -15,7 +15,7 @@ Graph::Graph() :size_(0) {}
 
 Graph::Graph(const size_t _size) : size_(_size) {
     if (size_ > INF) {
-        throw (string)"ERROR: One of arguments is out of limit";
+        throw(string)"ERROR: One of arguments is out of limit";
     }
     graph_.resize(size_);
     for (size_t i = 0; i < size_; i++) {
@@ -24,8 +24,7 @@ Graph::Graph(const size_t _size) : size_(_size) {
             if (i != j) {
                 graph_[i][j].weight = INF;
                 graph_[i][j].connection = j;
-            } else
-                if (i == j) {
+            } else if (i == j) {
                     graph_[i][j].weight = 0;
                     graph_[i][j].connection = j;
             }
@@ -38,16 +37,16 @@ void Graph::AddEdge(const unsigned int _weight,
                     const size_t _node_B) {
 
     if (size_ <= _node_A) {
-        throw (string)"ERROR: Forbidden index of node A";
+        throw(string)"ERROR: Forbidden index of node A";
     }
     if (size_ <= _node_B) {
-        throw (string)"ERROR: Forbidden index of node B";
+        throw(string)"ERROR: Forbidden index of node B";
     }
     if (_node_A == _node_B) {
-        throw (string)"ERROR: The graph is not able to have cycles";
+        throw(string)"ERROR: The graph is not able to have cycles";
     }
     if (INF < _node_A || INF < _node_B || INF < _weight) {
-        throw (string)"ERROR: One of arguments is out of limit";
+        throw(string)"ERROR: One of arguments is out of limit";
     }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;
@@ -55,13 +54,13 @@ void Graph::AddEdge(const unsigned int _weight,
 
 bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
     if (size_ <= _node_A) {
-        throw (string)"ERROR: Forbidden index of node A";
+        throw(string)"ERROR: Forbidden index of node A";
     }
     if (size_ <= _node_B) {
-        throw (string)"ERROR: Forbidden index of node B";
+        throw(string)"ERROR: Forbidden index of node B";
     }
     if (_node_A == _node_B) {
-        throw (string)"ERROR: The graph is not able to have cycles";
+        throw(string)"ERROR: The graph is not able to have cycles";
     }
     if (graph_[_node_A][_node_B].weight == INF) {
         return 0;
@@ -71,7 +70,7 @@ bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
 
 vector<unsigned int> Graph::Dijkstra(size_t _start_n) {
     if (_start_n >= size_) {
-        throw (string)"ERROR: Forbidden index of start node";
+        throw(string)"ERROR: Forbidden index of start node";
     }
 
     const int selected = -1;
