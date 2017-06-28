@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <vector>
 #include <utility>
+#include <string>
 
 using std::pair;
 using std::vector;

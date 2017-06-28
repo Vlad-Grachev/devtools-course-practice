@@ -20,6 +20,7 @@ class Application {
     bool ValidateNumberOfArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
+        int size_;
         int start_node_;
         std::vector <std::vector<unsigned int>> gm_;
     } Arguments;

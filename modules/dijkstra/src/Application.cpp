@@ -31,6 +31,7 @@ void Application::Help(const char* appname, const char* message) {
         "\n*The number of arguments should be > 2 and 2 + n, where the 'n' is a multiple of 3!" +
         "\n*Carefully observe the format where typing the edges!";
 };
+
 int Application::ParseInt(const char* arg) {
     try {
         return std::stoi(arg);
@@ -39,21 +40,25 @@ int Application::ParseInt(const char* arg) {
         throw str;
     }
 }
+
 vector<vector<unsigned int>> Application::ParseGraph(const int argc, const char** argv) {
-    const int gr_size = argc - 3;
+    const int gr_size = (argc - 3) / 3;
     vector<vector<unsigned int>> res (gr_size);
     for (unsigned int i = 0; i < res.size(); i++) {
         res[i].resize(3);
     }
-    for (int i = 3; i < gr_size; i++) {
+         int k = 0;
+    for (int i = 1; i <= argc - 3; i++) {
         if (i % 3 == 0) {
-            res[i][0] = ParseInt(argv[i]);
-            res[i][1] = ParseInt(argv[i + 1]);
-            res[i][2] = ParseInt(argv[i + 2]);
+            res[k][0] = ParseInt(argv[i]);
+            res[k][1] = ParseInt(argv[i + 1]);
+            res[k][2] = ParseInt(argv[i + 2]);
+            k++;
         }
     }
     return res;
 }
+
 bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         Help(argv[0]);
@@ -78,15 +83,21 @@ std::string Application::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
+        args.size_ = ParseInt(argv[1]);
         args.start_node_ = ParseInt(argv[2]);
         args.gm_ = ParseGraph(argc, argv);
     }
     catch (std::string& str) {
         return str;
     }
-    Graph gr(args.gm_.size());
+    Graph gr(args.size_);
     for (unsigned int i = 0; i < args.gm_.size(); i++) {
-        gr.AddEdge(args.gm_[i][0], args.gm_[i][1], args.gm_[i][2]);
+        try {
+            gr.AddEdge(args.gm_[i][0], args.gm_[i][1], args.gm_[i][2]);
+        }
+        catch (std::string& str) {
+            return str;
+        }
     }
     res = gr.Dijkstra(args.start_node_);
     for (unsigned int i = 0; i < res.size(); i++) {
@@ -96,7 +107,7 @@ std::string Application::operator()(int argc, const char** argv) {
         if (res[i] != INF) {
             stream << res[i] << " ";
         }
-        message_ += stream.str();
+        message_ = stream.str();
     }
     message_.pop_back();
     return message_;
