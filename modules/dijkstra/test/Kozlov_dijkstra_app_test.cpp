@@ -105,3 +105,12 @@ TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_With_Unrelated_Graph) {
     // Assert
     Assert("0 inf");
 }
+
+TEST_F(OptimalWayCalculatorAppTest, Can_Not_Set_Graph_With_Cycles) {
+    // Arrange
+    vector<string> args = { "1", "0", "1", "0", "0"};
+    // Act
+    Act(args);
+    // Assert
+    Assert("ERROR: The graph is not able to have cycles");
+}
