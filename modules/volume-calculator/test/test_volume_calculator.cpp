@@ -22,7 +22,7 @@ TEST(volume_test, cant_get_cube_volume_with_incorrect_rib) {
 TEST(volume_test, can_get_right_cone_volume) {
     // Arrange
     double cone_radius = 10, cone_height = 10;
-    double right_volume = (1 / 3)*M_PI*pow(cone_radius, 2)*cone_height;
+    double right_volume = M_PI*pow(cone_radius, 2)*cone_height/3;
     // Act & Assert
     EXPECT_EQ(Volume::Cone(cone_height, cone_radius), right_volume);
 }
@@ -102,7 +102,7 @@ TEST(volume_test, cant_get_dodecahedron_volume_with_incorrect_rib) {
 TEST(volume_test, can_get_right_ellipsoid_volume) {
     // Arrange
     double a = 4, b = 4, c = 4;
-    double right_volume = (4 / 3) * M_PI * a * b * c;
+    double right_volume = 4/3 * M_PI * a * b * c;
     // Act & Assert
     EXPECT_EQ(Volume::Ellipsoid(a, b, c), right_volume);
 }
@@ -167,9 +167,9 @@ TEST(volume_test, can_get_right_frustum_volume) {
     double radius_of_first_base = 10;
     double radius_of_second_base = 5;
     double height = 15;
-    double right_volume = (1 / 3)*M_PI*height*(pow(radius_of_first_base, 2)
+    double right_volume = M_PI*height*(pow(radius_of_first_base, 2)
         + radius_of_first_base*radius_of_second_base
-        + pow(radius_of_second_base, 2));
+        + pow(radius_of_second_base, 2))/3;
     // Act & Assert
     EXPECT_EQ(Volume::Frustum(radius_of_first_base,
         radius_of_second_base,
@@ -235,7 +235,7 @@ TEST(volume_test, cant_get_frustum_volume_with_incorrect_r_and_h_i_i_i) {
 TEST(volume_test, can_get_right_paraboloid_volume) {
     // Arrange
     double radius = 10, height = 5;
-    double right_value = (1 / 2)*M_PI*pow(radius, 2)*height;
+    double right_value = M_PI*pow(radius, 2)*height/2;
     // Act & Assert
     EXPECT_EQ(Volume::Paraboloid(height, radius), right_value);
 }
@@ -494,7 +494,7 @@ TEST(volume_test, can_get_right_pyramid_volume_with_ribs) {
     double height_of_triangle = 10;
     double height_of_pyramid = 20;
     double base_area = (0.5)*a_rib_of_triangle*height_of_triangle;
-    double right_volume = (1 / 3)*base_area*height_of_pyramid;
+    double right_volume = base_area*height_of_pyramid/3;
     // Act & Assert
     EXPECT_EQ(Volume::Pyramid(a_rib_of_triangle,
                               height_of_triangle,
@@ -507,7 +507,7 @@ TEST(volume_test, can_get_right_pyramid_volume_with_base_area) {
     double height_of_triangle = 10;
     double height_of_pyramid = 20;
     double base_area = (0.5)*a_rib_of_triangle*height_of_triangle;
-    double right_volume = (1 / 3)*base_area*height_of_pyramid;
+    double right_volume = base_area*height_of_pyramid/3;
     // Act & Assert
     EXPECT_EQ(Volume::Pyramid(base_area, height_of_pyramid), right_volume);
 }
@@ -657,7 +657,7 @@ TEST(volume_test, can_get_right_sphere_volume) {
     // Arrange
     double radius = 10;
     // Act
-    double right_volume = (4 / 3)*M_PI*pow(radius, 3);
+    double right_volume = 4/3*M_PI*pow(radius, 3);
     // Act & Assert
     EXPECT_EQ(Volume::Sphere(radius), right_volume);
 }
