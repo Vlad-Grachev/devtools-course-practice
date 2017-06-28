@@ -4,7 +4,7 @@
 #include "../include/Application.h"
 
 TEST(Application, first_simple_test) {
-    EXPECT_TRUE(true);
+    ASSERT_TRUE(true);
 }
 
 TEST(Application, Open_File) {
@@ -12,12 +12,12 @@ TEST(Application, Open_File) {
 
     sal->CalculateSalary();
 
-    EXPECT_EQ(sal->GetSalary() , 3200);
+    ASSERT_EQ(sal->GetSalary() , 3200);
 }
 
 TEST(Application, Constructor_copir) {
     Application app1;
-    EXPECT_NO_FATAL_FAILURE(Application app2(app1));
+    ASSERT_NO_FATAL_FAILURE(Application app2(app1));
 }
 
 TEST(Application, Operator) {
@@ -29,20 +29,20 @@ TEST(Application, Operator) {
     chr[2][0] = '1';
     Salary sal;
     sal.CalculateSalary();
-    EXPECT_EQ(app(3, chr), 3200);
+    ASSERT_EQ(app(3, chr), 3200);
 }
 
 TEST(Application, Char_To_Int_1) {
     char a[3] = { '1', '2', '3' };
     Application app;
-    EXPECT_EQ(app.ToInt(a), 123);
+    ASSERT_EQ(app.ToInt(a), 123);
 }
 
 TEST(Application, Char_To_Int_2) {
     char* a = new char[1];
     a[0] = '1';
     Application app;
-    EXPECT_EQ(app.ToInt(a), 1);
+    ASSERT_EQ(app.ToInt(a), 1);
 }
 
 TEST(Application, Imitation_real_work_test) {
@@ -71,7 +71,7 @@ TEST(Application, Imitation_real_work_test) {
     arr[14] = new char[1];
     arr[14][0] = '0';
     int res = app(15, arr);
-    EXPECT_EQ(res, 1600);
+    ASSERT_EQ(res, 1600);
 }
 
 TEST(Application, Print_Help_1 ) {
@@ -83,7 +83,7 @@ TEST(Application, Print_Help_1 ) {
         chr[2][0] = '1';
         Salary sal;
         sal.CalculateSalary();
-        EXPECT_EQ(app(3, chr), 0);
+        ASSERT_EQ(app(3, chr), 0);
 }
 
 TEST(Application, Print_Help_2 ) {
@@ -95,5 +95,5 @@ TEST(Application, Print_Help_2 ) {
     chr[2][0] = '1';
     Salary sal;
     sal.CalculateSalary();
-    EXPECT_EQ(app(3, chr), 0);
+    ASSERT_EQ(app(3, chr), 0);
 }
