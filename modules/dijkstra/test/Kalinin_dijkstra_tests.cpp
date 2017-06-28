@@ -24,7 +24,7 @@ TEST(Kozlov_dijkstra_tests, Can_Not_Create_Graph_With_Incorrect_Size) {
     // Act
 
     // Assert
-    EXPECT_ANY_THROW({ Graph gr(22222222); });
+    EXPECT_ANY_THROW({ Graph gr(INF + 1); });
 }
 
 TEST(Kalinin_dijkstra_tests, IsConnect_Works) {
