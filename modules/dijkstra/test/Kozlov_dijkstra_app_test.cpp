@@ -66,7 +66,7 @@ TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Number_Of_Arguments2) {
     Assert("ERROR: Incorrect arguments num.*");
 }
 
-TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Values_Of_Arguments) {
+TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Values_Of_Arguments3) {
     // Arrange
     const string test_val = std::to_string(INF + 1);
     vector<string> args = { test_val, test_val };

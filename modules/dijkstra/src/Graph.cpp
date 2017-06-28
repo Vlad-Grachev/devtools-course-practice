@@ -4,6 +4,7 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
+#include <string>
 
 using std::size_t;
 using std::vector;
@@ -13,7 +14,8 @@ Graph::Graph() :size_(0) {}
 
 Graph::Graph(const size_t _size) : size_(_size) {
     if (size_ > INF) {
-        throw("ERROR: One of arguments is out of limit = " + INF);
+        throw((std::string)("ERROR: One of arguments is out of limit = "
+                            + std::to_string(INF)));
     }
     graph_.resize(size_);
     for (size_t i = 0; i < size_; i++) {
@@ -32,8 +34,9 @@ Graph::Graph(const size_t _size) : size_(_size) {
 }
 
 void Graph::AddEdge(const unsigned int _weight,
-    const size_t _node_A,
-    const size_t _node_B) {
+                    const size_t _node_A,
+                    const size_t _node_B) {
+
     if (size_ <= _node_A) {
         throw "ERROR: Forbidden index of node A";
     }
@@ -44,7 +47,8 @@ void Graph::AddEdge(const unsigned int _weight,
         throw "ERROR: The graph is not able to have cycles";
     }
     if (INF < _node_A || INF < _node_B || INF < _weight) {
-        throw("ERROR: One of arguments is out of limit = " + INF);
+        throw((std::string)("ERROR: One of arguments is out of limit = "
+                            + std::to_string(INF)));
     }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;
