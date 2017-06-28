@@ -4,7 +4,6 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
-#include <string>
 
 using std::size_t;
 using std::vector;
@@ -14,8 +13,7 @@ Graph::Graph() :size_(0) {}
 
 Graph::Graph(const size_t _size) : size_(_size) {
     if (size_ > INF) {
-        throw((std::string)("ERROR: One of arguments is out of limit = "
-                            + std::to_string(INF)));
+        throw "ERROR: One of arguments is out of limit";
     }
     graph_.resize(size_);
     for (size_t i = 0; i < size_; i++) {
@@ -47,8 +45,7 @@ void Graph::AddEdge(const unsigned int _weight,
         throw "ERROR: The graph is not able to have cycles";
     }
     if (INF < _node_A || INF < _node_B || INF < _weight) {
-        throw((std::string)("ERROR: One of arguments is out of limit = "
-                            + std::to_string(INF)));
+        throw "ERROR: One of arguments is out of limit"
     }
     graph_[_node_A][_node_B].weight = _weight;
     graph_[_node_B][_node_A].weight = _weight;

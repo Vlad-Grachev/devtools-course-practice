@@ -73,7 +73,7 @@ TEST_F(OptimalWayCalculatorAppTest, Is_Checking_Values_Of_Arguments) {
     // Act
     Act(args);
     // Assert
-    Assert("ERROR: One of arguments is out of limit = " + std::to_string(INF));
+    Assert("ERROR: One of arguments is out of limit");
 }
 
 TEST_F(OptimalWayCalculatorAppTest, Can_Calculate_Correctly) {
