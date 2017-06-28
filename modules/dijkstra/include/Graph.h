@@ -10,7 +10,7 @@
 using std::pair;
 using std::vector;
 
-const unsigned int INF = 100000000;
+const unsigned int INF = 1000000;
 
 class Graph {
  public:
