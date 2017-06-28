@@ -109,10 +109,10 @@ TEST(Kalinin_dijkstra_tests, Diykstra_Result_Is_Correct) {
 TEST(Kozlov_dijkstra_tests, Diykstra_Result_With_Unrelated_Graph) {
     // Arrange
     Graph gr(2);
-    std::vector < std:: size_t > correct_answer = { 0, INF };
+    std::vector <unsigned int> correct_answer = { 0, INF };
 
     // Act
-    std::vector<std::size_t> tmp = gr.Dijkstra(0);
+    std::vector<unsigned int> tmp = gr.Dijkstra(0);
 
     // Assert
     for (int i = 0; i < 6; i++) {
