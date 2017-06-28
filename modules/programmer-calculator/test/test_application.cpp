@@ -48,7 +48,7 @@ TEST_F(ApplicationTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(ApplicationTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = { "101", "110", "3" };
+    vector<string> args = { "101", "110", "BIN" };
 
     Act(args);
 
@@ -64,7 +64,7 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Type_Format) {
 }
 
 TEST_F(ApplicationTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = {"1", "1", "3", "%"};
+    vector<string> args = {"1", "1", "BIN", "%"};
 
     Act(args);
 
@@ -72,7 +72,7 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"1", "2", "3", "+"};
+    vector<string> args = {"1", "2", "BIN", "+"};
 
     Act(args);
 
@@ -80,7 +80,7 @@ TEST_F(ApplicationTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(ApplicationTest, Can_Add) {
-    vector<string> args = {"1f", "3", "1", "+"};
+    vector<string> args = {"1f", "3", "HEX", "+"};
 
     Act(args);
 
@@ -88,7 +88,7 @@ TEST_F(ApplicationTest, Can_Add) {
 }
 
 TEST_F(ApplicationTest, Can_Diff) {
-    vector<string> args = {"13", "3", "2", "-"};
+    vector<string> args = {"13", "3", "OCT", "-"};
 
     Act(args);
 
@@ -96,7 +96,7 @@ TEST_F(ApplicationTest, Can_Diff) {
 }
 
 TEST_F(ApplicationTest, Can_Mult) {
-    vector<string> args = {"11", "10", "3", "*"};
+    vector<string> args = {"11", "10", "BIN", "*"};
 
     Act(args);
 
@@ -104,7 +104,7 @@ TEST_F(ApplicationTest, Can_Mult) {
 }
 
 TEST_F(ApplicationTest, Can_Divide) {
-    vector<string> args = {"110", "11", "3", "/"};
+    vector<string> args = {"110", "11", "BIN", "/"};
 
     Act(args);
 
@@ -112,7 +112,7 @@ TEST_F(ApplicationTest, Can_Divide) {
 }
 
 TEST_F(ApplicationTest, Can_Detect_Divide_By_Zero) {
-    vector<string> args = {"120", "0", "2", "/"};
+    vector<string> args = {"120", "0", "OCT", "/"};
 
     Act(args);
 

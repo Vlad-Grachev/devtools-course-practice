@@ -22,7 +22,7 @@ void Application::help(const char* appname, const char* message) {
           "<type> <operation>\n\n" +
 
           "<operation> is one of '+', '-', '*', '/'\n\n" +
-          "<type> is one of '1'-HEX, '2'-OCT, '3'-BIN.\n\n" +
+          "<type> is one of "HEX", "OCT", "BIN".\n\n" +
           "Number's types should be equal " +
           "and numbers should be greater than zero.\n\n";
 }
@@ -56,11 +56,11 @@ char parseOperation(const char* arg) {
 
 char parseType(const char* arg) {
     char op;
-    if (strcmp(arg, "1") == 0) {
+    if (strcmp(arg, "HEX") == 0) {
         op = '1';
-    } else if (strcmp(arg, "2") == 0) {
+    } else if (strcmp(arg, "OCT") == 0) {
         op = '2';
-    } else if (strcmp(arg, "3") == 0) {
+    } else if (strcmp(arg, "BIN") == 0) {
         op = '3';
     } else {
         throw std::string("Wrong type!");
