@@ -1,103 +1,106 @@
-// Copyright 2017 Kalinin Vladimir
+// Copyright 2017 Kalinin Vladimir & Kozlov Ilya
 
 #include "include/Graph.h"
-#include <limits.h>
+#include <vector>
+#include <algorithm>
+#include <utility>
+#include <string>
 
-Edge::Edge() : weight_(0), key_(0), next_(0) {}
+using std::string;
+using std::size_t;
+using std::vector;
+using std::pair;
 
-Edge::Edge(const int _weight, const int _key) :
-  weight_(_weight), key_(_key), next_(0) {}
+Graph::Graph() :size_(0) {}
 
-void Edge::SetNext(Edge* _next) { next_ = _next; }
-
-int Edge::GetWeight() { return weight_; }
-
-int Edge::GetKey() { return key_; }
-
-Edge* Edge::GetNext() { return next_; }
-
-Graph::Graph() : size_(0), node_(0) {}
-
-Graph::Graph(int _size) : size_(_size) {
-  node_ = new Edge*[size_];
-  for (int i = 0; i < size_; i++)
-    node_[i] = 0;
+Graph::Graph(const size_t _size) : size_(_size) {
+    if (size_ > INF) {
+        throw(string)"ERROR: One of arguments is out of limit";
+    }
+    graph_.resize(size_);
+    for (size_t i = 0; i < size_; i++) {
+        graph_[i].resize(size_);
+        for (size_t j = 0; j < size_; j++) {
+            if (i != j) {
+                graph_[i][j].weight = INF;
+                graph_[i][j].connection = j;
+            } else if (i == j) {
+                    graph_[i][j].weight = 0;
+                    graph_[i][j].connection = j;
+            }
+        }
+    }
 }
 
-void Graph::AddEdge(const int _weight, const int key1, const int key2) {
-  if (IsConnect(key1, key2))
-    return;
-  if (node_[key1] == 0) {
-    node_[key1] = new Edge(_weight, key2);
-  } else {
-    Edge* tmp = node_[key1];
-    while (tmp->GetNext())
-      tmp = tmp->GetNext();
-    tmp->SetNext(new Edge(_weight, key2));
-  }
-
-  if (node_[key2] == 0) {
-    node_[key2] = new Edge(_weight, key1);
-  } else {
-    Edge* tmp = node_[key2];
-    while (tmp->GetNext())
-      tmp = tmp->GetNext();
-    tmp->SetNext(new Edge(_weight, key1));
-  }
+void Graph::AddEdge(const unsigned int _weight,
+                    const size_t _node_A,
+                    const size_t _node_B) {
+    if (size_ <= _node_A) {
+        throw(string)"ERROR: Forbidden index of node A";
+    }
+    if (size_ <= _node_B) {
+        throw(string)"ERROR: Forbidden index of node B";
+    }
+    if (_node_A == _node_B) {
+        throw(string)"ERROR: The graph is not able to have cycles";
+    }
+    if (INF < _node_A || INF < _node_B || INF < _weight) {
+        throw(string)"ERROR: One of arguments is out of limit";
+    }
+    graph_[_node_A][_node_B].weight = _weight;
+    graph_[_node_B][_node_A].weight = _weight;
 }
 
-bool Graph::IsConnect(const int key1, const int key2) {
-  Edge* tmp = node_[key1];
-  while (tmp) {
-    if (tmp->GetKey() == key2)
-      return true;
-    tmp = tmp->GetNext();
-  }
-  return false;
+bool Graph::IsConnect(const size_t _node_A, const size_t _node_B) {
+    if (size_ <= _node_A) {
+        throw(string)"ERROR: Forbidden index of node A";
+    }
+    if (size_ <= _node_B) {
+        throw(string)"ERROR: Forbidden index of node B";
+    }
+    if (_node_A == _node_B) {
+        throw(string)"ERROR: The graph is not able to have cycles";
+    }
+    if (graph_[_node_A][_node_B].weight == INF) {
+        return 0;
+    }
+    return 1;
 }
 
-int Graph::GetSize() {
-  return size_;
-}
-
-Edge* Graph::GetNode(int n) {
-  return node_[n];
-}
-
-int* Graph::Dijkstra(int node_index) {
-  int* weight = new int[size_];
-  for (int i = 0; i < size_; i++)
-    weight[i] = INT_MAX;
-  weight[node_index] = 0;
-
-  int* mark = new int[size_];
-  for (int i = 0; i < size_; i++)
-    mark[i] = 0;
-
-  bool allNodesMarked = false;
-
-  while (!allNodesMarked) {
-    int minWeightNode, minWeight = INT_MAX;
-    for (int i = 0; i < size_; i++)
-      if (mark[i] == 0 && weight[i] < minWeight) {
-        minWeight = weight[i];
-        minWeightNode = i;
-      }
-    mark[minWeightNode] = 1;
-    Edge* tmp = node_[minWeightNode];
-    while (tmp) {
-      if (weight[tmp->GetKey()] > weight[minWeightNode] +
-        tmp->GetWeight() && mark[tmp->GetKey()] == 0)
-        weight[tmp->GetKey()] = weight[minWeightNode] + tmp->GetWeight();
-      tmp = tmp->GetNext();
+vector<unsigned int> Graph::Dijkstra(size_t _start_n) {
+    if (_start_n >= size_) {
+        throw(string)"ERROR: Forbidden index of start node";
     }
 
-    allNodesMarked = true;
-    for (int i = 0; i < size_; i++)
-      if (mark[i] == 0)
-        allNodesMarked = false;
-  }
-  delete[] mark;
+    const int selected = -1;
+    const int s = _start_n;
+    const int n = size_;
+    vector<unsigned int> d(n, INF), p(n);
+    vector<bool> u(n);
+    d[s] = 0;
+    for (int i = 0; i < n; i++) {
+        int v = selected;
+        for (int j = 0; j < n; j++) {
+            if (!u[j] && (v == selected || d[j] < d[v])) {
+                v = j;
+            }
+        }
+        if (d[v] == INF) {
+            break;
+        }
+        u[v] = true;
+        for (size_t j = 0; j < size_; j++) {
+            int to = graph_[v][j].connection,
+                len = graph_[v][j].weight;
+            if (d[v] + len < d[to]) {
+                d[to] = d[v] + len;
+                p[to] = v;
+            }
+        }
+    }
+    return d;
+}
 
-  return weight;
+size_t Graph::GetSize() {
+    return size_;
 }
