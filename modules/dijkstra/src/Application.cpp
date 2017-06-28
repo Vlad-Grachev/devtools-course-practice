@@ -33,11 +33,9 @@ void Application::Help(const char* appname, const char* message) {
 };
 
 int Application::ParseInt(const char* arg) {
-    try {
-        return std::stoi(arg);
-    }
-    catch (std::string& str) {
-        throw str;
+    int val = std::stoi(arg);
+    if (val > INF) {
+        throw (std::string)"ERROR: One of arguments is out of limit";
     }
 }
 
