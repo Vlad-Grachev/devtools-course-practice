@@ -37,6 +37,7 @@ int Application::ParseInt(const char* arg) {
     if ((unsigned int)val > INF) {
         throw (std::string)"ERROR: One of arguments is out of limit";
     }
+    return val;
 }
 
 vector<vector<unsigned int>> Application::ParseGraph(const int argc, const char** argv) {
