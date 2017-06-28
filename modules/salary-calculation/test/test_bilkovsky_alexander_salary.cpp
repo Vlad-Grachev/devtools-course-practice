@@ -1,11 +1,11 @@
 // Copyright 2017 Bilkovsky Alexander
 
 #include <gtest/gtest.h>
-#include "include/salary_caculationl.h"
+#include "../salary-calculation/include/salary_calculation.h"
 
 TEST(Bilkovsky_Alexander_SalaryTest, throw_when_incorrect_input) {
     //  Arrange & Assert
-    EXPECT_ANY_THROW(Salary worker(-1, 200, 200, 9));
+    EXPECT_ANY_THROW(Salary worker(-1, 160, 160, 9));
 }
 TEST(Bilkovsky_Alexander_SalaryTest, throw_when_set_negative1) {
     //  Arrage
@@ -111,7 +111,7 @@ TEST(Bilkovsky_Alexander_SalaryTest, can_calculate_salary1) {
     //  Act
     worker.CalculateSalary();
     //  Assert
-    EXPECT_EQ(4000, worker.GetSalary());
+    EXPECT_EQ(3200, worker.GetSalary());
 }
 TEST(Bilkovsky_Alexander_SalaryTest, can_calculate_salary2) {
     //  Arrage

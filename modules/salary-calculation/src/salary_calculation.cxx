@@ -1,6 +1,6 @@
 // Copyright 2017 Bilkovsky Alexander
 
-#include "include/salary_caculationl.h"
+#include "../include/salary_calculation.h"
 
 Salary::Salary(int salary_per_hour, int needed_hours,
                int work_hours, int workday) {
@@ -52,6 +52,7 @@ void Salary::SetPenalty(int val) {
     penalty_ = val;
 }
 void Salary::CalculateSalary() {
+    salary_ = 0;
     if (work_hours_ < needed_hours_) {
         salary_ = work_hours_ * salary_per_hour_;
         if (!admin_rest_)
@@ -64,4 +65,36 @@ void Salary::CalculateSalary() {
         salary_ += needed_hours_ * salary_per_hour_ +
             (work_hours_ - needed_hours_) * overtime_bonus_;
     }
+}
+
+int Salary::GetSalary() {
+    return salary_;
+}
+
+int Salary::GetAdminRest() {
+    return admin_rest_;
+}
+
+int Salary::GetOvertimeBonus() {
+    return overtime_bonus_;
+}
+
+int Salary::GetSalaryPerHour() {
+    return salary_per_hour_;
+}
+
+int Salary::GetNeededHours() {
+    return needed_hours_;
+}
+
+int Salary::GetWorkHours() {
+    return work_hours_;
+}
+
+int Salary::GetWorkDay() {
+    return workday_;
+}
+
+int Salary::GetPenalty() {
+    return penalty_;
 }
