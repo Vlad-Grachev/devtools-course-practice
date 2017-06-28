@@ -47,6 +47,6 @@ add_test(
     NAME ${prefix}_can_Calculate_Unrelated_Graph
     COMMAND ${APPLICATION} 1 0
 )
-set_tests_properties (${prefix}_can_Calculate_Unrelated_Graphy PROPERTIES
+set_tests_properties (${prefix}_can_Calculate_Unrelated_Graph PROPERTIES
     PASS_REGULAR_EXPRESSION "0 inf"
     LABELS ${MODULE})
