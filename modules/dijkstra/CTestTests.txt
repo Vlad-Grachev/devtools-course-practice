@@ -2,14 +2,14 @@
 ##### Testing
 #############################################
 
-set(prefix ${MODULE})
+set(prefix ""${MODULE}"")
  
 add_test(
     NAME ${prefix}_can_Run
     COMMAND ${APPLICATION}
 )
 set_tests_properties (${prefix}_can_Run PROPERTIES
-    LABELS ${MODULE})
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Print_Help_Without_Arguments
@@ -17,7 +17,7 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "This is an optimal way calculator application"
-    LABELS ${MODULE})
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Check_Number_Of_Arguments
@@ -25,7 +25,7 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: Incorrect arguments num."
-    LABELS ${MODULE})
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Check_Value_Of_Arguments
@@ -33,7 +33,7 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Check_Value_Of_Arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "ERROR: One of arguments is out of limit
-    LABELS ${MODULE})
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Calculate_Correctly
@@ -41,7 +41,7 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Calculate_Correctly PROPERTIES
     PASS_REGULAR_EXPRESSION "11 0 7 9 20 20"
-    LABELS ${MODULE})
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Calculate_Unrelated_Graph
@@ -49,4 +49,4 @@ add_test(
 )
 set_tests_properties (${prefix}_can_Calculate_Unrelated_Graph PROPERTIES
     PASS_REGULAR_EXPRESSION "0 inf"
-    LABELS ${MODULE})
+    LABELS "${MODULE}")
