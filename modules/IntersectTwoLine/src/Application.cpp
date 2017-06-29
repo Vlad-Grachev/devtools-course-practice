@@ -44,11 +44,11 @@ bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
   }
   return true;
 }
-//Cool
+
 std::string Application::operator()(int argc, const char** argv) {
   Segment_User args_1;
   Segment_True args_2;
-  
+
   string Answer;
   std::string str1, str2;
 
@@ -69,7 +69,7 @@ std::string Application::operator()(int argc, const char** argv) {
   catch (std::string& str) {
     return str;
   }
-  
+ 
   str1 += "(" + std::to_string(args_1.X1U) + ",";
   str1 += std::to_string(args_1.Y1U) + ")" + "\n";
   str1 += "(" + std::to_string(args_1.X2U) + ",";
@@ -88,12 +88,12 @@ std::string Application::operator()(int argc, const char** argv) {
   */
   LineSegment2D User_Line(args_1.X1U, args_1.Y1U, args_1.X2U, args_1.Y2U);
   LineSegment2D True_Line(args_2.X1T, args_2.Y1T, args_2.X2T, args_2.Y2T);
-  
+
   Answer = User_Line.CheckIntersection(True_Line);
-  
+
   std::ostringstream stream;
   stream << "Two segments with coordinates: \n\nSegment 1:\n"
-         << str1 << "\nSegment 2:\n" << str2 << "\nAre checked" 
+         << str1 << "\nSegment 2:\n" << str2 << "\nAre checked"
          << "for intersection and correlation"<< "\n\nConclusion: "
          << Answer << "";
   message_ = stream.str();
