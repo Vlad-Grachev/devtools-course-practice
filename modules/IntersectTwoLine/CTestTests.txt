@@ -56,5 +56,5 @@ add_test(
     COMMAND ${APPLICATION} -2 -2 2 2 4 5 5 6
 )
 set_tests_properties (${prefix}_can_Find_The_Absence_Of_Crossings PROPERTIES
-    PASS_REGULAR_EXPRESSION ""Segments do not intersect"
+    PASS_REGULAR_EXPRESSION "Segments do not intersect"
     LABELS "${MODULE}")
