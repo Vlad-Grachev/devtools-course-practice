@@ -1,0 +1,60 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "This application is to determine whether the segments that intersect"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 5 12
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Should be 8 arguments."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Initial_Value
+    COMMAND ${APPLICATION} 22 f o u r ele ven KK
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Initial_Value PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Incorrect coordinate!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Find_Out_The_Parallelism
+    COMMAND ${APPLICATION} 0 0 2 2 0 1 2 3
+)
+set_tests_properties (${prefix}_can_Find_Out_The_Parallelism PROPERTIES
+    PASS_REGULAR_EXPRESSION "Segments are parallel"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Find_Cut_In_Cut
+    COMMAND ${APPLICATION} -2 -2 2 2 0 0 1 1
+)
+set_tests_properties (${prefix}_can_Find_Cut_In_Cut PROPERTIES
+    PASS_REGULAR_EXPRESSION "The segments are on the same line"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Find_The_Absence_Of_Crossings
+    COMMAND ${APPLICATION} -2 -2 2 2 4 5 5 6
+)
+set_tests_properties (${prefix}_can_Find_The_Absence_Of_Crossings PROPERTIES
+    PASS_REGULAR_EXPRESSION ""Segments do not intersect"
+    LABELS "${MODULE}")

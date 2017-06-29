@@ -1,4 +1,4 @@
-// Copyright 2017 Lobanov Andrey
+// Copyright 2017 Gorozhanin Mihail
 
 #include <gtest/gtest.h>
 
