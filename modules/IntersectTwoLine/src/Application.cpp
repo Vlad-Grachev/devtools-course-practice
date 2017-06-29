@@ -31,7 +31,7 @@ void Application::help(const char* appname, const char* message) {
     "<X3> <Y3> <X4> <Y4>\n\n" +
 
     "Where each argument to the - coordinate of the point for x and for y." +
-    "It has 8 arguments.\n"
+    "It has 8 arguments.\n";
 }
 
 bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
@@ -47,10 +47,8 @@ bool Application::ValidateNumberOfArguments(int argc, const char** argv) {
 //Cool
 std::string Application::operator()(int argc, const char** argv) {
   Segment_User args_1;
-  Segment_True args_2
+  Segment_True args_2;
   
-  LineSegment2D User_Line();
-  LineSegment2D True_Line();
   string Answer;
   std::string str1, str2;
 
@@ -95,8 +93,8 @@ std::string Application::operator()(int argc, const char** argv) {
   
   std::ostringstream stream;
   stream << "Two segments with coordinates: \n\nSegment 1:\n"
-         << str1 << "\nSegment 2:\n" << str2 << "\nAre checked for 
-         intersection and correlation"<< "\n\nConclusion: "
+         << str1 << "\nSegment 2:\n" << str2 << "\nAre checked" 
+         << "for intersection and correlation"<< "\n\nConclusion: "
          << Answer << "";
   message_ = stream.str();
   return message_;
