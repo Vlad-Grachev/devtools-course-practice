@@ -34,3 +34,11 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format!"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Correct
+    COMMAND ${APPLICATION} 10000 12 5 5
+)
+set_tests_properties (${prefix}_can_Calculate_Correct PROPERTIES
+    PASS_REGULAR_EXPRESSION "Monthly Payment: 856.075"
+    LABELS "${MODULE}")
