@@ -51,10 +51,3 @@ set_tests_properties (${prefix}_can_Check_Segments_For_Intersection PROPERTIES
     PASS_REGULAR_EXPRESSION "Segments do not intersect"
     LABELS "${MODULE}")
 
-add_test(
-    NAME ${prefix}_can_Find_The_Absence_Of_Crossings
-    COMMAND ${APPLICATION} 1 2 6 2 3 0 3 4
-)
-set_tests_properties (${prefix}_can_Find_The_Absence_Of_Crossings PROPERTIES
-    PASS_REGULAR_EXPRESSION "Intersection point: (3\;2)"
-    LABELS "${MODULE}")

@@ -85,11 +85,11 @@ TEST_F(ApplicationTest, Can_Find_The_Absence_Of_Crossings) {
   Assert("Intersection point: (2.5;2.5)*");
 }
 
-TEST_F(ApplicationTest, Can_Check_Segments_For_Intersection) {
+TEST_F(ApplicationTest, Can_Check_Segments_For_Coincide) {
   // Arrange
-  vector<string> args = { "-3.1" "-5.3" "-7.8" "-3" "2.8" "5.871" "1.3" "2.4" };
+  vector<string> args = { "-4", "-2", "-2", "0", "-1", "1", "2", "4" };
   // Act
   Act(args);
   // Assert
-  Assert("Segments do not intersect*");
+  Assert("The segments are on the same line*");
 }
