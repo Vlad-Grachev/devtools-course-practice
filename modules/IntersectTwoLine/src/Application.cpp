@@ -11,7 +11,7 @@ Application::Application() {}
 
 double ParseDouble(const char* arg) {
   char* end;
-  double value = strtod(arg, &end, 10);
+  double value = strtod(arg, &end);
   if (end[0]) {
     throw std::string("ERROR: Incorrect coordinate!");
   }
