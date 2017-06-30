@@ -44,17 +44,9 @@ set_tests_properties (${prefix}_can_Find_Out_The_Parallelism PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Find_Cut_In_Cut
-    COMMAND ${APPLICATION} -2.5 4 -0.5 0 0 -1 1 -3
-)
-set_tests_properties (${prefix}_can_Find_Cut_In_Cut PROPERTIES
-    PASS_REGULAR_EXPRESSION "The segments are on the same line"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_can_Find_The_Absence_Of_Crossings
     COMMAND ${APPLICATION} -2 -2 2 2 1 4 2 3
 )
 set_tests_properties (${prefix}_can_Find_The_Absence_Of_Crossings PROPERTIES
-    PASS_REGULAR_EXPRESSION "Segments do not intersect"
+    PASS_REGULAR_EXPRESSION "Intersection point: (2.5;2.5)"
     LABELS "${MODULE}")

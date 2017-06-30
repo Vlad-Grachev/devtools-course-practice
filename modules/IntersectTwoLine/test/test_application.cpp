@@ -76,22 +76,13 @@ TEST_F(ApplicationTest, Can_Find_Out_The_Parallelism) {
   Assert("Segments are parallel*");
 }
 
-TEST_F(ApplicationTest, Can_Find_Cut_In_Cut) {
-  // Arrange
-  vector<string> args = { "-2.5", "4", "-0.5", "0", "0", "-1", "1", "-3" };
-  // Act
-  Act(args);
-  // Assert
-  Assert("The segments are on the same line*");
-}
-
 TEST_F(ApplicationTest, Can_Find_The_Absence_Of_Crossings) {
   // Arrange
   vector<string> args = { "-2", "-2", "2", "2", "1", "4", "2", "3" };
   // Act
   Act(args);
   // Assert
-  Assert("Segments do not intersect*");
+  Assert("Intersection point: (2.5;2.5)*");
 }
 /*
 TEST_F(ApplicationTest, Can_) {
