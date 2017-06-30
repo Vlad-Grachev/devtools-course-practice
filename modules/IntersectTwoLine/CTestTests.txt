@@ -43,10 +43,3 @@ set_tests_properties (${prefix}_can_Find_Out_The_Parallelism PROPERTIES
     PASS_REGULAR_EXPRESSION "Segments are parallel"
     LABELS "${MODULE}")
 
-add_test(
-    NAME ${prefix}_can_Find_The_Absence_Of_Crossings
-    COMMAND ${APPLICATION} -2 -2 2 2 1 4 2 3
-)
-set_tests_properties (${prefix}_can_Find_The_Absence_Of_Crossings PROPERTIES
-    PASS_REGULAR_EXPRESSION "Intersection point: (2.5;2.5)"
-    LABELS "${MODULE}")
