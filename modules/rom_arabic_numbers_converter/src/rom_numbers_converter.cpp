@@ -28,7 +28,7 @@ string RomNumConverter::ConvertArabicToRom(int temp) {
         result += "CD";
         buf -= 400;
     }
-    if (buf / 100 == 5) {
+    if (buf / 100 >= 5) {
         result += 'D';
         buf -= 500;
     }
@@ -45,7 +45,7 @@ string RomNumConverter::ConvertArabicToRom(int temp) {
         result += "XL";
         buf -= 40;
     }
-    if (buf / 10 == 5) {
+    if (buf / 10 >= 5) {
         result += 'L';
         buf -= 50;
     }
@@ -62,7 +62,7 @@ string RomNumConverter::ConvertArabicToRom(int temp) {
         result += "IV";
         buf -= 4;
     }
-    if (buf == 5) {
+    if (buf >= 5) {
         result += 'V';
         buf -= 5;
     }
