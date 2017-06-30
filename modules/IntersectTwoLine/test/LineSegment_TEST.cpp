@@ -1,8 +1,10 @@
 // Copyright 2017 Lobanov Andrey
 
-#include "include/LineSegment.h"
 #include <gtest/gtest.h>
+
 #include <string>
+
+#include "include/line_segment.h"
 
 using std::string;
 
