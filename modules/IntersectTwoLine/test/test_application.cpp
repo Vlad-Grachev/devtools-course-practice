@@ -82,7 +82,7 @@ TEST_F(ApplicationTest, Can_Find_The_Absence_Of_Crossings) {
   // Act
   Act(args);
   // Assert
-  Assert("Intersection point: (2.5;2.5)*");
+  Assert("Intersection point: (2.5 2.5)*");
 }
 /*
 TEST_F(ApplicationTest, Can_) {
