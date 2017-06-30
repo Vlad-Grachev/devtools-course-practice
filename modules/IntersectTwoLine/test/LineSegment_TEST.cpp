@@ -191,7 +191,7 @@ TEST(LineSegment, Check_Segments_For_Intersection) {
 
 TEST(LineSegment, Calculation_Of_Points_Of_Intersection) {
   // Arrange
-  string str, str1 = "Intersection point: (3 2)";
+  string str, str1 = "Intersection point: (3;2)";
   LineSegment2D segment(1, 2, 6, 2);
   LineSegment2D segment1(3, 0, 3, 4);
   // Act

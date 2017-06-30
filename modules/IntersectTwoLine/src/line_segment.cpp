@@ -66,7 +66,7 @@ string LineSegment2D::CheckIntersection(LineSegment2D lineSegment) {
 
     if (BelongingToSegment(lineSegment)) {
       str = "Intersection point: (";
-      stream << coord_X << " " << coord_Y << ")";
+      stream << coord_X << ";" << coord_Y << ")";
       stream >> str1;
       str = str + str1;
     } else {
