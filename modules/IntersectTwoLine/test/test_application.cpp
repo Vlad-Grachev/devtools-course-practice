@@ -78,7 +78,7 @@ TEST_F(ApplicationTest, Can_Find_Out_The_Parallelism) {
 
 TEST_F(ApplicationTest, Can_Find_Cut_In_Cut) {
   // Arrange
-  vector<string> args = { "-2", "-2", "2", "2", "0", "0", "1", "1" };
+  vector<string> args = { "-2.5", "4", "-0.5", "0", "0", "-1", "1", "-3" };
   // Act
   Act(args);
   // Assert
@@ -87,7 +87,7 @@ TEST_F(ApplicationTest, Can_Find_Cut_In_Cut) {
 
 TEST_F(ApplicationTest, Can_Find_The_Absence_Of_Crossings) {
   // Arrange
-  vector<string> args = { "-2", "-2", "2", "2", "4", "5", "5", "6" };
+  vector<string> args = { "-2", "-2", "2", "2", "1", "4", "2", "3" };
   // Act
   Act(args);
   // Assert

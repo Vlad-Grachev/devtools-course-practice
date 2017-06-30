@@ -69,7 +69,7 @@ std::string Application::operator()(int argc, const char** argv) {
   catch (std::string& str) {
     return str;
   }
- 
+
   str1 += "(" + std::to_string(args_1.X1U) + ",";
   str1 += std::to_string(args_1.Y1U) + ")" + "\n";
   str1 += "(" + std::to_string(args_1.X2U) + ",";
