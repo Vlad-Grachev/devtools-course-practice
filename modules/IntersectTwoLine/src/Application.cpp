@@ -3,6 +3,7 @@
 #include "include/Application.h"
 #include <stdlib.h>
 #include <string.h>
+#include <vector>
 #include <string>
 #include <sstream>
 
@@ -10,7 +11,7 @@ Application::Application() {}
 
 double ParseDouble(const char* arg) {
   char* end;
-  double value = strtol(arg, &end, 10);
+  double value = strtod(arg, &end, 10);
   if (end[0]) {
     throw std::string("ERROR: Incorrect coordinate!");
   }
